@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>T.K Apps</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", sans-serif;
+      background: #f7f8fc;
+      color: #1a1a2e;
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+      text-align: center;
+      padding: 60px 20px 50px;
+    }
+    header h1 { font-size: 2.4rem; font-weight: 800; letter-spacing: 0.04em; }
+    header p  { margin-top: 10px; font-size: 1.05rem; opacity: 0.88; }
+
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 20px 80px;
+    }
+
+    /* section title */
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #667eea;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+    }
+
+    section { margin-bottom: 52px; }
+
+    /* app card */
+    .app-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 28px 28px 24px;
+      box-shadow: 0 2px 16px rgba(102,126,234,0.10);
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .app-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+    .app-info h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 6px; }
+    .app-info p  { font-size: 0.95rem; color: #555; margin-bottom: 14px; }
+    .badge {
+      display: inline-block;
+      background: #f0f0f8;
+      color: #667eea;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-right: 6px;
+      margin-bottom: 4px;
+    }
+    .play-link {
+      display: inline-block;
+      margin-top: 14px;
+      background: #1a1a2e;
+      color: #fff;
+      text-decoration: none;
+      padding: 9px 20px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+    .play-link:hover { opacity: 0.8; }
+
+    /* contact */
+    .contact-box {
+      background: #fff;
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 2px 16px rgba(102,126,234,0.10);
+    }
+    .contact-box a {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .contact-box a:hover { text-decoration: underline; }
+
+    footer {
+      text-align: center;
+      padding: 32px 20px;
+      font-size: 0.85rem;
+      color: #999;
+    }
+    footer a { color: #667eea; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>T.K Apps</h1>
+  <p>Androidアプリを個人開発しています</p>
+</header>
+
+<main>
+
+  <section>
+    <h2>Apps</h2>
+    <div class="app-card">
+      <div class="app-icon">💬</div>
+      <div class="app-info">
+        <h3>友達トーク</h3>
+        <p>匿名で友達を探して1対1でトークできるAndroidアプリです。プロフィールを設定して、趣味の合う人と気軽にメッセージを交換しましょう。</p>
+        <span class="badge">Android</span>
+        <span class="badge">チャット</span>
+        <span class="badge">匿名</span>
+        <br>
+        <!-- Google Playに公開後、下記のhrefをストアURLに差し替えてください -->
+        <a class="play-link" href="#" target="_blank" rel="noopener">Google Play で入手</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <div class="contact-box">
+      <p>お問い合わせ・サポートはメールにてお受けしています。</p>
+      <p style="margin-top:12px;">
+        📧 <a href="mailto:tkapps.dev@gmail.com">tkapps.dev@gmail.com</a>
+      </p>
+      <p style="margin-top:16px;">
+        🔒 <a href="privacy-policy.html">プライバシーポリシー</a>
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 T.K Apps &nbsp;|&nbsp; <a href="privacy-policy.html">プライバシーポリシー</a></p>
+</footer>
+
+</body>
+</html>
