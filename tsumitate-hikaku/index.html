@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>積立比較 | T.K Apps</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", sans-serif;
+      background: #f0f6ff;
+      color: #2a3a52;
+      line-height: 1.8;
+    }
+    header {
+      background: linear-gradient(135deg, #e8f3ff 0%, #d6edff 100%);
+      text-align: center;
+      padding: 56px 20px 48px;
+      border-bottom: 1px solid #c8dff5;
+    }
+    header .back {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: #6a8aac;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    header .back:hover { color: #3a6fa0; }
+    .logo-mark {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .bar {
+      border-radius: 4px 4px 0 0;
+      background: linear-gradient(to top, #3a7fd4, #6ec6a0);
+    }
+    .bar-1 { width: 16px; height: 28px; }
+    .bar-2 { width: 16px; height: 42px; background: linear-gradient(to top, #3a7fd4, #5ab4e8); }
+    .bar-3 { width: 16px; height: 58px; }
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      color: #1e3a5c;
+    }
+    header p { margin-top: 10px; color: #5a7896; }
+    main {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 44px 20px 72px;
+    }
+    .card {
+      background: #fafdff;
+      border: 1px solid #d0e4f5;
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 8px 28px rgba(30, 80, 140, 0.08);
+      margin-bottom: 24px;
+    }
+    h2 {
+      color: #2e7fd4;
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+    }
+    p { margin-bottom: 12px; }
+    p:last-child { margin-bottom: 0; }
+    .links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .link-card {
+      display: block;
+      background: #fff;
+      border: 1px solid #d0e4f5;
+      border-radius: 14px;
+      padding: 18px;
+      color: #2a3a52;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(30, 80, 140, 0.06);
+      transition: box-shadow 0.2s;
+    }
+    .link-card:hover { box-shadow: 0 6px 24px rgba(30, 80, 140, 0.14); }
+    .link-card strong {
+      display: block;
+      color: #2e7fd4;
+      margin-bottom: 4px;
+    }
+    .badge {
+      display: inline-block;
+      background: #e6f2ff;
+      color: #2060a8;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-right: 6px;
+      margin-top: 8px;
+    }
+    footer {
+      text-align: center;
+      padding: 32px 20px;
+      color: #7a9ab8;
+      font-size: 0.85rem;
+    }
+    a { color: #2060a8; }
+  </style>
+</head>
+<body>
+<header>
+  <a class="back" href="../index.html">← T.K Apps トップへ</a>
+  <div class="logo-mark" aria-hidden="true">
+    <div class="bar bar-1"></div>
+    <div class="bar bar-2"></div>
+    <div class="bar bar-3"></div>
+  </div>
+  <h1>積立比較</h1>
+  <p>積立投資、何パターンも比べてみよう。</p>
+</header>
+
+<main>
+  <section class="card">
+    <h2>アプリについて</h2>
+    <p>「積立比較」は、年利・毎月積立額・運用期間を自由に設定して、複数の積立プランをグラフで比較できる投資シミュレーションアプリです。</p>
+    <p>老後資金・教育費・住宅購入など、目標金額への到達時期も確認できます。記録データは端末内に保存されます。</p>
+    <span class="badge">iOS</span>
+    <span class="badge">投資</span>
+    <span class="badge">積立</span>
+    <span class="badge">シミュレーション</span>
+    <span class="badge">NISA</span>
+    <span class="badge">iDeCo</span>
+  </section>
+
+  <section class="card">
+    <h2>お問い合わせ</h2>
+    <p>ご意見・ご要望・不具合のご報告は下記までお気軽にご連絡ください。</p>
+    <p><a href="mailto:tkapps.support@gmail.com">tkapps.support@gmail.com</a></p>
+  </section>
+
+  <section class="links">
+    <a class="link-card" href="privacy-policy.html">
+      <strong>プライバシーポリシー</strong>
+      個人情報・広告・課金・データの取り扱いについて
+    </a>
+    <a class="link-card" href="terms.html">
+      <strong>利用規約</strong>
+      免責事項・禁止事項・課金・知的財産権について
+    </a>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2026 tkApps</p>
+</footer>
+</body>
+</html>
