@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>友達トーク | T.K Apps</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", sans-serif;
+      background: #f5fbff;
+      color: #16324f;
+      line-height: 1.8;
+    }
+    header {
+      background: linear-gradient(135deg, #e7f7ff 0%, #f2efff 100%);
+      text-align: center;
+      padding: 56px 20px 48px;
+      border-bottom: 1px solid #dbeaf5;
+    }
+    header .back {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: #5b748c;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .app-icon {
+      width: 86px;
+      height: 86px;
+      margin: 0 auto 18px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #1da1ff, #6c63ff);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.6rem;
+      box-shadow: 0 10px 28px rgba(29, 161, 255, 0.22);
+    }
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+    header p { margin-top: 10px; color: #49647c; }
+    main {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 44px 20px 72px;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #dbeaf5;
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 8px 28px rgba(35, 104, 160, 0.08);
+      margin-bottom: 24px;
+    }
+    h2 {
+      color: #1778c8;
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+    }
+    p { margin-bottom: 12px; }
+    p:last-child { margin-bottom: 0; }
+    ul {
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+    .links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .link-card {
+      display: block;
+      background: #fff;
+      border: 1px solid #dbeaf5;
+      border-radius: 14px;
+      padding: 18px;
+      color: #16324f;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(35, 104, 160, 0.06);
+    }
+    .link-card strong {
+      display: block;
+      color: #1778c8;
+      margin-bottom: 4px;
+    }
+    .badge {
+      display: inline-block;
+      background: #e9f5ff;
+      color: #1778c8;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-right: 6px;
+      margin-top: 8px;
+    }
+    footer {
+      text-align: center;
+      padding: 32px 20px;
+      color: #6f8498;
+      font-size: 0.85rem;
+    }
+    a { color: #1778c8; }
+  </style>
+</head>
+<body>
+<header>
+  <a class="back" href="../index.html">← T.K Apps トップへ</a>
+  <div class="app-icon" aria-hidden="true">💬</div>
+  <h1>友達トーク</h1>
+  <p>匿名プロフィールで友達を探し、1対1でメッセージできるiOSアプリ</p>
+</header>
+
+<main>
+  <section class="card">
+    <h2>アプリについて</h2>
+    <p>「友達トーク」は、ニックネームや年代、趣味、自己紹介をもとに、気軽に話せる相手を探せるチャットアプリです。</p>
+    <p>友達申請が承認されると、1対1のトークでメッセージをやり取りできます。不適切なユーザーに対しては、ブロックや通報を行えます。</p>
+    <span class="badge">iOS</span>
+    <span class="badge">チャット</span>
+    <span class="badge">匿名</span>
+    <span class="badge">友達探し</span>
+  </section>
+
+  <section class="card">
+    <h2>主な機能</h2>
+    <ul>
+      <li>匿名プロフィールの作成</li>
+      <li>年代、性別、都道府県などによるユーザー検索</li>
+      <li>友達申請と承認後の1対1チャット</li>
+      <li>メッセージ通知</li>
+      <li>不適切なユーザーのブロック・通報</li>
+      <li>広告表示と、広告非表示のアプリ内課金</li>
+    </ul>
+  </section>
+
+  <section class="links">
+    <a class="link-card" href="privacy-policy.html">
+      <strong>プライバシーポリシー</strong>
+      プロフィール、写真、メッセージ、広告、通知、課金の取り扱いについて
+    </a>
+    <a class="link-card" href="terms.html">
+      <strong>利用規約</strong>
+      アプリ利用時の注意事項、禁止事項、通報・ブロック、課金、免責事項について
+    </a>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2026 T.K Apps</p>
+</footer>
+</body>
+</html>
