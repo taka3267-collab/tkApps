@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>電車あそび - 電車連結シミュレーションゲーム | T.K Apps</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", sans-serif;
+      background: #eef8ff;
+      color: #12315a;
+      line-height: 1.8;
+    }
+    header {
+      background: linear-gradient(135deg, #0f8fe8 0%, #1f5fc7 58%, #ff8b1a 100%);
+      color: #fff;
+      padding: 52px 20px 44px;
+      text-align: center;
+    }
+    header .logo {
+      width: 92px;
+      height: 92px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.18);
+      border: 3px solid rgba(255,255,255,0.55);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.2rem;
+      margin-bottom: 16px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+    }
+    header h1 { font-size: 2.1rem; font-weight: 850; letter-spacing: 0.02em; }
+    header p { max-width: 680px; margin: 12px auto 0; opacity: 0.95; font-size: 1rem; }
+    main { max-width: 900px; margin: 0 auto; padding: 38px 20px 72px; }
+    section { margin-bottom: 34px; }
+    .card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 6px 24px rgba(31,95,199,0.12);
+      border: 1px solid rgba(31,95,199,0.12);
+    }
+    h2 { color: #1767c8; font-size: 1.2rem; margin-bottom: 14px; }
+    .lead { font-size: 1.05rem; color: #334; }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .feature {
+      background: #f3f9ff;
+      border: 2px solid #d5ecff;
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .feature strong { display: block; color: #0d57b0; margin-bottom: 4px; }
+    .buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+    .button {
+      display: inline-block;
+      text-decoration: none;
+      color: #fff;
+      background: #1767c8;
+      padding: 11px 18px;
+      border-radius: 10px;
+      font-weight: 700;
+      box-shadow: 0 4px 0 #0b4385;
+    }
+    .button.secondary { background: #ff8b1a; box-shadow: 0 4px 0 #c25d00; }
+    .button.light { background: #26384f; box-shadow: 0 4px 0 #111d2b; }
+    ul { padding-left: 1.3em; }
+    li { margin: 7px 0; }
+    .note { color: #5d6b7a; font-size: 0.94rem; }
+    footer {
+      text-align: center;
+      color: #6b7890;
+      padding: 30px 20px;
+      font-size: 0.86rem;
+    }
+    a { color: #1767c8; }
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.72rem; }
+      .card { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo" aria-hidden="true">🚆</div>
+  <h1>電車あそび</h1>
+  <p>電車を走らせたり、れんけつ・きりはなしを楽しめる、シンプルな電車連結シミュレーションゲームです。</p>
+</header>
+<main>
+  <section class="card">
+    <h2>アプリについて</h2>
+    <p class="lead">「電車あそび」は、いろいろなコースで電車を走らせながら、連結、切り離し、速度変更、車庫での編成づくりを楽しめるiOSアプリです。</p>
+    <div class="features">
+      <div class="feature"><strong>れんけつして走る</strong>ボタンを押すだけで車両が増え、長い編成を眺めて遊べます。</div>
+      <div class="feature"><strong>4つのコース</strong>はらっぱ、うみべ、ゆきやま、だいとかいの景色を楽しめます。</div>
+      <div class="feature"><strong>ずかんとしゃこ</strong>集めた電車を見たり、好きな編成を作ったりできます。</div>
+    </div>
+    <div class="buttons">
+      <a class="button secondary" href="https://apps.apple.com/" target="_blank" rel="noopener">App Storeで見る</a>
+      <a class="button" href="privacy-policy.html">プライバシーポリシー</a>
+      <a class="button light" href="terms.html">利用規約</a>
+    </div>
+    <p class="note" style="margin-top:16px;">App Store URLは公開後に正式なリンクへ差し替えます。</p>
+  </section>
+
+  <section class="card">
+    <h2>サポート</h2>
+    <p>不具合、ご意見、ご要望がありましたら、以下のメールアドレスまでご連絡ください。</p>
+    <p style="margin-top:10px;">📧 <a href="mailto:tkapps.support@gmail.com?subject=%E9%9B%BB%E8%BB%8A%E3%81%82%E3%81%9D%E3%81%B3%E3%81%B8%E3%81%AE%E3%81%94%E6%84%8F%E8%A6%8B%E3%83%BB%E3%81%94%E8%A6%81%E6%9C%9B">tkapps.support@gmail.com</a></p>
+  </section>
+</main>
+<footer>
+  <p>&copy; 2026 T.K Apps</p>
+  <p><a href="../index.html">T.K Apps トップへ戻る</a></p>
+</footer>
+</body>
+</html>
