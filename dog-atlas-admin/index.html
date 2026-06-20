@@ -79,6 +79,7 @@
       <button id="tabDash" class="active" onclick="switchTab('dash')">ダッシュボード</button>
       <button id="tabReports" onclick="switchTab('reports')">通報<span id="repBadge" class="badge hide">0</span></button>
       <button id="tabReported" onclick="switchTab('reported')">通報された投稿</button>
+      <button id="tabPosts" onclick="switchTab('posts')">投稿一覧</button>
     </div>
     <p class="muted" id="status"></p>
     <div id="dash"></div>
@@ -146,7 +147,7 @@ function show(which){
 
 function switchTab(t){
   currentTab=t;
-  ['Dash','Reports','Reported'].forEach(x=>document.getElementById('tab'+x).classList.toggle('active', 'tab'+x==='tab'+t[0].toUpperCase()+t.slice(1)));
+  ['Dash','Reports','Reported','Posts'].forEach(x=>document.getElementById('tab'+x).classList.toggle('active', 'tab'+x==='tab'+t[0].toUpperCase()+t.slice(1)));
   document.getElementById('dash').classList.toggle('hide', t!=='dash');
   document.getElementById('list').classList.toggle('hide', t==='dash');
   if(t==='dash') loadDash(); else loadList();
@@ -182,11 +183,16 @@ async function loadList(){
       statusEl.textContent='通報 '+snap.size+' 件';
       for(const doc of snap.docs) listEl.appendChild(await reportCard(doc.data()));
       if(snap.empty) listEl.innerHTML='<p class="muted">通報はありません。</p>';
-    }else{
+    }else if(currentTab==='reported'){
       const snap=await db.collection('dogPosts').where('reportCount','>',0).orderBy('reportCount','desc').limit(100).get();
       statusEl.textContent='通報された投稿 '+snap.size+' 件';
       for(const doc of snap.docs) listEl.appendChild(postCard(doc.id, doc.data()));
       if(snap.empty) listEl.innerHTML='<p class="muted">通報された投稿はありません。</p>';
+    }else{
+      const snap=await db.collection('dogPosts').orderBy('createdAt','desc').limit(100).get();
+      statusEl.textContent='投稿 '+snap.size+' 件（新しい順・最大100件）';
+      for(const doc of snap.docs) listEl.appendChild(postCard(doc.id, doc.data()));
+      if(snap.empty) listEl.innerHTML='<p class="muted">投稿はありません。</p>';
     }
   }catch(e){ statusEl.textContent='読み込みエラー：'+e.message; }
 }
