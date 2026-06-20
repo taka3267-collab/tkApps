@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>みんなの犬図鑑 — 管理</title>
+<style>
+  :root{--bg:#f5f6fa;--card:#fff;--brown:#8c6646;--text:#27241c;--sub:#8c7d6b;--line:#e7e2d8;--danger:#c0392b;}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,"Hiragino Sans",sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+  header{background:var(--brown);color:#fff;padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+  header h1{font-size:17px;margin:0}
+  .wrap{max-width:980px;margin:0 auto;padding:20px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:14px}
+  input,button{font-size:15px}
+  input{padding:10px;border:1px solid var(--line);border-radius:8px;width:100%}
+  button{cursor:pointer;border:none;border-radius:8px;padding:9px 14px;font-weight:600}
+  .btn-primary{background:var(--brown);color:#fff}
+  .btn-danger{background:var(--danger);color:#fff}
+  .btn-light{background:#efece5;color:var(--text)}
+  .btn-sm{padding:6px 10px;font-size:13px}
+  .muted{color:var(--sub);font-size:13px}
+  .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .thumbs{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+  .thumbs img{width:96px;height:96px;object-fit:cover;border-radius:8px;border:1px solid var(--line)}
+  .tag{display:inline-block;background:#efece5;color:var(--brown);border-radius:20px;padding:2px 10px;font-size:12px;font-weight:600;margin-right:6px}
+  .hidden-badge{background:#fdecea;color:var(--danger)}
+  .hide{display:none}
+  .tabs{display:flex;gap:8px;margin-bottom:14px}
+  .tabs button{background:#efece5;color:var(--text)}
+  .tabs button.active{background:var(--brown);color:#fff}
+  h2{font-size:15px;margin:0 0 10px}
+  .login{max-width:360px;margin:60px auto}
+</style>
+</head>
+<body>
+<header>
+  <h1>🐾 みんなの犬図鑑 — 管理</h1>
+  <button id="logoutBtn" class="btn-light btn-sm hide" onclick="doLogout()">ログアウト</button>
+</header>
+
+<div class="wrap">
+
+  <!-- ログイン -->
+  <div id="loginView" class="login">
+    <div class="card">
+      <h2>管理者ログイン</h2>
+      <p class="muted">管理者アカウントのメールアドレスとパスワードでログインしてください。</p>
+      <p><input id="email" type="email" placeholder="メールアドレス" autocomplete="username"></p>
+      <p><input id="password" type="password" placeholder="パスワード" autocomplete="current-password"></p>
+      <p><button class="btn-primary" style="width:100%" onclick="doLogin()">ログイン</button></p>
+      <p id="loginErr" class="muted" style="color:var(--danger)"></p>
+    </div>
+  </div>
+
+  <!-- 管理 -->
+  <div id="adminView" class="hide">
+    <div class="tabs">
+      <button id="tabReports" class="active" onclick="switchTab('reports')">通報一覧</button>
+      <button id="tabReported" onclick="switchTab('reported')">通報された投稿</button>
+    </div>
+    <p class="muted" id="status"></p>
+    <div id="list"></div>
+  </div>
+
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyD_P5O5LIHOu5Prn1xPWcHujBTxiKEHx0Q",
+  authDomain: "dog-atlas-32e82.firebaseapp.com",
+  projectId: "dog-atlas-32e82",
+  storageBucket: "dog-atlas-32e82.firebasestorage.app",
+  messagingSenderId: "912733425764",
+  appId: "1:912733425764:ios:02e0bf4a358659619c8f71"
+};
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db = firebase.firestore();
+let currentTab = 'reports';
+
+auth.onAuthStateChanged(user => {
+  document.getElementById('loginView').classList.toggle('hide', !!user);
+  document.getElementById('adminView').classList.toggle('hide', !user);
+  document.getElementById('logoutBtn').classList.toggle('hide', !user);
+  if (user) loadList();
+});
+
+function doLogin(){
+  const email=document.getElementById('email').value.trim();
+  const pw=document.getElementById('password').value;
+  document.getElementById('loginErr').textContent='';
+  auth.signInWithEmailAndPassword(email, pw).catch(e=>{
+    document.getElementById('loginErr').textContent='ログインに失敗しました：'+e.message;
+  });
+}
+function doLogout(){ auth.signOut(); }
+
+function switchTab(t){
+  currentTab=t;
+  document.getElementById('tabReports').classList.toggle('active', t==='reports');
+  document.getElementById('tabReported').classList.toggle('active', t==='reported');
+  loadList();
+}
+
+function esc(s){return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function fmt(ts){ try{return ts.toDate().toLocaleString('ja-JP');}catch(e){return '';} }
+
+const REASONS = {
+  humanFace:'人の顔が写っている', personalInfo:'住所・表札など個人情報', unrelatedPerson:'背景に無関係の人',
+  wrongBreed:'犬種が違う', notOwnDog:'飼い犬ではない画像', offensive:'不快・不適切', other:'その他'
+};
+
+async function loadList(){
+  const listEl=document.getElementById('list');
+  const statusEl=document.getElementById('status');
+  listEl.innerHTML=''; statusEl.textContent='読み込み中…';
+  try{
+    if(currentTab==='reports'){
+      const snap=await db.collection('reports').orderBy('createdAt','desc').limit(100).get();
+      statusEl.textContent='通報 '+snap.size+' 件';
+      for(const doc of snap.docs){ listEl.appendChild(await reportCard(doc.data())); }
+      if(snap.empty) listEl.innerHTML='<p class="muted">通報はありません。</p>';
+    }else{
+      const snap=await db.collection('dogPosts').where('reportCount','>',0).orderBy('reportCount','desc').limit(100).get();
+      statusEl.textContent='通報された投稿 '+snap.size+' 件';
+      for(const doc of snap.docs){ listEl.appendChild(postCard(doc.id, doc.data())); }
+      if(snap.empty) listEl.innerHTML='<p class="muted">通報された投稿はありません。</p>';
+    }
+  }catch(e){ statusEl.textContent='読み込みエラー：'+e.message; }
+}
+
+async function reportCard(r){
+  const div=document.createElement('div'); div.className='card';
+  div.innerHTML=`<div class="row"><span class="tag">${esc(REASONS[r.reason]||r.reason)}</span>
+    <span class="muted">${fmt(r.createdAt)}</span></div>
+    ${r.detail?`<p>詳細：${esc(r.detail)}</p>`:''}
+    <p class="muted">投稿ID：${esc(r.postId)}</p>
+    <div class="postSlot"><button class="btn-light btn-sm">この投稿を表示</button></div>`;
+  const slot=div.querySelector('.postSlot');
+  slot.querySelector('button').onclick=async()=>{
+    slot.innerHTML='<span class="muted">読み込み中…</span>';
+    try{
+      const ps=await db.collection('dogPosts').doc(r.postId).get();
+      if(ps.exists){ slot.innerHTML=''; slot.appendChild(postCard(ps.id, ps.data())); }
+      else slot.innerHTML='<span class="muted">投稿が見つかりません（削除済み）。</span>';
+    }catch(e){ slot.innerHTML='<span class="muted">取得エラー：'+esc(e.message)+'</span>'; }
+  };
+  return div;
+}
+
+function imagesOf(p){
+  const urls=[];
+  if(Array.isArray(p.images)) p.images.forEach(im=>{ if(im.remoteImageURL) urls.push(im.remoteImageURL); });
+  if(urls.length===0 && p.imageURL) urls.push(p.imageURL);
+  return urls;
+}
+
+function postCard(id, p){
+  const div=document.createElement('div'); div.className='card';
+  const imgs=imagesOf(p).map(u=>`<img src="${esc(u)}">`).join('');
+  div.innerHTML=`
+    <div class="row">
+      <strong>${esc(p.dogName||'(名前なし)')}</strong>
+      ${p.isHidden?'<span class="tag hidden-badge">非表示中</span>':''}
+      <span class="muted">いいぬ ${p.iinuCount||0}・通報 ${p.reportCount||0}</span>
+    </div>
+    <div class="thumbs">${imgs||'<span class="muted">画像なし</span>'}</div>
+    ${p.comment?`<p>${esc(p.comment)}</p>`:''}
+    <p class="muted">投稿者：${esc(p.userId||'')}</p>
+    <div class="row">
+      <button class="btn-danger btn-sm act-hide">${p.isHidden?'表示に戻す':'この投稿を非表示'}</button>
+      <button class="btn-light btn-sm act-banuser">このユーザーの投稿を全て非表示</button>
+    </div>
+    <p class="muted act-msg"></p>`;
+  const msg=div.querySelector('.act-msg');
+  div.querySelector('.act-hide').onclick=async(e)=>{
+    const next=!p.isHidden;
+    try{ await db.collection('dogPosts').doc(id).update({isHidden:next, updatedAt:firebase.firestore.FieldValue.serverTimestamp()});
+      p.isHidden=next; e.target.textContent=next?'表示に戻す':'この投稿を非表示';
+      msg.textContent=next?'非表示にしました。':'表示に戻しました。';
+    }catch(err){ msg.textContent='エラー：'+err.message; }
+  };
+  div.querySelector('.act-banuser').onclick=async()=>{
+    if(!p.userId){ msg.textContent='投稿者IDがありません。'; return; }
+    if(!confirm('このユーザーの投稿を全て非表示にしますか？')) return;
+    msg.textContent='処理中…';
+    try{
+      const snap=await db.collection('dogPosts').where('userId','==',p.userId).get();
+      const batch=db.batch();
+      snap.docs.forEach(d=>batch.update(d.ref,{isHidden:true, updatedAt:firebase.firestore.FieldValue.serverTimestamp()}));
+      await batch.commit();
+      msg.textContent=snap.size+' 件の投稿を非表示にしました。';
+    }catch(err){ msg.textContent='エラー：'+err.message; }
+  };
+  return div;
+}
+</script>
+</body>
+</html>
