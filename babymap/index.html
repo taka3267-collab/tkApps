@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BabyMap | T.K Apps</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", sans-serif;
+      background: #fff8ec;
+      color: #2b2520;
+      line-height: 1.8;
+    }
+    header {
+      background: linear-gradient(135deg, #fff1df 0%, #ffe7dd 100%);
+      text-align: center;
+      padding: 56px 20px 48px;
+      border-bottom: 1px solid #f7d8c8;
+    }
+    header .back {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: #7c675d;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .app-icon {
+      width: 88px;
+      height: 88px;
+      margin: 0 auto 18px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #f05d50, #f4b86a);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      box-shadow: 0 12px 30px rgba(240, 93, 80, 0.22);
+    }
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+    header p { margin-top: 10px; color: #74655f; }
+    main {
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 44px 20px 72px;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid #f0d8c7;
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 8px 28px rgba(194, 107, 84, 0.08);
+      margin-bottom: 24px;
+    }
+    h2 {
+      color: #e95d50;
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+    }
+    p { margin-bottom: 12px; }
+    p:last-child { margin-bottom: 0; }
+    ul {
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+    .links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .link-card {
+      display: block;
+      background: #fff;
+      border: 1px solid #f0d8c7;
+      border-radius: 14px;
+      padding: 18px;
+      color: #2b2520;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(194, 107, 84, 0.06);
+    }
+    .link-card strong {
+      display: block;
+      color: #e95d50;
+      margin-bottom: 4px;
+    }
+    .badge {
+      display: inline-block;
+      background: #ffe8dd;
+      color: #d94d42;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-right: 6px;
+      margin-top: 8px;
+    }
+    footer {
+      text-align: center;
+      padding: 32px 20px;
+      color: #8a7a72;
+      font-size: 0.85rem;
+    }
+    a { color: #d94d42; }
+  </style>
+</head>
+<body>
+<header>
+  <a class="back" href="../index.html">← T.K Apps トップへ</a>
+  <div class="app-icon" aria-hidden="true">🍼</div>
+  <h1>BabyMap</h1>
+  <p>授乳室・おむつ交換台など、子連れ外出に役立つ施設を探せるiOSアプリ</p>
+</header>
+
+<main>
+  <section class="card">
+    <h2>アプリについて</h2>
+    <p>BabyMapは、授乳室、おむつ交換台、ミルク用のお湯、キッズスペースなど、子連れで外出するときに知りたい設備情報を地図や一覧から探せるアプリです。</p>
+    <p>施設情報は公開情報とユーザー投稿をもとに掲載し、利用者が修正提案や口コミを投稿できる仕組みを用意しています。</p>
+    <span class="badge">iOS</span>
+    <span class="badge">子育て</span>
+    <span class="badge">授乳室</span>
+    <span class="badge">おむつ交換台</span>
+    <span class="badge">地図</span>
+  </section>
+
+  <section class="card">
+    <h2>主な機能</h2>
+    <ul>
+      <li>地図・一覧から子育て設備のある施設を検索</li>
+      <li>授乳室、おむつ交換台、ミルク用のお湯、キッズスペースなどで絞り込み</li>
+      <li>施設の基本情報、設備情報、口コミの確認</li>
+      <li>施設情報・ピン位置の修正提案</li>
+      <li>新しい施設の投稿</li>
+      <li>お気に入り登録、最近見た施設の確認</li>
+      <li>広告表示と、広告非表示などのプレミアム機能</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>サポート・お問い合わせ</h2>
+    <p>アプリの使い方、掲載情報、投稿、口コミ、広告、課金に関するお問い合わせは、下記メールアドレスまでご連絡ください。</p>
+    <p><strong>サポートメール：</strong><a href="mailto:tkapps.support@gmail.com">tkapps.support@gmail.com</a></p>
+    <p>施設情報の誤りは、アプリ内の施設詳細画面から修正提案を送信できます。投稿内容は確認し、必要に応じて変更履歴の確認や差し戻しを行います。</p>
+  </section>
+
+  <section class="links">
+    <a class="link-card" href="privacy-policy.html">
+      <strong>プライバシーポリシー</strong>
+      位置情報、投稿、口コミ、広告、課金情報の取り扱いについて
+    </a>
+    <a class="link-card" href="terms.html">
+      <strong>利用規約</strong>
+      アプリ利用時の注意事項、投稿、口コミ、禁止事項、免責事項について
+    </a>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2026 T.K Apps</p>
+</footer>
+</body>
+</html>
