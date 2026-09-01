@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FuelLog | T.K Apps</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", sans-serif;
+      background: #f7f8f6;
+      color: #18221f;
+      line-height: 1.8;
+    }
+    header {
+      background: linear-gradient(135deg, #f56138 0%, #14a07d 100%);
+      color: #fff;
+      text-align: center;
+      padding: 56px 20px 48px;
+      border-bottom: 1px solid rgba(24,34,31,0.08);
+    }
+    header .back {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: rgba(255,255,255,0.88);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .app-mark {
+      width: 86px;
+      height: 86px;
+      margin: 0 auto 18px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.16);
+      border: 1px solid rgba(255,255,255,0.28);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 2.25rem;
+      box-shadow: 0 14px 32px rgba(24,34,31,0.18);
+    }
+    h1 { font-size: 2.45rem; font-weight: 800; letter-spacing: 0.02em; }
+    header p { margin-top: 10px; color: rgba(255,255,255,0.9); }
+    main { max-width: 900px; margin: 0 auto; padding: 44px 20px 76px; }
+    .hero-copy {
+      background: #fff;
+      border: 1px solid #e2e8e4;
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: 0 8px 28px rgba(24,34,31,0.08);
+      margin-bottom: 24px;
+    }
+    .hero-copy h2 { color: #d94f2f; font-size: 1.5rem; margin-bottom: 10px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin: 24px 0; }
+    .card {
+      background: #fff;
+      border: 1px solid #e2e8e4;
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 6px 22px rgba(24,34,31,0.07);
+    }
+    .card h3 { color: #16866d; font-size: 1.05rem; margin-bottom: 8px; }
+    .badge {
+      display: inline-block;
+      background: #fff0eb;
+      color: #d94f2f;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-right: 6px;
+      margin-top: 8px;
+    }
+    .privacy {
+      background: linear-gradient(135deg, #fff 0%, #f3fbf8 100%);
+      border: 1px solid #d7eee7;
+      border-radius: 18px;
+      padding: 28px;
+      margin-top: 24px;
+      box-shadow: 0 10px 30px rgba(24,34,31,0.08);
+    }
+    .privacy h2 { color: #16866d; font-size: 1.25rem; margin-bottom: 12px; }
+    ul { padding-left: 20px; }
+    .links { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 24px; }
+    .link-card {
+      display: block;
+      background: #fff;
+      border: 1px solid #e2e8e4;
+      border-radius: 14px;
+      padding: 18px;
+      color: #18221f;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(24,34,31,0.06);
+    }
+    .link-card strong { display: block; color: #d94f2f; margin-bottom: 4px; }
+    footer { text-align: center; padding: 32px 20px; color: #75827d; font-size: 0.85rem; }
+    a { color: #d94f2f; }
+  </style>
+</head>
+<body>
+<header>
+  <a class="back" href="../index.html">← T.K Apps トップへ</a>
+  <div class="app-mark" aria-hidden="true">⛽</div>
+  <h1>FuelLog</h1>
+  <p>給油記録と燃費を、毎日見やすく残せるiOSアプリ</p>
+</header>
+
+<main>
+  <section class="hero-copy">
+    <h2>給油のたびに、車の調子が見えてくる。</h2>
+    <p>FuelLogは、給油量・金額・走行距離を記録して、最新の燃費や直近3ヶ月の平均燃費を確認できるiOSアプリです。レシート読み取り、車両別テーマ、ライト/ダークモードにも対応し、毎日の記録を気持ちよく続けられます。</p>
+    <span class="badge">iOS</span>
+    <span class="badge">給油記録</span>
+    <span class="badge">燃費管理</span>
+    <span class="badge">レシート読み取り</span>
+  </section>
+
+  <section class="grid">
+    <div class="card">
+      <h3>最新の燃費をすぐ確認</h3>
+      <p>満タン給油をもとに、直近の燃費を計算します。どの区間・距離・給油量から算出したかも確認できます。</p>
+    </div>
+    <div class="card">
+      <h3>直近3ヶ月の平均を把握</h3>
+      <p>短期的な変動に振り回されすぎず、最近の燃費傾向を見やすく表示します。</p>
+    </div>
+    <div class="card">
+      <h3>レシート読み取りをサポート</h3>
+      <p>レシート画像から給油量や金額の入力を補助します。読み取り処理は端末内で行われます。</p>
+    </div>
+    <div class="card">
+      <h3>車両ごとに管理</h3>
+      <p>複数の車両を分けて管理できます。車両ごとにテーマカラーを設定し、単色または2色グラデーションを選べます。</p>
+    </div>
+  </section>
+
+  <section class="privacy">
+    <h2>大切な記録は端末の中に</h2>
+    <p>給油データやレシート画像は、原則として利用者の端末内に保存されます。開発者のサーバーへ給油記録やレシート画像を送信することはありません。</p>
+    <ul>
+      <li>給油量、金額、走行距離などを記録</li>
+      <li>警告とエラーで入力ミスに気づきやすくする</li>
+      <li>ライトモード、ダークモード、車両別テーマに対応</li>
+    </ul>
+  </section>
+
+  <section class="links">
+    <a class="link-card" href="privacy-policy.html">
+      <strong>プライバシーポリシー</strong>
+      給油データ、レシート画像、広告、課金、端末内処理の取り扱いについて
+    </a>
+    <a class="link-card" href="terms.html">
+      <strong>利用規約</strong>
+      アプリ利用時の注意事項、燃費計算、免責事項について
+    </a>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2026 T.K Apps</p>
+</footer>
+</body>
+</html>
