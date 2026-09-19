@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>メモ - クイックノート | T.K Apps</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", sans-serif;
+      background: #f8f7ff;
+      color: #29253f;
+      line-height: 1.8;
+    }
+    header {
+      background: linear-gradient(135deg, #f2efff 0%, #fff4f2 100%);
+      text-align: center;
+      padding: 56px 20px 48px;
+      border-bottom: 1px solid #e6e0f8;
+    }
+    header .back {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: #6d6688;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .app-mark {
+      width: 86px;
+      height: 86px;
+      margin: 0 auto 18px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #6c63ff 0%, #ff8f87 100%);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 2.4rem;
+      box-shadow: 0 14px 32px rgba(108, 99, 255, 0.22);
+    }
+    h1 {
+      font-size: 2.45rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+    header p {
+      margin-top: 10px;
+      color: #6d6688;
+    }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 44px 20px 76px;
+    }
+    .hero-copy {
+      background: #fff;
+      border: 1px solid #e9e5f8;
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: 0 8px 28px rgba(72, 58, 140, 0.08);
+      margin-bottom: 24px;
+    }
+    .hero-copy h2 {
+      color: #5d55d8;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin: 24px 0;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #e9e5f8;
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 6px 22px rgba(72, 58, 140, 0.07);
+    }
+    .card h3 {
+      color: #5d55d8;
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+    .badge {
+      display: inline-block;
+      background: #f0edff;
+      color: #5d55d8;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-right: 6px;
+      margin-top: 8px;
+    }
+    .premium {
+      background: linear-gradient(135deg, #fff 0%, #fbfaff 100%);
+      border: 1px solid #ddd6ff;
+      border-radius: 18px;
+      padding: 28px;
+      margin-top: 24px;
+      box-shadow: 0 10px 30px rgba(72, 58, 140, 0.08);
+    }
+    .premium h2 {
+      color: #5d55d8;
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+    }
+    ul { padding-left: 20px; }
+    .links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 24px;
+    }
+    .link-card {
+      display: block;
+      background: #fff;
+      border: 1px solid #e9e5f8;
+      border-radius: 14px;
+      padding: 18px;
+      color: #29253f;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(72, 58, 140, 0.06);
+    }
+    .link-card strong {
+      display: block;
+      color: #5d55d8;
+      margin-bottom: 4px;
+    }
+    footer {
+      text-align: center;
+      padding: 32px 20px;
+      color: #8d86a8;
+      font-size: 0.85rem;
+    }
+    a { color: #5d55d8; }
+  </style>
+</head>
+<body>
+<header>
+  <a class="back" href="../index.html">← T.K Apps トップへ</a>
+  <div class="app-mark" aria-hidden="true">✐</div>
+  <h1>メモ - クイックノート</h1>
+  <p>起動してすぐ書ける、軽快でシンプルなメモ帳</p>
+</header>
+
+<main>
+  <section class="hero-copy">
+    <h2>思いついた瞬間に、さっと書き留める。</h2>
+    <p>「メモ - クイックノート」は、余計な機能を省いた軽快なiOSメモアプリです。箇条書き・番号付き・チェックリストに対応し、コピーや共有もかんたん。2本指で広げるだけで、一覧の好きな位置に新しいメモを追加できます。</p>
+    <span class="badge">iOS</span>
+    <span class="badge">メモ</span>
+    <span class="badge">チェックリスト</span>
+    <span class="badge">iCloud同期</span>
+  </section>
+
+  <section class="grid">
+    <div class="card">
+      <h3>好きな位置に追加</h3>
+      <p>メモとメモの間を2本指で広げると、そこに新しいメモを差し込めます。ピン留め、長押しでの並び替えにも対応。</p>
+    </div>
+    <div class="card">
+      <h3>コピーと共有が強い</h3>
+      <p>プレーンテキスト／書式付きでコピー。メモ全体を1枚の画像にして、LINEやメッセージにそのまま送れます。</p>
+    </div>
+    <div class="card">
+      <h3>テーマと手触り</h3>
+      <p>20種類のテーマとフォント・文字サイズ・行間の設定。控えめな効果音と触覚フィードバックで、操作が気持ちよく決まります。</p>
+    </div>
+  </section>
+
+  <section class="premium">
+    <h2>広告削除</h2>
+    <p>無料でもすべての機能を利用できます。買い切りの「広告削除」を購入すると、アプリ内の広告が非表示になります。</p>
+    <ul>
+      <li>一度きりの購入でずっと有効</li>
+      <li>同じ Apple Account なら「購入を復元」で引き継ぎ</li>
+    </ul>
+  </section>
+
+  <section class="links">
+    <a class="link-card" href="privacy-policy.html">
+      <strong>プライバシーポリシー</strong>
+      メモデータ、iCloud同期、広告、課金、トラッキングの取り扱いについて
+    </a>
+    <a class="link-card" href="terms.html">
+      <strong>利用規約</strong>
+      アプリ利用時の注意事項、バックアップ、課金、免責事項について
+    </a>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2026 T.K Apps</p>
+</footer>
+</body>
+</html>
