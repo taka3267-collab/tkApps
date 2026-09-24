@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>集中カメラ | T.K Apps</title>
+  <meta name="description" content="自分をカメラに映して、ひとりの勉強や仕事に集中するiOSアプリ。顔の判定は端末内で行い、映像は保存・送信しません。">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", sans-serif;
+      background: #f2fbfb;
+      color: #1f3a40;
+      line-height: 1.8;
+    }
+    header {
+      background: linear-gradient(135deg, #e3f5fc 0%, #e0faf3 100%);
+      text-align: center;
+      padding: 56px 20px 48px;
+      border-bottom: 1px solid #cfeaea;
+    }
+    header .back {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: #5f7d83;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .app-mark {
+      width: 96px;
+      height: 96px;
+      margin: 0 auto 18px;
+      border-radius: 22px;
+      display: block;
+      box-shadow: 0 14px 32px rgba(40, 170, 190, 0.28);
+    }
+    h1 {
+      font-size: 2.45rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+    header .en { color: #5f7d83; font-size: 0.95rem; margin-top: 2px; }
+    header p { margin-top: 10px; color: #5f7d83; }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 44px 20px 76px;
+    }
+    .hero-copy {
+      background: #fff;
+      border: 1px solid #cfeaea;
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: 0 8px 28px rgba(30, 120, 130, 0.10);
+      margin-bottom: 24px;
+    }
+    .hero-copy h2 {
+      color: #0f8c8a;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin: 24px 0;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #cfeaea;
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 6px 22px rgba(30, 120, 130, 0.07);
+    }
+    .card h3 {
+      color: #0f8c8a;
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+    .badge {
+      display: inline-block;
+      background: #e0f6f4;
+      color: #0f8c8a;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-right: 6px;
+      margin-top: 8px;
+    }
+    .panel {
+      background: linear-gradient(135deg, #fff 0%, #f5fdfc 100%);
+      border: 1px solid #bfe6e2;
+      border-radius: 18px;
+      padding: 28px;
+      margin-top: 24px;
+      box-shadow: 0 10px 30px rgba(30, 120, 130, 0.10);
+    }
+    .panel h2 {
+      color: #0f8c8a;
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+    }
+    .panel p + ul, .panel ul + p { margin-top: 10px; }
+    .modes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .mode {
+      background: #fff;
+      border: 1px solid #cfeaea;
+      border-radius: 14px;
+      padding: 18px;
+    }
+    .mode strong { display: block; color: #0f8c8a; margin-bottom: 4px; }
+    ul { padding-left: 20px; }
+    .links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 24px;
+    }
+    .link-card {
+      display: block;
+      background: #fff;
+      border: 1px solid #cfeaea;
+      border-radius: 14px;
+      padding: 18px;
+      color: #1f3a40;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(30, 120, 130, 0.06);
+    }
+    .link-card strong {
+      display: block;
+      color: #0f8c8a;
+      margin-bottom: 4px;
+    }
+    .note { font-size: 0.85rem; color: #5f7d83; margin-top: 12px; }
+    footer {
+      text-align: center;
+      padding: 32px 20px;
+      color: #5f7d83;
+      font-size: 0.85rem;
+    }
+    a { color: #0f8c8a; }
+  </style>
+</head>
+<body>
+<header>
+  <a class="back" href="../index.html">← T.K Apps トップへ</a>
+  <img class="app-mark" src="icon.png" alt="集中カメラのアイコン" width="96" height="96">
+  <h1>集中カメラ</h1>
+  <p class="en">Focus Mirror</p>
+  <p>自分をカメラに映して、ひとりの時間に静かなきっかけを</p>
+</header>
+
+<main>
+  <section class="hero-copy">
+    <h2>“見られているような感覚”で、集中を続ける。</h2>
+    <p>「集中カメラ」は、インカメラに自分を映しながら勉強や仕事をする、iPhone・iPad向けの集中サポートアプリです。人は誰かに見られていると感じると、行動が変わることがあります（社会的促進）。その考え方をヒントに、席を離れたり、長く横を向いたりしたときに、そっと知らせます。</p>
+    <p>顔の判定はすべて端末の中で行い、カメラの映像を保存したり、外部へ送信したりすることはありません。</p>
+    <span class="badge">iOS</span>
+    <span class="badge">iPadOS</span>
+    <span class="badge">集中</span>
+    <span class="badge">勉強</span>
+    <span class="badge">タイマー</span>
+  </section>
+
+  <section class="grid">
+    <div class="card">
+      <h3>離席・よそ見をお知らせ</h3>
+      <p>顔が見えない状態や、よそ見が続いたときに、画面の縁の光・振動・サウンドでお知らせします。警告までの時間は自分で調整できます。</p>
+    </div>
+    <div class="card">
+      <h3>ダイナミックアイランドにタイマー</h3>
+      <p>残り時間はダイナミックアイランドに溶け込むように表示。画面の縁のリングで進み具合もひと目でわかります。アプリを離れてもライブアクティビティで確認できます。</p>
+    </div>
+    <div class="card">
+      <h3>映像はぼかし・非表示にできる</h3>
+      <p>自分の姿は、ぼかし（弱・中・強）や非表示にできます。非表示でも顔の判定は続くので、画面を気にせず作業できます。</p>
+    </div>
+    <div class="card">
+      <h3>集中の記録を振り返る</h3>
+      <p>集中時間、離席・よそ見の時間、警告の回数、集中率を記録。前回との比較や過去の記録の一覧で、次の目安にできます。</p>
+    </div>
+    <div class="card">
+      <h3>置き方を選ばない</h3>
+      <p>縦・横・上下反転に対応。充電ケーブルの都合で横や逆さに立てかけても使えます。iPadにも対応しています。</p>
+    </div>
+    <div class="card">
+      <h3>長時間でも省電力</h3>
+      <p>カメラと顔判定の頻度を3段階で調整。バッテリー記録では、充電中の区間も色分けして残量の推移を確認できます。</p>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>作業に合わせて選べる2つの判定方法</h2>
+    <div class="modes">
+      <div class="mode">
+        <strong>目線モード</strong>
+        パソコン作業など、画面を見て作業するときに。開始時のカウントダウンでいつもの姿勢を記録し、下を向く・見上げる・目線をそらす状態が続くとお知らせします。
+      </div>
+      <div class="mode">
+        <strong>顔モード</strong>
+        読書や筆記、勉強など、手元を見て作業するときに。顔が映っていれば斜め前や下を向いていても警告せず、席を離れたときと真横を向いたときだけお知らせします。
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>カメラの映像は、外に出しません</h2>
+    <ul>
+      <li>顔の判定はAppleの画像解析機能を使い、端末内だけで行います</li>
+      <li>カメラの映像・写真を保存しません。外部へ送信しません</li>
+      <li>アカウント登録は不要です</li>
+      <li>集中の記録は端末の中だけに保存されます</li>
+    </ul>
+    <p class="note">本アプリは無料でご利用いただけます。記録の保存時と設定画面に広告（Google AdMob）を表示します。アプリ内課金「広告非表示」（買い切り）で広告をすべて非表示にできます。</p>
+  </section>
+
+  <section class="links">
+    <a class="link-card" href="privacy-policy.html">
+      <strong>プライバシーポリシー</strong>
+      カメラの映像、保存するデータ、広告・課金の取り扱いについて
+    </a>
+    <a class="link-card" href="terms.html">
+      <strong>利用規約</strong>
+      アプリの利用条件、警告機能、広告・課金、免責事項について
+    </a>
+    <a class="link-card" href="mailto:tkapps.support@gmail.com">
+      <strong>お問い合わせ</strong>
+      不具合やご要望はメールでお送りください
+    </a>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2026 T.K Apps</p>
+</footer>
+</body>
+</html>
