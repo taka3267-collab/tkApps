@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>コミックデッキ | T.K Apps</title>
+  <meta name="description" content="読んだマンガ・読みたいマンガを、表紙の並んだ棚に記録するiOSアプリ「コミックデッキ」。読んだ巻・持っている巻をマス目で記録、ティア表、年間の振り返り。無料でお使いいただけます。">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", sans-serif;
+      background: #f8f7ff;
+      color: #29253f;
+      line-height: 1.8;
+    }
+    header {
+      background: linear-gradient(135deg, #f2efff 0%, #fff4f2 100%);
+      text-align: center;
+      padding: 56px 20px 48px;
+      border-bottom: 1px solid #e6e0f8;
+    }
+    header .back {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: #6d6688;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .app-mark {
+      width: 86px;
+      height: 86px;
+      margin: 0 auto 18px;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 14px 32px rgba(240, 106, 84, 0.22);
+    }
+    h1 {
+      font-size: 2.45rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+    header p {
+      margin-top: 10px;
+      color: #6d6688;
+    }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 44px 20px 76px;
+    }
+    .hero-copy {
+      background: #fff;
+      border: 1px solid #e9e5f8;
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: 0 8px 28px rgba(72, 58, 140, 0.08);
+      margin-bottom: 24px;
+    }
+    .hero-copy h2 {
+      color: #5d55d8;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin: 24px 0;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #e9e5f8;
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 6px 22px rgba(72, 58, 140, 0.07);
+    }
+    .card h3 {
+      color: #5d55d8;
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+    .badge {
+      display: inline-block;
+      background: #f0edff;
+      color: #5d55d8;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-right: 6px;
+      margin-top: 8px;
+    }
+    .free {
+      background: linear-gradient(135deg, #fff 0%, #fbfaff 100%);
+      border: 1px solid #ddd6ff;
+      border-radius: 18px;
+      padding: 28px;
+      margin-top: 24px;
+      box-shadow: 0 10px 30px rgba(72, 58, 140, 0.08);
+    }
+    .free h2 {
+      color: #5d55d8;
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+    }
+    ul { padding-left: 20px; }
+    .links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 24px;
+    }
+    .link-card {
+      display: block;
+      background: #fff;
+      border: 1px solid #e9e5f8;
+      border-radius: 14px;
+      padding: 18px;
+      color: #29253f;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(72, 58, 140, 0.06);
+    }
+    .link-card strong {
+      display: block;
+      color: #5d55d8;
+      margin-bottom: 4px;
+    }
+    footer {
+      text-align: center;
+      padding: 32px 20px;
+      color: #8d86a8;
+      font-size: 0.85rem;
+    }
+    a { color: #5d55d8; }
+    .app-mark img { width: 100%; height: 100%; display: block; }
+    .en { margin-top: 40px; }
+    .en h2 { color: #5d55d8; font-size: 1.25rem; margin-bottom: 10px; }
+    .attribution {
+      margin-top: 24px;
+      font-size: 0.85rem;
+      color: #6d6688;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <a class="back" href="../index.html">← T.K Apps トップへ</a>
+  <div class="app-mark"><img src="icon.png" alt=""></div>
+  <h1>コミックデッキ</h1>
+  <p>読んだマンガも、読みたいマンガも、表紙の棚に並べて記録するアプリ</p>
+</header>
+
+<main>
+  <section class="hero-copy">
+    <h2>読んだマンガを、眺めて楽しい棚に。</h2>
+    <p>「コミックデッキ」は、マンガを検索して自分の棚に登録し、読書の状態や読んだ巻・持っている巻、評価、感想、メモ、タグを記録するためのiOSアプリです。ブックデッキ・ゲームデッキ・アニメデッキに続く「デッキ」シリーズの第4弾。SNSではなく、自分だけのマンガ記録を簡単・快適に管理することを目的としています。アカウント登録は不要で、データは端末内に保存されます。</p>
+    <span class="badge">iOS</span>
+    <span class="badge">マンガ記録</span>
+    <span class="badge">巻数管理</span>
+    <span class="badge">ティア表</span>
+  </section>
+
+  <section class="grid">
+    <div class="card">
+      <h3>表紙が並ぶ棚</h3>
+      <p>登録したマンガは表紙のグリッドで並びます。読みたい・読書中・読了・中断で絞り込んだり、連載中 / 完結、ジャンル、出版社、タグで眺めたいマンガだけを表示できます。</p>
+    </div>
+    <div class="card">
+      <h3>巻ごとにすぐ登録</h3>
+      <p>タイトルや著者で検索、または裏表紙のバーコード（ISBN）から登録できます。同じ作品の巻は自動で1つの作品にまとまります。見つからないマンガは手で登録できます。</p>
+    </div>
+    <div class="card">
+      <h3>読んだ巻をマス目で記録</h3>
+      <p>巻のマス目をタップするとその巻まで読んだことに、長押しで持っている / 持っていないを切り替え。読み終えた作品の表紙にはしおりが挟まります。評価、感想、メモも残せます。</p>
+    </div>
+    <div class="card">
+      <h3>ティア表と年間の振り返り</h3>
+      <p>棚のマンガを S・A・B… の段に並べてランキングに。ジャンル・出版社・著者・1巻の発売年・タグ・シリーズでまとめて作れます。月ごとに読んだ巻のグラフや、1年の振り返り（読んだ巻・ベスト5）も画像で共有できます。</p>
+    </div>
+  </section>
+
+  <section class="free">
+    <h2>無料で使えます</h2>
+    <p>コミックデッキは無料でお使いいただけます（広告が表示されます）。</p>
+    <ul>
+      <li>棚のバックアップと復元</li>
+      <li>ウィジェット、テーマカラー14色とアイコンの切り替え</li>
+      <li>広告の非表示とCSVエクスポートは、今後のアップデートで有料プラン（プレミアム）として提供予定です</li>
+    </ul>
+  </section>
+
+  <section class="links">
+    <a class="link-card" href="privacy-policy.html">
+      <strong>プライバシーポリシー</strong>
+      読書記録データ・写真・広告の取り扱いについて
+    </a>
+    <a class="link-card" href="terms.html">
+      <strong>利用規約</strong>
+      アプリの利用条件、バックアップ、免責事項について
+    </a>
+    <a class="link-card" href="mailto:tkapps.support@gmail.com?subject=%E3%82%B3%E3%83%9F%E3%83%83%E3%82%AF%E3%83%87%E3%83%83%E3%82%AD%20%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">
+      <strong>お問い合わせ（サポート）</strong>
+      不具合やご要望はメールでお送りください
+    </a>
+  </section>
+
+  <p class="attribution">マンガの情報と表紙画像は <a href="https://books.rakuten.co.jp/" target="_blank" rel="noopener">楽天ブックス</a> の API を利用しています。</p>
+
+  <section class="en" lang="en">
+    <h2>ComicDeck (English)</h2>
+    <p>ComicDeck is an iOS app for tracking the manga you've read, own, and want to read. Search by title or scan the ISBN barcode to add volumes to a shelf of covers — volumes are grouped into their series automatically. Track which volumes you've read and own on a simple grid, with ratings, reviews, notes, and tags. Rank your manga in tier lists and look back on your year. Free with ads. No account needed; your data stays on your device.</p>
+    <section class="links">
+      <a class="link-card" href="privacy-policy-en.html"><strong>Privacy Policy</strong>How we handle your reading data, photos, and ads</a>
+      <a class="link-card" href="terms-en.html"><strong>Terms of Use</strong>Terms, backups, and disclaimers</a>
+      <a class="link-card" href="mailto:tkapps.support@gmail.com?subject=ComicDeck%20Support"><strong>Contact (Support)</strong>Send bug reports and feature requests by email</a>
+    </section>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2026 T.K Apps</p>
+</footer>
+</body>
+</html>
