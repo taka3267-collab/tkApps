@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trippacy - おでかけと旅の地図日記 | T.K Apps</title>
+  <meta name="description" content="撮りっぱなしの写真から、訪れた場所と移動ルートを自動で地図にまとめるiOSアプリ。記録は端末の中だけに保存されます。">
+  <link rel="icon" href="icon.png">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", sans-serif;
+      background: #fbf7ef;
+      color: #3a2a20;
+      line-height: 1.8;
+    }
+    header {
+      background: linear-gradient(135deg, #fff1e2 0%, #fde3d3 100%);
+      text-align: center;
+      padding: 56px 20px 48px;
+      border-bottom: 1px solid #f1dfcf;
+    }
+    header .back { display: inline-block; margin-bottom: 18px; color: #8a6f5e; text-decoration: none; font-size: 0.9rem; }
+    .app-icon {
+      width: 96px; height: 96px; margin: 0 auto 18px; border-radius: 22px;
+      box-shadow: 0 14px 32px rgba(194, 80, 42, 0.25); display: block;
+    }
+    h1 { font-size: 2.3rem; font-weight: 800; letter-spacing: 0.02em; }
+    header p { margin-top: 10px; color: #8a6f5e; }
+    .store {
+      display: inline-block; margin-top: 22px; background: #c2502a; color: #fff;
+      text-decoration: none; font-weight: 700; padding: 12px 26px; border-radius: 999px;
+      box-shadow: 0 8px 20px rgba(194, 80, 42, 0.25);
+    }
+    main { max-width: 900px; margin: 0 auto; padding: 44px 20px 76px; }
+    .hero-copy, .card, .section {
+      background: #fffdf8; border: 1px solid #f0e4d6; border-radius: 18px;
+      box-shadow: 0 8px 28px rgba(120, 70, 30, 0.07);
+    }
+    .hero-copy { padding: 30px; margin-bottom: 24px; }
+    .hero-copy h2, .section h2 { color: #c2502a; font-size: 1.4rem; margin-bottom: 10px; }
+    .badge {
+      display: inline-block; background: #fbe9dc; color: #b04722; font-size: 0.8rem; font-weight: 700;
+      padding: 3px 10px; border-radius: 999px; margin-right: 6px; margin-top: 10px;
+    }
+    .shots {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 28px 0;
+    }
+    .shots img {
+      width: 100%; border-radius: 20px; border: 1px solid #efe2d3;
+      box-shadow: 0 8px 22px rgba(120, 70, 30, 0.1);
+    }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin: 24px 0; }
+    .card { padding: 22px; }
+    .card h3 { color: #c2502a; font-size: 1.05rem; margin-bottom: 8px; }
+    .section { padding: 28px; margin-top: 24px; }
+    .section h2 { font-size: 1.2rem; }
+    ul { padding-left: 20px; }
+    dl dt { font-weight: 700; margin-top: 14px; }
+    dl dd { color: #5d4a3e; }
+    .links { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 24px; }
+    .link-card {
+      display: block; background: #fffdf8; border: 1px solid #f0e4d6; border-radius: 14px; padding: 18px;
+      color: #3a2a20; text-decoration: none; box-shadow: 0 4px 18px rgba(120, 70, 30, 0.06);
+    }
+    .link-card strong { display: block; color: #c2502a; margin-bottom: 4px; }
+    footer { text-align: center; padding: 32px 20px; color: #a08c7e; font-size: 0.85rem; }
+    a { color: #c2502a; }
+    @media (max-width: 640px) {
+      h1 { font-size: 1.8rem; }
+      .shots { grid-template-columns: repeat(2, 1fr); }
+      .hero-copy, .section { padding: 22px 18px; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <a class="back" href="../index.html">← T.K Apps トップへ</a>
+  <img class="app-icon" src="icon.png" alt="">
+  <h1>Trippacy</h1>
+  <p>おでかけと旅の地図日記 ― 撮りっぱなしの写真から思い出を地図に</p>
+  <a class="store" href="https://apps.apple.com/jp/app/id6831562941">App Store で見る</a>
+</header>
+
+<main>
+  <section class="hero-copy">
+    <h2>期間を選ぶだけで、おでかけが地図になる。</h2>
+    <p>Trippacy（トリッパシー）は、カメラロールの写真に残っている撮影日時と位置情報から、訪れた場所と移動ルートを自動でまとめるiOSアプリです。日記を書く手間はいりません。期間を選んで、内容を確認して保存するだけです。</p>
+    <p>名前は Trip（おでかけ）・Privacy（プライバシー）・Legacy（思い出を残す）から。記録はすべて端末の中だけに保存されます。</p>
+    <span class="badge">iOS</span>
+    <span class="badge">旅行記録</span>
+    <span class="badge">地図</span>
+    <span class="badge">写真</span>
+    <span class="badge">アカウント不要</span>
+  </section>
+
+  <div class="shots">
+    <img src="shot-1.jpg" alt="すべてのおでかけを表示した地図">
+    <img src="shot-2.jpg" alt="おでかけの詳細と訪れた場所">
+    <img src="shot-3.jpg" alt="おでかけのカレンダー">
+    <img src="shot-4.jpg" alt="写真から自動作成の画面">
+  </div>
+
+  <section class="grid">
+    <div class="card">
+      <h3>写真から自動で記録</h3>
+      <p>日帰りや1泊2日など期間を選ぶと、その間の写真から訪れた場所と推定ルートを作ります。場所の名前も自動で付きます。</p>
+    </div>
+    <div class="card">
+      <h3>地図で思い出をたどる</h3>
+      <p>これまでのおでかけをひとつの地図に。「思い出をたどる」で、訪れた順に写真をめくりながら地図を移動できます。</p>
+    </div>
+    <div class="card">
+      <h3>カレンダーで振り返る</h3>
+      <p>おでかけした日がひと目でわかります。まだ記録していない写真がある日からも、記録を始められます。</p>
+    </div>
+    <div class="card">
+      <h3>記録は端末の中だけ</h3>
+      <p>写真の解析はすべて端末内で行います。写真や記録をサーバーへ送ることはなく、アカウント登録も不要です。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>広告非表示プラン</h2>
+    <p>無料ですべての機能を使えます。アプリ内課金で広告を非表示にできます。</p>
+    <ul>
+      <li>月額プラン：200円</li>
+      <li>年額プラン：1,980円（初回1週間無料）</li>
+      <li>買い切り：9,800円</li>
+    </ul>
+    <p style="margin-top:10px;font-size:0.9rem;color:#8a6f5e;">価格は日本の App Store での税込価格です。サブスクリプションは App Store のアカウント設定から解約できます。</p>
+  </section>
+
+  <section class="section" id="support">
+    <h2>サポート・よくある質問</h2>
+    <dl>
+      <dt>写真が地図に表示されません</dt>
+      <dd>位置情報が付いていない写真は地図に表示されません。iPhoneの「設定」→「プライバシーとセキュリティ」→「位置情報サービス」→「カメラ」を「このAppの使用中」にすると、以後の写真に位置情報が記録されます。LINEなどで受け取った写真は、位置情報が削除されていることがあります。</dd>
+      <dt>写真がない場所も記録できますか？</dt>
+      <dd>はい。地図を長押しするか、おでかけの画面の「…」から「場所を手動で追加」を選んでください。</dd>
+      <dt>機種変更したときに記録を引き継げますか？</dt>
+      <dd>記録は端末の中に保存されます。設定の「端末のバックアップに含める」がオンの場合、iCloudバックアップやパソコンへのバックアップから新しい端末に復元できます。また、「設定」→「バックアップとデータ」→「JSONに書き出す」で記録をファイルに保存し、新しい端末の「JSONから読み込む」で移すこともできます。写真そのものは、写真アプリ（iCloud写真など）で引き継いでください。</dd>
+      <dt>購入した広告非表示が反映されません</dt>
+      <dd>アプリの「設定」→「購入を復元」をお試しください。購入時と同じ Apple アカウントでサインインしている必要があります。</dd>
+      <dt>サブスクリプションを解約したい</dt>
+      <dd>iPhoneの「設定」→ 自分の名前 →「サブスクリプション」から解約できます。アプリを削除しただけでは解約されません。</dd>
+    </dl>
+    <p style="margin-top:20px;">解決しない場合や、ご意見・ご要望は下記までお送りください。アプリの「設定」→「お問い合わせ」からも送れます。</p>
+    <p><a href="mailto:tkapps.support@gmail.com?subject=Trippacy%20%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">tkapps.support@gmail.com</a></p>
+  </section>
+
+  <section class="links">
+    <a class="link-card" href="privacy-policy.html">
+      <strong>プライバシーポリシー</strong>
+      写真、位置情報、広告、課金、トラッキングの取り扱いについて
+    </a>
+    <a class="link-card" href="terms.html">
+      <strong>利用規約</strong>
+      アプリ利用時の注意事項、課金、免責事項について
+    </a>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2026 T.K Apps</p>
+</footer>
+</body>
+</html>
