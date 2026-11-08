@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GeoPhoto - 写真の撮影場所をまとめて変更 | T.K Apps</title>
+  <meta name="description" content="位置情報のない写真に、撮影場所をあとからまとめて追加・変更・削除できるiOSアプリ。写真は端末の中だけで処理されます。">
+  <link rel="icon" href="icon.png">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", sans-serif;
+      background: #f3f8fb;
+      color: #1f2d3a;
+      line-height: 1.8;
+    }
+    header {
+      background: linear-gradient(135deg, #e3f6f2 0%, #dde9fb 100%);
+      text-align: center;
+      padding: 56px 20px 48px;
+      border-bottom: 1px solid #d6e4ee;
+    }
+    header .back { display: inline-block; margin-bottom: 18px; color: #5b6f80; text-decoration: none; font-size: 0.9rem; }
+    .app-icon {
+      width: 96px; height: 96px; margin: 0 auto 18px; border-radius: 22px;
+      box-shadow: 0 14px 32px rgba(31, 111, 214, 0.25); display: block;
+    }
+    h1 { font-size: 2.3rem; font-weight: 800; letter-spacing: 0.02em; }
+    header p { margin-top: 10px; color: #5b6f80; }
+    .store {
+      display: inline-block; margin-top: 22px; background: #1f6fd6; color: #fff;
+      text-decoration: none; font-weight: 700; padding: 12px 26px; border-radius: 999px;
+      box-shadow: 0 8px 20px rgba(31, 111, 214, 0.25);
+    }
+    .store.soon { background: #8fa6bb; box-shadow: none; }
+    main { max-width: 900px; margin: 0 auto; padding: 44px 20px 76px; }
+    .hero-copy, .card, .section {
+      background: #fff; border: 1px solid #dce8f0; border-radius: 18px;
+      box-shadow: 0 8px 28px rgba(30, 80, 120, 0.07);
+    }
+    .hero-copy { padding: 30px; margin-bottom: 24px; }
+    .hero-copy h2, .section h2 { color: #1f6fd6; font-size: 1.4rem; margin-bottom: 10px; }
+    .hero-copy p + p { margin-top: 8px; }
+    .badge {
+      display: inline-block; background: #e2eefb; color: #1a5fb8; font-size: 0.8rem; font-weight: 700;
+      padding: 3px 10px; border-radius: 999px; margin-right: 6px; margin-top: 10px;
+    }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 24px 0; counter-reset: step; }
+    .step { background: #fff; border: 1px solid #dce8f0; border-radius: 16px; padding: 20px; text-align: center; }
+    .step::before {
+      counter-increment: step; content: counter(step);
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 32px; height: 32px; border-radius: 50%; background: #1f6fd6; color: #fff; font-weight: 800; margin-bottom: 8px;
+    }
+    .step strong { display: block; }
+    .step span { font-size: 0.9rem; color: #5b6f80; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin: 24px 0; }
+    .card { padding: 22px; }
+    .card h3 { color: #1f6fd6; font-size: 1.05rem; margin-bottom: 8px; }
+    .section { padding: 28px; margin-top: 24px; }
+    .section h2 { font-size: 1.2rem; }
+    dl dt { font-weight: 700; margin-top: 14px; }
+    dl dd { color: #4a5c6b; }
+    .links { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-top: 24px; }
+    .link-card {
+      display: block; background: #fff; border: 1px solid #dce8f0; border-radius: 14px; padding: 18px;
+      color: #1f2d3a; text-decoration: none; box-shadow: 0 4px 18px rgba(30, 80, 120, 0.06);
+    }
+    .link-card strong { display: block; color: #1f6fd6; margin-bottom: 4px; }
+    footer { text-align: center; padding: 32px 20px; color: #7b8d9c; font-size: 0.85rem; }
+    a { color: #1f6fd6; }
+    @media (max-width: 640px) {
+      h1 { font-size: 1.8rem; }
+      .steps { grid-template-columns: 1fr; }
+      .hero-copy, .section { padding: 22px 18px; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <a class="back" href="../index.html">← T.K Apps トップへ</a>
+  <img class="app-icon" src="icon.png" alt="">
+  <h1>GeoPhoto</h1>
+  <p>位置情報編集・削除 ― 写真の撮影場所をまとめて変更</p>
+  <span class="store soon">App Store で近日公開</span>
+</header>
+
+<main>
+  <section class="hero-copy">
+    <h2>撮影場所を、あとからまとめて。</h2>
+    <p>GeoPhoto は、iPhoneの写真に撮影場所（位置情報）をあとから追加・変更・削除できるiOSアプリです。カメラの位置情報をオフにして撮った旅行やおでかけの写真も、日付で選んで、地図で場所を指定するだけで整理できます。</p>
+    <p>写真は端末の中だけで処理し、画質や撮影日時は変わりません。変更は「写真」アプリにもそのまま反映されます。</p>
+    <span class="badge">iOS</span>
+    <span class="badge">写真</span>
+    <span class="badge">位置情報</span>
+    <span class="badge">地図</span>
+    <span class="badge">アカウント不要</span>
+    <span class="badge">広告なし</span>
+  </section>
+
+  <div class="steps">
+    <div class="step"><strong>写真を選ぶ</strong><span>日付・時間ごとにまとめて、またはなぞって選択</span></div>
+    <div class="step"><strong>場所を指定</strong><span>施設名で検索、地図をタップ、現在地</span></div>
+    <div class="step"><strong>保存</strong><span>確認して保存。間違えても元に戻せます</span></div>
+  </div>
+
+  <section class="grid">
+    <div class="card">
+      <h3>位置情報のない写真だけ表示</h3>
+      <p>「位置情報なし」で絞り込み、今日・昨日・過去7日間などの期間や日付指定で、整理したい写真をすぐに見つけられます。</p>
+    </div>
+    <div class="card">
+      <h3>日付・時間ごとにまとめて選択</h3>
+      <p>写真は日付と1時間ごとに区切って表示。「選択」ボタンでまとめて選べるほか、少し押さえてから指を滑らせると一気に選択できます。</p>
+    </div>
+    <div class="card">
+      <h3>施設名で検索して場所を指定</h3>
+      <p>地名や施設名の検索、地図のタップ、現在地から指定できます。近い時間に撮った位置情報付きの写真があれば、その場所から始められます。</p>
+    </div>
+    <div class="card">
+      <h3>削除も、元に戻すのも</h3>
+      <p>位置情報の削除にも対応。すでに位置情報がある写真は、確認なしに上書きしません。保存後は「元に戻す」で取り消せます。</p>
+    </div>
+  </section>
+
+  <section class="section" id="support">
+    <h2>サポート・よくある質問</h2>
+    <dl>
+      <dt>位置情報を変更できない写真があります</dt>
+      <dd>共有アルバムの写真や、パソコンから同期した写真など、iOSが変更を許可していない写真は変更できません。確認画面に件数が表示されます。</dd>
+      <dt>「写真」アプリに変更が反映されません</dt>
+      <dd>保存後、写真アプリの表示が更新されるまで少し時間がかかることがあります。iCloud写真をお使いの場合、他の端末への同期にも時間がかかることがあります。</dd>
+      <dt>間違えて位置情報を保存してしまいました</dt>
+      <dd>保存後の完了画面で「元に戻す」をタップすると、変更前の状態に戻せます。完了画面を閉じた後は、もう一度場所を設定するか、「…」メニューの「位置情報を削除」をお使いください。</dd>
+      <dt>一部の写真しか表示されません</dt>
+      <dd>写真へのアクセスが「選択した写真のみ」になっています。iPhoneの「設定」→「アプリ」→「GeoPhoto」→「写真」で「フルアクセス」に変更するか、アプリ左上のメニューから写真を追加で選んでください。</dd>
+      <dt>「現在地」が使えません</dt>
+      <dd>位置情報サービスの利用を許可していない場合は使えません。許可しなくても、地図のタップや検索で場所を指定できます。</dd>
+      <dt>写真の撮影場所を自動で特定できますか？</dt>
+      <dd>位置情報のない写真から、実際の撮影場所を自動で特定することはできません。近い時間に撮った位置情報付きの写真がある場合は、その場所を候補として表示します。</dd>
+      <dt>写真がサーバーに送られることはありますか？</dt>
+      <dd>ありません。写真の処理はすべて端末の中で行います。地図の表示と場所の検索には Apple のマップを利用します。詳しくは<a href="privacy-policy.html">プライバシーポリシー</a>をご覧ください。</dd>
+    </dl>
+    <p style="margin-top:20px;">解決しない場合や、ご意見・ご要望は下記までお送りください。</p>
+    <p><a href="mailto:tkapps.support@gmail.com?subject=GeoPhoto%20%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">tkapps.support@gmail.com</a></p>
+  </section>
+
+  <section class="links">
+    <a class="link-card" href="privacy-policy.html">
+      <strong>プライバシーポリシー</strong>
+      写真、位置情報、地図検索の取り扱いについて
+    </a>
+    <a class="link-card" href="terms.html">
+      <strong>利用規約</strong>
+      写真の変更に関する注意、免責事項について
+    </a>
+    <a class="link-card" href="privacy-policy-en.html">
+      <strong>Privacy Policy (English)</strong>
+      How GeoPhoto handles photos and locations
+    </a>
+    <a class="link-card" href="terms-en.html">
+      <strong>Terms of Use (English)</strong>
+      Notes on editing photos and disclaimers
+    </a>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2026 T.K Apps &nbsp;|&nbsp; Support: <a href="mailto:tkapps.support@gmail.com">tkapps.support@gmail.com</a></p>
+</footer>
+</body>
+</html>
