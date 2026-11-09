@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trippacy - おでかけと旅の地図日記 | T.K Apps</title>
-  <meta name="description" content="撮りっぱなしの写真から、訪れた場所と移動ルートを自動で地図にまとめるiOSアプリ。記録は端末の中だけに保存されます。">
+  <title>おでかけ日記 - トリッパシー（Trippacy）| T.K Apps</title>
+  <meta name="description" content="撮りっぱなしの写真が、おでかけの日記になるiOSアプリ。写真の撮影日時と位置情報から、訪れた場所とルートを自動でまとめます。記録は端末の中だけに保存されます。">
   <link rel="icon" href="icon.png">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -64,6 +64,8 @@
       color: #3a2a20; text-decoration: none; box-shadow: 0 4px 18px rgba(120, 70, 30, 0.06);
     }
     .link-card strong { display: block; color: #c2502a; margin-bottom: 4px; }
+    .lang { position: absolute; top: 16px; right: 20px; font-size: 0.85rem; color: #8a6f5e; text-decoration: none; border: 1px solid #ecd6c4; border-radius: 999px; padding: 4px 12px; background: #fffaf3; }
+    header { position: relative; }
     footer { text-align: center; padding: 32px 20px; color: #a08c7e; font-size: 0.85rem; }
     a { color: #c2502a; }
     @media (max-width: 640px) {
@@ -75,19 +77,21 @@
 </head>
 <body>
 <header>
+  <a class="lang" href="index-en.html" hreflang="en" lang="en">English</a>
   <a class="back" href="../index.html">← T.K Apps トップへ</a>
   <img class="app-icon" src="icon.png" alt="">
-  <h1>Trippacy</h1>
-  <p>おでかけと旅の地図日記 ― 撮りっぱなしの写真から思い出を地図に</p>
+  <h1>おでかけ日記</h1>
+  <p>トリッパシー（Trippacy）― 撮りっぱなしの写真が、おでかけの日記になる</p>
   <a class="store" href="https://apps.apple.com/jp/app/id6831562941">App Store で見る</a>
 </header>
 
 <main>
   <section class="hero-copy">
-    <h2>期間を選ぶだけで、おでかけが地図になる。</h2>
-    <p>Trippacy（トリッパシー）は、カメラロールの写真に残っている撮影日時と位置情報から、訪れた場所と移動ルートを自動でまとめるiOSアプリです。日記を書く手間はいりません。期間を選んで、内容を確認して保存するだけです。</p>
-    <p>名前は Trip（おでかけ）・Privacy（プライバシー）・Legacy（思い出を残す）から。記録はすべて端末の中だけに保存されます。</p>
-    <span class="badge">iOS</span>
+    <h2>書かなくても、日記が残る。</h2>
+    <p>おでかけ日記（トリッパシー／Trippacy）は、カメラロールの写真に残っている撮影日時と位置情報から、訪れた場所と移動ルートを自動でまとめるiOSアプリです。その場でメモを取る必要はありません。期間を選んで、内容を確認して保存するだけで、写真と地図がそろった日記ができあがります。思い出したことは、あとから写真を見ながらひとことだけ書き足せます。</p>
+    <p>Trippacy という名前は Trip（おでかけ）・Privacy（プライバシー）・Legacy（思い出を残す）から。記録はすべて端末の中だけに保存されます。</p>
+    <span class="badge">iPhone・iPad</span>
+    <span class="badge">日記</span>
     <span class="badge">旅行記録</span>
     <span class="badge">地図</span>
     <span class="badge">写真</span>
@@ -95,16 +99,20 @@
   </section>
 
   <div class="shots">
-    <img src="shot-1.jpg" alt="すべてのおでかけを表示した地図">
-    <img src="shot-2.jpg" alt="おでかけの詳細と訪れた場所">
-    <img src="shot-3.jpg" alt="おでかけのカレンダー">
-    <img src="shot-4.jpg" alt="写真から自動作成の画面">
+    <img src="shot-1.jpg" alt="月ごとに並んだおでかけ一覧">
+    <img src="shot-2.jpg" alt="おでかけのカレンダー">
+    <img src="shot-3.jpg" alt="おでかけの詳細と訪れた場所">
+    <img src="shot-4.jpg" alt="思い出をたどる画面">
   </div>
 
   <section class="grid">
     <div class="card">
       <h3>写真から自動で記録</h3>
       <p>日帰りや1泊2日など期間を選ぶと、その間の写真から訪れた場所と推定ルートを作ります。場所の名前も自動で付きます。</p>
+    </div>
+    <div class="card">
+      <h3>日記として振り返る</h3>
+      <p>おでかけは月ごとに、日付と曜日つきで並びます。写真を見ながら「思い出ノート」にひとこと残したり、タグを付けてキーワードやタグで探したりできます。</p>
     </div>
     <div class="card">
       <h3>地図で思い出をたどる</h3>
@@ -136,17 +144,19 @@
     <dl>
       <dt>写真が地図に表示されません</dt>
       <dd>位置情報が付いていない写真は地図に表示されません。iPhoneの「設定」→「プライバシーとセキュリティ」→「位置情報サービス」→「カメラ」を「このAppの使用中」にすると、以後の写真に位置情報が記録されます。LINEなどで受け取った写真は、位置情報が削除されていることがあります。</dd>
+      <dt>あとから写真に位置情報を付けたい</dt>
+      <dd>写真アプリの情報画面（ⓘ）から撮影場所を追加できます。たくさんの写真をまとめて直したいときは、同じ開発者の位置情報編集アプリ「<a href="https://apps.apple.com/jp/app/id6832261732" target="_blank" rel="noopener">GeoPhoto</a>」もお使いいただけます。直したあとは、おでかけの画面の「…」→「新しい写真を読み込む」で反映されます。</dd>
       <dt>写真がない場所も記録できますか？</dt>
       <dd>はい。地図を長押しするか、おでかけの画面の「…」から「場所を手動で追加」を選んでください。</dd>
       <dt>機種変更したときに記録を引き継げますか？</dt>
       <dd>記録は端末の中に保存されます。設定の「端末のバックアップに含める」がオンの場合、iCloudバックアップやパソコンへのバックアップから新しい端末に復元できます。また、「設定」→「バックアップとデータ」→「JSONに書き出す」で記録をファイルに保存し、新しい端末の「JSONから読み込む」で移すこともできます。写真そのものは、写真アプリ（iCloud写真など）で引き継いでください。</dd>
       <dt>購入したプレミアムが反映されません</dt>
-      <dd>アプリの「設定」→「購入を復元」をお試しください。購入時と同じ Apple アカウントでサインインしている必要があります。</dd>
+      <dd>アプリの「設定」（画面左上の歯車）→「購入を復元」をお試しください。購入時と同じ Apple アカウントでサインインしている必要があります。</dd>
       <dt>サブスクリプションを解約したい</dt>
       <dd>iPhoneの「設定」→ 自分の名前 →「サブスクリプション」から解約できます。アプリを削除しただけでは解約されません。</dd>
     </dl>
-    <p style="margin-top:20px;">解決しない場合や、ご意見・ご要望は下記までお送りください。アプリの「設定」→「お問い合わせ」からも送れます。</p>
-    <p><a href="mailto:tkapps.support@gmail.com?subject=Trippacy%20%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">tkapps.support@gmail.com</a></p>
+    <p style="margin-top:20px;">解決しない場合や、ご意見・ご要望は下記までお送りください。アプリの「設定」（画面左上の歯車）→「お問い合わせ」からも送れます。</p>
+    <p><a href="mailto:tkapps.support@gmail.com?subject=%E3%81%8A%E3%81%A7%E3%81%8B%E3%81%91%E6%97%A5%E8%A8%98%EF%BC%88Trippacy%EF%BC%89%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">tkapps.support@gmail.com</a></p>
   </section>
 
   <section class="links">

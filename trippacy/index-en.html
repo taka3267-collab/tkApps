@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trippacy - Photo Travel Diary | T.K Apps</title>
+  <meta name="description" content="An iOS app that turns the photos in your camera roll into a diary of your outings, using their date and location. Your records stay on your device.">
+  <link rel="icon" href="icon.png">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", sans-serif;
+      background: #fbf7ef;
+      color: #3a2a20;
+      line-height: 1.8;
+    }
+    header {
+      background: linear-gradient(135deg, #fff1e2 0%, #fde3d3 100%);
+      text-align: center;
+      padding: 56px 20px 48px;
+      border-bottom: 1px solid #f1dfcf;
+    }
+    header .back { display: inline-block; margin-bottom: 18px; color: #8a6f5e; text-decoration: none; font-size: 0.9rem; }
+    .app-icon {
+      width: 96px; height: 96px; margin: 0 auto 18px; border-radius: 22px;
+      box-shadow: 0 14px 32px rgba(194, 80, 42, 0.25); display: block;
+    }
+    h1 { font-size: 2.3rem; font-weight: 800; letter-spacing: 0.02em; }
+    header p { margin-top: 10px; color: #8a6f5e; }
+    .store {
+      display: inline-block; margin-top: 22px; background: #c2502a; color: #fff;
+      text-decoration: none; font-weight: 700; padding: 12px 26px; border-radius: 999px;
+      box-shadow: 0 8px 20px rgba(194, 80, 42, 0.25);
+    }
+    main { max-width: 900px; margin: 0 auto; padding: 44px 20px 76px; }
+    .hero-copy, .card, .section {
+      background: #fffdf8; border: 1px solid #f0e4d6; border-radius: 18px;
+      box-shadow: 0 8px 28px rgba(120, 70, 30, 0.07);
+    }
+    .hero-copy { padding: 30px; margin-bottom: 24px; }
+    .hero-copy h2, .section h2 { color: #c2502a; font-size: 1.4rem; margin-bottom: 10px; }
+    .badge {
+      display: inline-block; background: #fbe9dc; color: #b04722; font-size: 0.8rem; font-weight: 700;
+      padding: 3px 10px; border-radius: 999px; margin-right: 6px; margin-top: 10px;
+    }
+    .shots {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 28px 0;
+    }
+    .shots img {
+      width: 100%; border-radius: 20px; border: 1px solid #efe2d3;
+      box-shadow: 0 8px 22px rgba(120, 70, 30, 0.1);
+    }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin: 24px 0; }
+    .card { padding: 22px; }
+    .card h3 { color: #c2502a; font-size: 1.05rem; margin-bottom: 8px; }
+    .section { padding: 28px; margin-top: 24px; }
+    .section h2 { font-size: 1.2rem; }
+    ul { padding-left: 20px; }
+    dl dt { font-weight: 700; margin-top: 14px; }
+    dl dd { color: #5d4a3e; }
+    .links { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 24px; }
+    .link-card {
+      display: block; background: #fffdf8; border: 1px solid #f0e4d6; border-radius: 14px; padding: 18px;
+      color: #3a2a20; text-decoration: none; box-shadow: 0 4px 18px rgba(120, 70, 30, 0.06);
+    }
+    .link-card strong { display: block; color: #c2502a; margin-bottom: 4px; }
+    .lang { position: absolute; top: 16px; right: 20px; font-size: 0.85rem; color: #8a6f5e; text-decoration: none; border: 1px solid #ecd6c4; border-radius: 999px; padding: 4px 12px; background: #fffaf3; }
+    header { position: relative; }
+    footer { text-align: center; padding: 32px 20px; color: #a08c7e; font-size: 0.85rem; }
+    a { color: #c2502a; }
+    @media (max-width: 640px) {
+      h1 { font-size: 1.8rem; }
+      .shots { grid-template-columns: repeat(2, 1fr); }
+      .hero-copy, .section { padding: 22px 18px; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <a class="lang" href="index.html" hreflang="ja" lang="ja">日本語</a>
+  <a class="back" href="../index.html">← T.K Apps</a>
+  <img class="app-icon" src="icon.png" alt="">
+  <h1>Trippacy</h1>
+  <p>Photo Travel Diary — your camera roll, turned into a diary of your outings</p>
+  <a class="store" href="https://apps.apple.com/app/id6831562941">View on the App Store</a>
+</header>
+
+<main>
+  <section class="hero-copy">
+    <h2>A diary, without writing.</h2>
+    <p>Trippacy uses the date and location saved in your photos to put together the places you visited and the route you took. No need to take notes on the go. Just pick the dates, check the result, and save. Later, look at your photos and add a few words about what you remember.</p>
+    <p>The name combines Trip, Privacy, and Legacy. Your records stay only on your device.</p>
+    <p style="font-size:0.9rem;color:#8a6f5e;">The app is available in English and Japanese.</p>
+    <span class="badge">iPhone &amp; iPad</span>
+    <span class="badge">Diary</span>
+    <span class="badge">Travel</span>
+    <span class="badge">Map</span>
+    <span class="badge">No account</span>
+  </section>
+
+  <div class="shots">
+    <img src="shot-en-1.jpg" alt="Outings grouped by month">
+    <img src="shot-en-2.jpg" alt="Outing calendar">
+    <img src="shot-en-3.jpg" alt="Outing details and places visited">
+    <img src="shot-en-4.jpg" alt="Retrace screen">
+  </div>
+
+  <section class="grid">
+    <div class="card">
+      <h3>Automatic records from photos</h3>
+      <p>Pick a day trip or overnight dates, and Trippacy creates the places you visited and an estimated route from your photos. Place names are added automatically.</p>
+    </div>
+    <div class="card">
+      <h3>Look back like a diary</h3>
+      <p>Outings are grouped by month with the date and day of the week. Write a few words in your memory notes, add tags, and search by keyword or tag.</p>
+    </div>
+    <div class="card">
+      <h3>Retrace on the map</h3>
+      <p>See all your outings on one map. “Retrace” moves across the map in the order you visited, showing your photos along the way.</p>
+    </div>
+    <div class="card">
+      <h3>Look back in the calendar</h3>
+      <p>See the days you went out at a glance. You can also start a record from days with photos you haven't recorded yet.</p>
+    </div>
+    <div class="card">
+      <h3>Records stay on your device</h3>
+      <p>All photo analysis happens on your device. Photos and records are never sent to a server, and no account is needed.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Premium</h2>
+    <p>All features are free. Premium (in-app purchase) removes ads.</p>
+    <ul>
+      <li>Monthly plan</li>
+      <li>Yearly plan (1-week free trial)</li>
+      <li>Lifetime (one-time purchase)</li>
+    </ul>
+    <p style="margin-top:10px;font-size:0.9rem;color:#8a6f5e;">Prices are shown in the app and on the App Store for your region. Subscriptions can be canceled in your App Store account settings.</p>
+  </section>
+
+  <section class="section" id="support">
+    <h2>Support &amp; FAQ</h2>
+    <dl>
+      <dt>My photos don't appear on the map</dt>
+      <dd>Photos without location data don't appear on the map. On your iPhone, go to Settings → Privacy &amp; Security → Location Services → Camera and choose “While Using the App” so future photos record their location. Photos received through messaging apps may have had their location removed.</dd>
+      <dt>I want to add a location to photos later</dt>
+      <dd>You can add a location from a photo's info (ⓘ) in the Photos app. To fix many photos at once, you can also use <a href="https://apps.apple.com/app/id6832261732" target="_blank" rel="noopener">GeoPhoto</a>, a location editor from the same developer. Afterwards, open the outing and choose “Load New Photos” from the “…” menu.</dd>
+      <dt>Can I record places without photos?</dt>
+      <dd>Yes. Long-press the map, or choose “Add Place Manually” from the “…” menu on an outing.</dd>
+      <dt>Can I move my records to a new device?</dt>
+      <dd>Records are saved on your device. If “Include in Device Backups” is on in Settings, you can restore them on a new device from an iCloud or computer backup. You can also save your records to a file with Settings → Backup &amp; Data → Export to JSON, and use Import from JSON on the new device. Move the photos themselves with the Photos app (for example, iCloud Photos).</dd>
+      <dt>My Premium purchase isn't showing</dt>
+      <dd>Open Settings in the app (the gear at the top left) and tap “Restore Purchases.” Make sure you're signed in with the same Apple Account you used to purchase.</dd>
+      <dt>How do I cancel my subscription?</dt>
+      <dd>On your iPhone, go to Settings → your name → Subscriptions. Deleting the app doesn't cancel the subscription.</dd>
+    </dl>
+    <p style="margin-top:20px;">If your issue isn't solved, or if you have feedback, please contact us below. You can also use Settings (the gear at the top left) → Contact Us in the app.</p>
+    <p><a href="mailto:tkapps.support@gmail.com?subject=Trippacy%20Support">tkapps.support@gmail.com</a></p>
+  </section>
+
+  <section class="links">
+    <a class="link-card" href="privacy-policy-en.html">
+      <strong>Privacy Policy</strong>
+      How the app handles photos, location, ads, purchases, and tracking
+    </a>
+    <a class="link-card" href="terms-en.html">
+      <strong>Terms of Use</strong>
+      Notes on using the app, purchases, and disclaimers
+    </a>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2026 T.K Apps</p>
+</footer>
+</body>
+</html>

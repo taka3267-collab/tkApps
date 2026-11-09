@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>プライバシーポリシー - Trippacy | T.K Apps</title>
+  <title>プライバシーポリシー - おでかけ日記 - トリッパシー（Trippacy）| T.K Apps</title>
   <link rel="icon" href="icon.png">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -24,6 +24,8 @@
     td { padding: 10px 12px; border-bottom: 1px solid #f0e4d6; vertical-align: top; }
     .updated { text-align: right; color: #a08c7e; font-size: 0.85rem; margin-bottom: 24px; }
     .notice { background: #fbe9dc; border-left: 4px solid #c2502a; border-radius: 0 10px 10px 0; padding: 14px 16px; }
+    header { position: relative; }
+    .lang { position: absolute; top: 16px; right: 20px; font-size: 0.85rem; color: #8a6f5e; text-decoration: none; border: 1px solid #ecd6c4; border-radius: 999px; padding: 4px 12px; background: #fffaf3; }
     footer { text-align: center; padding: 32px 20px; color: #a08c7e; font-size: 0.85rem; }
     a { color: #c2502a; }
     @media (max-width: 560px) {
@@ -37,17 +39,18 @@
 </head>
 <body>
 <header>
-  <a class="back" href="index.html">← Trippacy トップへ</a>
+  <a class="lang" href="privacy-policy-en.html" hreflang="en" lang="en">English</a>
+  <a class="back" href="index.html">← おでかけ日記 トップへ</a>
   <h1>プライバシーポリシー</h1>
-  <p>Trippacy - おでかけと旅の地図日記</p>
+  <p>おでかけ日記 - トリッパシー（Trippacy）</p>
 </header>
 
 <main>
-  <p class="updated">最終更新日：2026年11月8日</p>
+  <p class="updated">最終更新日：2026年11月9日</p>
 
   <div class="card">
     <h2>1. はじめに</h2>
-    <p>T.K Apps（以下「当方」）は、iOSアプリ「Trippacy - おでかけと旅の地図日記」（以下「本アプリ」）をご利用いただくにあたり、利用者のプライバシーを尊重し、個人情報の保護に努めます。本ポリシーは、本アプリにおける情報の取り扱いについて説明するものです。</p>
+    <p>T.K Apps（以下「当方」）は、iOSアプリ「おでかけ日記 - トリッパシー（Trippacy）」（以下「本アプリ」）をご利用いただくにあたり、利用者のプライバシーを尊重し、個人情報の保護に努めます。本ポリシーは、本アプリにおける情報の取り扱いについて説明するものです。</p>
     <p class="notice">本アプリは、写真や記録を当方のサーバーへ送信しません。当方は本アプリ用のサーバーを運営しておらず、アカウント登録もありません。</p>
   </div>
 
@@ -56,7 +59,7 @@
     <p>本アプリは、以下の情報を利用者の端末内に保存します。</p>
     <table>
       <tr><th>情報の種類</th><th>内容</th></tr>
-      <tr><td>おでかけの記録</td><td>タイトル、期間、メモ、表紙に使う写真の指定</td></tr>
+      <tr><td>おでかけの記録</td><td>タイトル、期間、思い出ノート（メモ）、タグ、表紙に使う写真の指定</td></tr>
       <tr><td>訪れた場所</td><td>場所の名前、緯度・経度、訪問日時、都道府県・国などの地域名、メモ</td></tr>
       <tr><td>推定ルート</td><td>訪れた場所を時系列で結んだ地点の情報</td></tr>
       <tr><td>写真の参照情報</td><td>写真アプリ内の写真を識別するID、撮影日時、撮影場所の緯度・経度</td></tr>
@@ -67,7 +70,7 @@
 
   <div class="card">
     <h2>3. 写真・フォトライブラリの利用</h2>
-    <p>本アプリは、利用者が「写真から自動作成」などの機能を使うときに、フォトライブラリへのアクセスを求めます。アクセスを許可された写真について、撮影日時と位置情報を端末内で解析し、訪れた場所と推定ルートを作成します。</p>
+    <p>本アプリは、利用者が「写真から自動作成」などの機能を使うときに、フォトライブラリへのアクセスを求めます。アクセスを求める前に、写真を何に使うかを説明する画面を表示します。アクセスを許可された写真について、撮影日時と位置情報を端末内で解析し、訪れた場所と推定ルートを作成します。</p>
     <ul>
       <li>写真の解析はすべて端末内で行い、写真や解析結果を外部へ送信しません。</li>
       <li>写真の内容（写っている人物や物）を解析することはありません。</li>
@@ -79,6 +82,7 @@
   <div class="card">
     <h2>4. 地図と地名の取得</h2>
     <p>本アプリは、地図の表示と、緯度・経度から地名を調べる処理（逆ジオコーディング）に Apple の MapKit を利用します。この処理のために、訪れた場所の緯度・経度が Apple に送信されます。Apple による情報の取り扱いは、Apple のプライバシーポリシーに従います。</p>
+    <p>地名は、アプリの表示言語（日本語または英語）で取得します。この処理は、アプリの「設定」→「場所の名前を自動取得」でオフにできます。</p>
     <p>本アプリは、利用者の現在地を取得しません。</p>
     <ul>
       <li><a href="https://www.apple.com/jp/legal/privacy/" target="_blank" rel="noopener">Apple プライバシーポリシー</a></li>
@@ -90,6 +94,7 @@
     <p>本アプリでは、プレミアムを利用していない利用者向けに広告を表示します。広告配信には Google AdMob を利用します。広告配信事業者は、広告の表示、効果測定、不正防止のために、広告ID（IDFA）などの端末の識別子、IPアドレスから推定されるおおよその地域、広告の表示・操作に関する情報、診断情報を取得する場合があります。</p>
     <ul>
       <li>おでかけの記録、写真、訪れた場所の情報を広告に使用したり、広告配信事業者に提供したりすることはありません。</li>
+      <li>おでかけの記録を最初の2回保存するまでは、全画面の広告を表示しません。</li>
       <li>広告をパーソナライズするかどうかは、App Tracking Transparency（ATT）で利用者に確認します。許可しない場合は、パーソナライズされない広告を表示します。</li>
       <li>欧州経済領域などでは、Google のユーザー向けメッセージ（UMP）で同意を確認します。同意の内容は、アプリの「設定」→「広告のプライバシー設定」から変更できます。</li>
     </ul>
