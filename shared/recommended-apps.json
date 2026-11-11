@@ -223,12 +223,25 @@
       "diary",
       "bookdeck",
       "quicknote",
-      "focuscamera"
+      "--more--",
+      "focuscamera",
+      "calculator",
+      "gamedeck"
     ],
     "com.taka.diary": [
       "bookdeck",
       "quicknote",
-      "focuscamera"
+      "focuscamera",
+      "--more--",
+      "calculator",
+      "gamedeck",
+      "ehonlog",
+      "seikurabe",
+      "babymap",
+      "fuellog",
+      "compound_graph",
+      "dog_atlas",
+      "train"
     ],
     "com.tkapps.friendTalk": [
       "diary",

@@ -68,6 +68,10 @@
           text-align:center; color:var(--sub); font-size:13px; }
   .drop.over { border-color:var(--accent); color:var(--accent); }
   .hide { display:none !important; }
+  .sep { display:flex; gap:10px; align-items:center; padding:10px 0;
+         border-bottom:1px solid var(--line); }
+  .sep .line { flex:1 1 auto; border-top:2px dashed var(--accent); }
+  .sep b { font-size:12px; color:var(--accent); white-space:nowrap; }
 </style>
 </head>
 <body>
@@ -103,6 +107,10 @@
           <h2>表示するアプリ（上から順に表示されます）</h2>
           <div id="selectedList"></div>
           <p class="muted" id="selectedEmpty" style="margin-top:10px"></p>
+          <div style="margin-top:12px; display:flex; gap:8px; align-items:center; flex-wrap:wrap">
+            <button id="toggleMore"></button>
+            <span class="muted" id="moreNote"></span>
+          </div>
         </div>
 
         <div class="card">
@@ -202,6 +210,7 @@
 const JSON_PATH = "shared/recommended-apps.json";
 const ICON_DIR  = "shared/icons/";
 const LANGS = ["ja", "en", "ko", "zh-Hans"];
+const MORE = "--more--";   // ここから下は「もっと見る」を押すまで隠れる
 const LS = "tkapps.recommended.admin";
 
 const cfg = Object.assign(
@@ -368,7 +377,7 @@ function renderPlacement() {
   const self = (data.bundleToApp || {})[target];
   const box = $("selectedList"); box.innerHTML = "";
   list.forEach((id, i) => {
-    if (!data.catalog[id]) return;
+    if (id !== MORE && !data.catalog[id]) return;
     const ctl = document.createElement("div");
     ctl.style.cssText = "display:flex;gap:2px;align-items:center;flex:none";
     ctl.append(
@@ -378,9 +387,21 @@ function renderPlacement() {
     );
     ctl.querySelectorAll("button")[0].disabled = i === 0;
     ctl.querySelectorAll("button")[1].disabled = i === list.length - 1;
-    box.append(appRow(id, $("previewLang").value, ctl));
+    if (id === MORE) {
+      const sep = document.createElement("div");
+      sep.className = "sep";
+      const l1 = document.createElement("div"); l1.className = "line";
+      const label = document.createElement("b");
+      label.textContent = "▼ ここから下は「もっと見る」を押すと表示";
+      const l2 = document.createElement("div"); l2.className = "line";
+      sep.append(l1, label, l2, ctl);
+      box.append(sep);
+    } else {
+      box.append(appRow(id, $("previewLang").value, ctl));
+    }
   });
   $("selectedEmpty").textContent = list.length ? "" : "まだ1つも選ばれていません。下から追加してください。";
+  renderMoreControls(list);
 
   const avail = $("availableList"); avail.innerHTML = "";
   Object.keys(data.catalog).forEach((id) => {
@@ -397,6 +418,29 @@ function renderPlacement() {
     avail.append(appRow(id, $("previewLang").value, wrap));
   });
 }
+function renderMoreControls(list) {
+  const at = list.indexOf(MORE);
+  const b = $("toggleMore");
+  if (at < 0) {
+    b.textContent = "「もっと見る」の区切りを入れる";
+    b.onclick = () => {
+      // 既定では先頭3件を見せて、残りを隠す。
+      data.placements[target].splice(Math.min(3, list.length), 0, MORE);
+      setDirty(true); render();
+    };
+    $("moreNote").textContent = "いまは全部そのまま表示されます。";
+  } else {
+    b.textContent = "区切りを外す（全部表示する）";
+    b.onclick = () => {
+      data.placements[target] = list.filter((x) => x !== MORE);
+      setDirty(true); render();
+    };
+    const shown = list.slice(0, at).filter((x) => data.catalog[x] && x !== (data.bundleToApp || {})[target]).length;
+    const hidden = list.slice(at + 1).filter((x) => data.catalog[x] && x !== (data.bundleToApp || {})[target]).length;
+    $("moreNote").textContent = "最初に " + shown + " 件を表示し、残り " + hidden + " 件は「もっと見る」を押すと表示されます。";
+  }
+}
+
 function move(i, d) {
   const list = data.placements[target];
   const j = i + d;
@@ -432,9 +476,31 @@ function renderCatalog() {
 function renderPreview() {
   const lang = $("previewLang").value;
   const box = $("preview"); box.innerHTML = "";
-  const list = (data.placements[target] || []).filter((id) => id !== (data.bundleToApp || {})[target]);
+  const self = (data.bundleToApp || {})[target];
+  const raw = (data.placements[target] || []).filter((id) => id !== self);
+  const at = raw.indexOf(MORE);
+  const list = raw.filter((id) => data.catalog[id]);
   if (!list.length) { box.innerHTML = '<p class="muted">表示するアプリがありません。</p>'; return; }
-  list.forEach((id) => { if (data.catalog[id]) box.append(appRow(id, lang)); });
+
+  const shown = at < 0 ? list.length
+    : raw.slice(0, at).filter((id) => data.catalog[id]).length;
+  list.slice(0, shown).forEach((id) => box.append(appRow(id, lang)));
+
+  if (shown < list.length) {
+    const more = document.createElement("div");
+    more.className = "row";
+    more.style.cursor = "pointer";
+    more.innerHTML = '<div class="meta"><b>もっと見る</b></div><span class="muted">▼</span>';
+    const rest = document.createElement("div");
+    rest.className = "hide";
+    list.slice(shown).forEach((id) => rest.append(appRow(id, lang)));
+    more.onclick = () => {
+      rest.classList.toggle("hide");
+      more.querySelector("b").textContent = rest.classList.contains("hide") ? "もっと見る" : "閉じる";
+      more.querySelector("span").textContent = rest.classList.contains("hide") ? "▼" : "▲";
+    };
+    box.append(more, rest);
+  }
 }
 
 /* ---------- アプリ編集ダイアログ ---------- */

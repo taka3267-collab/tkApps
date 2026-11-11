@@ -36,6 +36,8 @@ https://taka3267-collab.github.io/tkApps/admin/recommended-apps.html
 ```
 
 - `placements` に無いアプリには `default` が使われる
+- 配列の途中に `"--more--"` を入れると、**そこから下は「もっと見る」を押すまで隠れる**
+  （管理ページの「『もっと見る』の区切りを入れる」で追加・移動できる）
 - 言語は `ja` / `en` / `ko` / `zh-Hans`。足りない言語は 英語 → 日本語 の順で代用される
 - アイコンは `icons/` に 256×256 の PNG（管理ページからアップロードすると自動で変換される）
 
