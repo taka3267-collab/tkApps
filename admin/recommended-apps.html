@@ -210,7 +210,7 @@
 const JSON_PATH = "shared/recommended-apps.json";
 const ICON_DIR  = "shared/icons/";
 const LANGS = ["ja", "en", "ko", "zh-Hans"];
-const MORE = "--more--";   // ここから下は「もっと見る」を押すまで隠れる
+const MORE = "--more--";   // ここから下は「開発者のその他のアプリ」を押すまで隠れる
 const LS = "tkapps.recommended.admin";
 
 const cfg = Object.assign(
@@ -392,7 +392,7 @@ function renderPlacement() {
       sep.className = "sep";
       const l1 = document.createElement("div"); l1.className = "line";
       const label = document.createElement("b");
-      label.textContent = "▼ ここから下は「もっと見る」を押すと表示";
+      label.textContent = "▼ ここから下は「開発者のその他のアプリ」を押すと表示";
       const l2 = document.createElement("div"); l2.className = "line";
       sep.append(l1, label, l2, ctl);
       box.append(sep);
@@ -422,7 +422,7 @@ function renderMoreControls(list) {
   const at = list.indexOf(MORE);
   const b = $("toggleMore");
   if (at < 0) {
-    b.textContent = "「もっと見る」の区切りを入れる";
+    b.textContent = "「開発者のその他のアプリ」の区切りを入れる";
     b.onclick = () => {
       // 既定では先頭3件を見せて、残りを隠す。
       data.placements[target].splice(Math.min(3, list.length), 0, MORE);
@@ -437,7 +437,7 @@ function renderMoreControls(list) {
     };
     const shown = list.slice(0, at).filter((x) => data.catalog[x] && x !== (data.bundleToApp || {})[target]).length;
     const hidden = list.slice(at + 1).filter((x) => data.catalog[x] && x !== (data.bundleToApp || {})[target]).length;
-    $("moreNote").textContent = "最初に " + shown + " 件を表示し、残り " + hidden + " 件は「もっと見る」を押すと表示されます。";
+    $("moreNote").textContent = "最初に " + shown + " 件を表示し、残り " + hidden + " 件は「開発者のその他のアプリ」を押すと表示されます。";
   }
 }
 
@@ -490,13 +490,13 @@ function renderPreview() {
     const more = document.createElement("div");
     more.className = "row";
     more.style.cursor = "pointer";
-    more.innerHTML = '<div class="meta"><b>もっと見る</b></div><span class="muted">▼</span>';
+    more.innerHTML = '<div class="meta"><b>開発者のその他のアプリ</b></div><span class="muted">▼</span>';
     const rest = document.createElement("div");
     rest.className = "hide";
     list.slice(shown).forEach((id) => rest.append(appRow(id, lang)));
     more.onclick = () => {
       rest.classList.toggle("hide");
-      more.querySelector("b").textContent = rest.classList.contains("hide") ? "もっと見る" : "閉じる";
+      more.querySelector("b").textContent = rest.classList.contains("hide") ? "開発者のその他のアプリ" : "閉じる";
       more.querySelector("span").textContent = rest.classList.contains("hide") ? "▼" : "▲";
     };
     box.append(more, rest);
