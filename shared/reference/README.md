@@ -3,6 +3,19 @@
 対象: SwiftUI のアプリ（`/Users/taka/Dev/*`）。
 日記（`/Users/taka/Dev/diary`）が最初の実装で、ここにあるのはそれを汎用化したひな形。
 
+> **Flutter のアプリの場合**
+> `RecommendedAppsService.swift` の Dart 移植が
+> `/Users/taka/Dev/friend-talk-ios/lib/services/recommended_apps_service.dart` にある。
+> JSON の読み方（`catalog` / `placements` / `bundleToApp` / `--more--`）と
+> フォールバックの順序は Swift 版と同じで、違うのは次の3点だけ。
+> - キャッシュは `path_provider` を足さずに `shared_preferences` に JSON 文字列で持つ
+> - Bundle ID は `package_info_plus` から取る
+> - 画面側は `RecommendedAppsStore.shared`（`ChangeNotifier`）を `ListenableBuilder` で listen する
+>
+> 設定画面のスニペットは下の SwiftUI 版ではなく、
+> `friend-talk-ios/lib/screens/settings/settings_screen.dart` の
+> `_RecommendedAppsSection` をコピーする。
+
 所要: 1 アプリ 15〜30 分。**アプリ更新が必要なのは最初の 1 回だけ**で、
 以後は内容・並び順・「開発者のほかのアプリ」の位置を管理ページから差し替えられる。
 

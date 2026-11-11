@@ -54,7 +54,15 @@ https://taka3267-collab.github.io/tkApps/admin/recommended-apps.html
 
 ## 対応しているアプリ
 
-いまこの仕組みを読んでいるのは **日記（com.taka.diary）だけ**です。
+いまこの仕組みを読んでいるのは **日記（com.taka.diary）** と
+**ブックデッキ（com.taka.Libroa）** です。
+
+**友達トーク（com.tkapps.friendTalk）は実装済みで、次のビルドの公開から反映されます。**
+Flutter 製なのでクライアントは
+`friend-talk-ios/lib/services/recommended_apps_service.dart` に Dart 移植してあります。
+公開したら、このリストと `admin/recommended-apps.html` の `SUPPORTED` に
+`com.tkapps.friendTalk` を足してください（先に足すと、管理ページの
+「まだ対応していません」の注意が出なくなり、反映されないのに設定できてしまいます）。
 `placements` には他のアプリも登録してあるので先に設定しておけますが、
 各アプリが `recommended-apps.json` を読むようになるまで反映されません。
 （管理ページでも、未対応のアプリを選ぶとその旨が表示されます）

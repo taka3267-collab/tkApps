@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T08:39:55Z",
+  "updatedAt": "2026-11-11T11:58:11Z",
   "iconBaseUrl": "https://taka3267-collab.github.io/tkApps/shared/",
   "catalog": {
     "diary": {
@@ -216,6 +216,20 @@
           "detail": "Run trains and enjoy coupling and uncoupling in this train simulator"
         }
       }
+    },
+    "friendtalk": {
+      "appStoreId": "6778884797",
+      "icon": "icons/friendtalk.png",
+      "localizations": {
+        "ja": {
+          "title": "友達トーク",
+          "detail": "趣味でつながって気軽に話せる、雑談チャット"
+        },
+        "en": {
+          "title": "Friend Talk",
+          "detail": "A casual chat app where you connect over shared hobbies"
+        }
+      }
     }
   },
   "placements": {
@@ -247,9 +261,17 @@
       "diary",
       "quicknote",
       "bookdeck",
+      "--more--",
       "calculator",
       "gamedeck",
-      "focuscamera"
+      "focuscamera",
+      "ehonlog",
+      "seikurabe",
+      "babymap",
+      "train",
+      "fuellog",
+      "compound_graph",
+      "dog_atlas"
     ],
     "com.taka.Libroa": [
       "diary",
@@ -569,10 +591,10 @@
     "com.taka3267.DogAtlas": "dog_atlas",
     "com.taka.BabyMap": "babymap",
     "com.taka.denshaAsobi": "train",
-    "com.taka3267.seikurabe": "seikurabe"
+    "com.taka3267.seikurabe": "seikurabe",
+    "com.tkapps.friendTalk": "friendtalk"
   },
   "targetNames": {
-    "com.tkapps.friendTalk": "友達トーク",
     "com.taka.AnimeDeck": "アニメデッキ",
     "com.taka.ComicDeck": "マンガデッキ",
     "com.taka.GeoPhoto": "GeoPhoto",
