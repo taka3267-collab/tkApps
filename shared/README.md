@@ -31,13 +31,16 @@ https://taka3267-collab.github.io/tkApps/admin/recommended-apps.html
   },
   "bundleToApp": {       // Bundle ID → catalog の ID（自分自身を表示しないために使う）
     "com.taka.diary": "diary"
+  },
+  "targetNames": {       // catalog に情報が無いアプリを、管理ページの一覧で名前表示するため
+    "com.tkapps.friendTalk": "友達トーク"
   }
 }
 ```
 
 - `placements` に無いアプリには `default` が使われる
-- 配列の途中に `"--more--"` を入れると、**そこから下は「開発者のその他のアプリ」を押すまで隠れる**
-  （管理ページの「『開発者のその他のアプリ』の区切りを入れる」で追加・移動できる）
+- 配列の途中に `"--more--"` を入れると、**そこから下は「開発者のほかのアプリ」を押すまで隠れる**
+  （管理ページの「『開発者のほかのアプリ』の区切りを入れる」で追加・移動できる）
 - 言語は `ja` / `en` / `ko` / `zh-Hans`。足りない言語は 英語 → 日本語 の順で代用される
 - アイコンは `icons/` に 256×256 の PNG（管理ページからアップロードすると自動で変換される）
 
@@ -47,3 +50,13 @@ https://taka3267-collab.github.io/tkApps/admin/recommended-apps.html
 - 6時間に1回だけ取得し、結果は端末内にキャッシュする
 - 取得できないときは「前回の内容 → アプリ内蔵の既定値」の順に落ちるので、表示が消えることはない
 - 送信する情報は無し（静的ファイルへの GET のみ）
+
+## 対応しているアプリ
+
+いまこの仕組みを読んでいるのは **日記（com.taka.diary）だけ**です。
+`placements` には他のアプリも登録してあるので先に設定しておけますが、
+各アプリが `recommended-apps.json` を読むようになるまで反映されません。
+（管理ページでも、未対応のアプリを選ぶとその旨が表示されます）
+
+アプリを対応させるには、日記の `Diary/Services/RecommendedAppsService.swift` と同じ処理を入れて、
+`placements` にそのアプリの Bundle ID を足すだけです。
