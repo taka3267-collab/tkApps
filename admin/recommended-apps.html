@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>おすすめアプリ管理</title>
+<style>
+  :root {
+    --bg: #f5f5f7; --card: #fff; --line: #e3e3e8; --text: #1d1d1f;
+    --sub: #6e6e73; --accent: #d2487f; --accent-soft: #fdf0f5; --danger: #c0392b;
+    --radius: 14px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#161618; --card:#202024; --line:#34343a; --text:#f2f2f5;
+            --sub:#9a9aa2; --accent:#f08cb4; --accent-soft:#33232b; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text);
+         font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif;
+         font-size:15px; line-height:1.6; }
+  header { position:sticky; top:0; z-index:10; background:var(--card);
+           border-bottom:1px solid var(--line); padding:12px 16px;
+           display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+  header h1 { font-size:17px; margin:0; flex:1 1 auto; }
+  main { max-width:1100px; margin:0 auto; padding:16px; }
+  .wrap { display:grid; grid-template-columns:minmax(0,1fr) 300px; gap:16px; align-items:start; }
+  @media (max-width:820px) { .wrap { grid-template-columns:1fr; } }
+  .card { background:var(--card); border:1px solid var(--line);
+          border-radius:var(--radius); padding:16px; margin-bottom:16px; }
+  .card h2 { font-size:15px; margin:0 0 12px; }
+  button { font:inherit; border-radius:10px; border:1px solid var(--line);
+           background:var(--card); color:var(--text); padding:7px 14px; cursor:pointer; }
+  button:hover { background:var(--accent-soft); }
+  button.primary { background:var(--accent); border-color:var(--accent); color:#fff; font-weight:600; }
+  button.primary:hover { opacity:.9; background:var(--accent); }
+  button.ghost { border:none; background:none; padding:4px 8px; color:var(--sub); }
+  button:disabled { opacity:.45; cursor:default; }
+  input, textarea, select { font:inherit; width:100%; padding:8px 10px; color:var(--text);
+           background:var(--bg); border:1px solid var(--line); border-radius:9px; }
+  label { display:block; font-size:12px; color:var(--sub); margin:10px 0 4px; }
+  .tabs { display:flex; gap:6px; margin-bottom:16px; flex-wrap:wrap; }
+  .tabs button { border-radius:999px; }
+  .tabs button[aria-selected="true"] { background:var(--accent); border-color:var(--accent); color:#fff; }
+  .row { display:flex; gap:12px; align-items:center; padding:10px 0; border-bottom:1px solid var(--line); }
+  .row:last-child { border-bottom:none; }
+  .row img { width:48px; height:48px; border-radius:11px; object-fit:cover; background:var(--bg); flex:none; }
+  .row .meta { flex:1 1 auto; min-width:0; }
+  .row .meta b { display:block; font-size:14px; }
+  .row .meta span { display:block; font-size:12px; color:var(--sub);
+                    overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .pill { font-size:11px; color:var(--sub); border:1px solid var(--line);
+          border-radius:999px; padding:1px 8px; }
+  .muted { color:var(--sub); font-size:12px; }
+  .status { font-size:12px; color:var(--sub); }
+  .status.err { color:var(--danger); }
+  .status.ok { color:#2e7d32; }
+  dialog { border:none; border-radius:var(--radius); padding:0; background:var(--card);
+           color:var(--text); width:min(560px,94vw); }
+  dialog::backdrop { background:rgba(0,0,0,.45); }
+  .dlg-body { padding:18px; max-height:72vh; overflow:auto; }
+  .dlg-foot { display:flex; gap:8px; justify-content:flex-end; padding:12px 18px;
+              border-top:1px solid var(--line); }
+  .preview { background:var(--bg); border-radius:12px; padding:10px; }
+  .preview .row { border-bottom:1px solid var(--line); }
+  .grab { cursor:grab; color:var(--sub); }
+  .drop { border:2px dashed var(--line); border-radius:12px; padding:18px;
+          text-align:center; color:var(--sub); font-size:13px; }
+  .drop.over { border-color:var(--accent); color:var(--accent); }
+  .hide { display:none !important; }
+</style>
+</head>
+<body>
+<header>
+  <h1>おすすめアプリ管理</h1>
+  <span id="dirty" class="status"></span>
+  <button id="reload">読み込み直す</button>
+  <button id="publish" class="primary">公開する</button>
+  <button id="settings" class="ghost">⚙︎</button>
+</header>
+
+<main>
+  <div class="tabs">
+    <button id="tab-placement" aria-selected="true">表示設定</button>
+    <button id="tab-catalog" aria-selected="false">アプリ情報</button>
+  </div>
+
+  <!-- 表示設定 -->
+  <section id="pane-placement">
+    <div class="wrap">
+      <div>
+        <div class="card">
+          <h2>どのアプリの設定を編集しますか？</h2>
+          <select id="targetSelect"></select>
+          <p class="muted" id="targetNote" style="margin:10px 0 0"></p>
+          <div style="margin-top:10px; display:flex; gap:8px; flex-wrap:wrap">
+            <button id="addTarget">アプリを追加</button>
+            <button id="removeTarget" class="ghost">この設定を削除</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>表示するアプリ（上から順に表示されます）</h2>
+          <div id="selectedList"></div>
+          <p class="muted" id="selectedEmpty" style="margin-top:10px"></p>
+        </div>
+
+        <div class="card">
+          <h2>表示していないアプリ</h2>
+          <div id="availableList"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>アプリでの見え方</h2>
+        <div style="display:flex; gap:6px; margin-bottom:10px">
+          <select id="previewLang" style="flex:1">
+            <option value="ja">日本語</option><option value="en">English</option>
+            <option value="ko">한국어</option><option value="zh-Hans">简体中文</option>
+          </select>
+        </div>
+        <div class="preview" id="preview"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- アプリ情報 -->
+  <section id="pane-catalog" class="hide">
+    <div class="card">
+      <h2>アプリ情報（ここに登録したアプリを各アプリで選べます）</h2>
+      <div id="catalogList"></div>
+      <div style="margin-top:14px"><button id="addApp" class="primary">アプリを追加</button></div>
+    </div>
+  </section>
+</main>
+
+<!-- アプリ編集 -->
+<dialog id="appDialog">
+  <form method="dialog">
+    <div class="dlg-body">
+      <h2 style="margin-top:0" id="appDialogTitle">アプリを追加</h2>
+      <label>ID（半角英数。あとから変更できません）</label>
+      <input id="f-id" placeholder="bookdeck">
+      <label>App Store ID（数字だけ）</label>
+      <input id="f-sid" inputmode="numeric" placeholder="6811623217">
+      <label>アイコン</label>
+      <div style="display:flex; gap:12px; align-items:center">
+        <img id="f-iconPreview" style="width:64px;height:64px;border-radius:14px;object-fit:cover;background:var(--bg)">
+        <div style="flex:1">
+          <div class="drop" id="f-drop">画像をドラッグ＆ドロップ<br>またはタップして選択</div>
+          <input type="file" id="f-file" accept="image/*" class="hide">
+        </div>
+      </div>
+      <div class="tabs" style="margin:16px 0 0">
+        <button type="button" class="langtab" data-lang="ja" aria-selected="true">日本語</button>
+        <button type="button" class="langtab" data-lang="en" aria-selected="false">English</button>
+        <button type="button" class="langtab" data-lang="ko" aria-selected="false">한국어</button>
+        <button type="button" class="langtab" data-lang="zh-Hans" aria-selected="false">简体中文</button>
+      </div>
+      <label>アプリ名</label>
+      <input id="f-title">
+      <label>説明（1〜2行）</label>
+      <textarea id="f-detail" rows="2"></textarea>
+      <p class="muted">日本語以外が空欄のときは、英語→日本語の順で代わりに表示されます。</p>
+    </div>
+    <div class="dlg-foot">
+      <button value="cancel">キャンセル</button>
+      <button value="ok" class="primary">OK</button>
+    </div>
+  </form>
+</dialog>
+
+<!-- 接続設定 -->
+<dialog id="tokenDialog">
+  <form method="dialog">
+    <div class="dlg-body">
+      <h2 style="margin-top:0">GitHub の接続設定</h2>
+      <p class="muted">
+        公開するには GitHub のアクセストークンが必要です。トークンはこの端末のブラウザにだけ保存され、
+        GitHub 以外には送信されません。<br><br>
+        GitHub → Settings → Developer settings → Personal access tokens →
+        <b>Fine-grained tokens</b> で、リポジトリを <b>tkApps のみ</b>、権限を
+        <b>Contents: Read and write</b> にして作成してください。
+      </p>
+      <label>リポジトリ（owner/repo）</label>
+      <input id="t-repo">
+      <label>ブランチ</label>
+      <input id="t-branch">
+      <label>アクセストークン</label>
+      <input id="t-token" type="password" placeholder="github_pat_...">
+    </div>
+    <div class="dlg-foot">
+      <button value="cancel">キャンセル</button>
+      <button value="ok" class="primary">保存</button>
+    </div>
+  </form>
+</dialog>
+
+<script>
+"use strict";
+
+const JSON_PATH = "shared/recommended-apps.json";
+const ICON_DIR  = "shared/icons/";
+const LANGS = ["ja", "en", "ko", "zh-Hans"];
+const LS = "tkapps.recommended.admin";
+
+const cfg = Object.assign(
+  { repo: "taka3267-collab/tkApps", branch: "main", token: "" },
+  JSON.parse(localStorage.getItem(LS) || "{}")
+);
+const saveCfg = () => localStorage.setItem(LS, JSON.stringify(cfg));
+
+let data = null;        // 編集中のデータ
+let sha = null;         // GitHub 上のファイルの sha
+let target = null;      // 編集中の bundle id
+let dirty = false;
+const pendingIcons = new Map();  // path -> base64（公開時にまとめてアップロード）
+const localIcons = new Map();    // path -> dataURL（プレビュー用）
+
+const $ = (id) => document.getElementById(id);
+const api = (path, opt = {}) => fetch("https://api.github.com/repos/" + cfg.repo + path, Object.assign({
+  headers: {
+    "Accept": "application/vnd.github+json",
+    "Authorization": cfg.token ? "Bearer " + cfg.token : undefined,
+    "X-GitHub-Api-Version": "2022-11-28"
+  }
+}, opt));
+
+function setDirty(v) {
+  dirty = v;
+  $("dirty").textContent = v ? "未公開の変更があります" : "";
+  $("dirty").className = "status" + (v ? " err" : "");
+}
+function status(msg, kind) {
+  $("dirty").textContent = msg;
+  $("dirty").className = "status" + (kind ? " " + kind : "");
+}
+
+/* ---------- 読み込み ---------- */
+async function load() {
+  status("読み込み中…");
+  try {
+    // 認証があれば GitHub API から（sha も取れる）、なければ公開 URL から
+    if (cfg.token) {
+      const res = await api("/contents/" + JSON_PATH + "?ref=" + encodeURIComponent(cfg.branch));
+      if (!res.ok) throw new Error("GitHub: " + res.status + " " + (await res.text()).slice(0, 120));
+      const j = await res.json();
+      sha = j.sha;
+      data = JSON.parse(new TextDecoder().decode(
+        Uint8Array.from(atob(j.content.replace(/\n/g, "")), (c) => c.charCodeAt(0))
+      ));
+    } else {
+      const res = await fetch("../" + JSON_PATH + "?t=" + Date.now());
+      if (!res.ok) throw new Error("読み込みに失敗しました (" + res.status + ")");
+      data = await res.json();
+      sha = null;
+    }
+    pendingIcons.clear(); localIcons.clear();
+    target = target && data.placements[target] ? target : Object.keys(data.placements)[0];
+    setDirty(false);
+    render();
+    status(cfg.token ? "" : "閲覧のみ（⚙︎ からトークンを設定すると公開できます）");
+  } catch (e) {
+    status(String(e.message || e), "err");
+  }
+}
+
+/* ---------- 公開 ---------- */
+async function publish() {
+  if (!cfg.token) { openTokenDialog(); return; }
+  $("publish").disabled = true;
+  try {
+    for (const [path, b64] of pendingIcons) {
+      status("アイコンを保存中… " + path);
+      let isha = null;
+      const cur = await api("/contents/" + path + "?ref=" + encodeURIComponent(cfg.branch));
+      if (cur.ok) isha = (await cur.json()).sha;
+      const r = await api("/contents/" + path, {
+        method: "PUT",
+        body: JSON.stringify({ message: "admin: update icon " + path, content: b64,
+                               branch: cfg.branch, sha: isha || undefined })
+      });
+      if (!r.ok) throw new Error("アイコンの保存に失敗: " + (await r.text()).slice(0, 160));
+    }
+    pendingIcons.clear();
+
+    status("公開中…");
+    data.updatedAt = new Date().toISOString().slice(0, 10);
+    const body = new TextEncoder().encode(JSON.stringify(data, null, 2) + "\n");
+    let bin = ""; body.forEach((b) => bin += String.fromCharCode(b));
+    const res = await api("/contents/" + JSON_PATH, {
+      method: "PUT",
+      body: JSON.stringify({ message: "admin: update recommended apps", content: btoa(bin),
+                             branch: cfg.branch, sha: sha || undefined })
+    });
+    if (!res.ok) throw new Error("公開に失敗: " + (await res.text()).slice(0, 160));
+    sha = (await res.json()).content.sha;
+    setDirty(false);
+    status("公開しました（各アプリには数分以内に反映されます）", "ok");
+  } catch (e) {
+    status(String(e.message || e), "err");
+  } finally {
+    $("publish").disabled = false;
+  }
+}
+
+/* ---------- 表示 ---------- */
+function iconURL(id) {
+  const path = ICON_DIR + id + ".png";
+  if (localIcons.has(path)) return localIcons.get(path);
+  return "../" + path + "?t=" + (data.updatedAt || "");
+}
+function text(id, lang, key) {
+  const l = (data.catalog[id] || {}).localizations || {};
+  return (l[lang] && l[lang][key]) || (l.en && l.en[key]) || (l.ja && l.ja[key]) || "";
+}
+function appRow(id, lang, extra) {
+  const el = document.createElement("div");
+  el.className = "row";
+  const img = document.createElement("img");
+  img.src = iconURL(id); img.alt = "";
+  const meta = document.createElement("div");
+  meta.className = "meta";
+  const b = document.createElement("b"); b.textContent = text(id, lang, "title") || id;
+  const s = document.createElement("span"); s.textContent = text(id, lang, "detail");
+  meta.append(b, s);
+  el.append(img, meta);
+  if (extra) el.append(extra);
+  return el;
+}
+function btn(label, cls, fn) {
+  const b = document.createElement("button");
+  b.textContent = label; b.className = cls || "ghost";
+  b.onclick = fn; b.type = "button";
+  return b;
+}
+
+function render() {
+  if (!data) return;
+  renderTargets();
+  renderPlacement();
+  renderCatalog();
+  renderPreview();
+}
+
+function renderTargets() {
+  const sel = $("targetSelect");
+  sel.innerHTML = "";
+  for (const key of Object.keys(data.placements)) {
+    const o = document.createElement("option");
+    o.value = key;
+    o.textContent = key === "default" ? "（未設定のアプリ共通）" : appNameForBundle(key) + "　" + key;
+    sel.append(o);
+  }
+  sel.value = target;
+  $("targetNote").textContent = target === "default"
+    ? "ここに登録されていないアプリには、この設定が使われます。"
+    : "このアプリの設定です。自分自身は自動的に除外されます。";
+  $("removeTarget").disabled = target === "default";
+}
+function appNameForBundle(bundle) {
+  const id = (data.bundleToApp || {})[bundle];
+  return id && data.catalog[id] ? text(id, "ja", "title") : "";
+}
+
+function renderPlacement() {
+  const list = data.placements[target] || [];
+  const self = (data.bundleToApp || {})[target];
+  const box = $("selectedList"); box.innerHTML = "";
+  list.forEach((id, i) => {
+    if (!data.catalog[id]) return;
+    const ctl = document.createElement("div");
+    ctl.style.cssText = "display:flex;gap:2px;align-items:center;flex:none";
+    ctl.append(
+      btn("↑", "ghost", () => { move(i, -1); }),
+      btn("↓", "ghost", () => { move(i, 1); }),
+      btn("外す", "ghost", () => { list.splice(i, 1); setDirty(true); render(); })
+    );
+    ctl.querySelectorAll("button")[0].disabled = i === 0;
+    ctl.querySelectorAll("button")[1].disabled = i === list.length - 1;
+    box.append(appRow(id, $("previewLang").value, ctl));
+  });
+  $("selectedEmpty").textContent = list.length ? "" : "まだ1つも選ばれていません。下から追加してください。";
+
+  const avail = $("availableList"); avail.innerHTML = "";
+  Object.keys(data.catalog).forEach((id) => {
+    if (list.includes(id)) return;
+    const wrap = document.createElement("div");
+    wrap.style.cssText = "display:flex;gap:6px;align-items:center;flex:none";
+    if (id === self) {
+      const p = document.createElement("span");
+      p.className = "pill"; p.textContent = "このアプリ自身";
+      wrap.append(p);
+    } else {
+      wrap.append(btn("表示する", "", () => { list.push(id); setDirty(true); render(); }));
+    }
+    avail.append(appRow(id, $("previewLang").value, wrap));
+  });
+}
+function move(i, d) {
+  const list = data.placements[target];
+  const j = i + d;
+  if (j < 0 || j >= list.length) return;
+  [list[i], list[j]] = [list[j], list[i]];
+  setDirty(true); render();
+}
+
+function renderCatalog() {
+  const box = $("catalogList"); box.innerHTML = "";
+  Object.keys(data.catalog).forEach((id) => {
+    const ctl = document.createElement("div");
+    ctl.style.cssText = "display:flex;gap:2px;align-items:center;flex:none";
+    ctl.append(
+      btn("編集", "", () => openAppDialog(id)),
+      btn("削除", "ghost", () => {
+        if (!confirm(text(id, "ja", "title") + " を削除しますか？\n各アプリの表示設定からも外れます。")) return;
+        delete data.catalog[id];
+        Object.values(data.placements).forEach((l) => {
+          const i = l.indexOf(id); if (i >= 0) l.splice(i, 1);
+        });
+        setDirty(true); render();
+      })
+    );
+    const row = appRow(id, "ja", ctl);
+    const sid = document.createElement("span");
+    sid.className = "pill"; sid.textContent = "id" + data.catalog[id].appStoreId;
+    row.querySelector(".meta").append(sid);
+    box.append(row);
+  });
+}
+
+function renderPreview() {
+  const lang = $("previewLang").value;
+  const box = $("preview"); box.innerHTML = "";
+  const list = (data.placements[target] || []).filter((id) => id !== (data.bundleToApp || {})[target]);
+  if (!list.length) { box.innerHTML = '<p class="muted">表示するアプリがありません。</p>'; return; }
+  list.forEach((id) => { if (data.catalog[id]) box.append(appRow(id, lang)); });
+}
+
+/* ---------- アプリ編集ダイアログ ---------- */
+let editingId = null, editingLang = "ja", draft = null;
+
+function openAppDialog(id) {
+  editingId = id;
+  editingLang = "ja";
+  draft = id
+    ? JSON.parse(JSON.stringify(data.catalog[id]))
+    : { appStoreId: "", icon: "", localizations: {} };
+  $("appDialogTitle").textContent = id ? "アプリを編集" : "アプリを追加";
+  $("f-id").value = id || "";
+  $("f-id").disabled = !!id;
+  $("f-sid").value = draft.appStoreId || "";
+  $("f-iconPreview").src = id ? iconURL(id) : "";
+  document.querySelectorAll(".langtab").forEach((b) =>
+    b.setAttribute("aria-selected", String(b.dataset.lang === "ja")));
+  fillLangFields();
+  $("appDialog").showModal();
+}
+function fillLangFields() {
+  const l = draft.localizations[editingLang] || {};
+  $("f-title").value = l.title || "";
+  $("f-detail").value = l.detail || "";
+}
+function stashLangFields() {
+  const t = $("f-title").value.trim(), d = $("f-detail").value.trim();
+  if (t || d) draft.localizations[editingLang] = { title: t, detail: d };
+  else delete draft.localizations[editingLang];
+}
+document.querySelectorAll(".langtab").forEach((b) => {
+  b.onclick = () => {
+    stashLangFields();
+    editingLang = b.dataset.lang;
+    document.querySelectorAll(".langtab").forEach((x) =>
+      x.setAttribute("aria-selected", String(x === b)));
+    fillLangFields();
+  };
+});
+$("f-drop").onclick = () => $("f-file").click();
+$("f-file").onchange = (e) => { if (e.target.files[0]) readIcon(e.target.files[0]); };
+["dragenter", "dragover"].forEach((ev) => $("f-drop").addEventListener(ev, (e) => {
+  e.preventDefault(); $("f-drop").classList.add("over");
+}));
+["dragleave", "drop"].forEach((ev) => $("f-drop").addEventListener(ev, (e) => {
+  e.preventDefault(); $("f-drop").classList.remove("over");
+}));
+$("f-drop").addEventListener("drop", (e) => {
+  const f = e.dataTransfer.files[0]; if (f) readIcon(f);
+});
+
+// アイコンは 256x256 の PNG に変換してから保存する
+function readIcon(file) {
+  const fr = new FileReader();
+  fr.onload = () => {
+    const img = new Image();
+    img.onload = () => {
+      const c = document.createElement("canvas");
+      c.width = c.height = 256;
+      const g = c.getContext("2d");
+      const side = Math.min(img.width, img.height);
+      g.drawImage(img, (img.width - side) / 2, (img.height - side) / 2, side, side, 0, 0, 256, 256);
+      const url = c.toDataURL("image/png");
+      draft._iconData = url;
+      $("f-iconPreview").src = url;
+    };
+    img.src = fr.result;
+  };
+  fr.readAsDataURL(file);
+}
+
+$("appDialog").addEventListener("close", () => {
+  if ($("appDialog").returnValue !== "ok") return;
+  stashLangFields();
+  const id = (editingId || $("f-id").value.trim().toLowerCase()).replace(/[^a-z0-9_]/g, "");
+  if (!id) { alert("ID を入力してください。"); return; }
+  if (!editingId && data.catalog[id]) { alert("その ID はすでに使われています。"); return; }
+  const sid = $("f-sid").value.replace(/[^0-9]/g, "");
+  if (!sid) { alert("App Store ID（数字）を入力してください。"); return; }
+  if (!draft.localizations.ja && !draft.localizations.en) {
+    alert("日本語か英語のアプリ名を入力してください。"); return;
+  }
+  const path = ICON_DIR + id + ".png";
+  if (draft._iconData) {
+    pendingIcons.set(path, draft._iconData.split(",")[1]);
+    localIcons.set(path, draft._iconData);
+  }
+  delete draft._iconData;
+  draft.appStoreId = sid;
+  draft.icon = "icons/" + id + ".png";
+  data.catalog[id] = draft;
+  setDirty(true);
+  render();
+});
+
+/* ---------- その他の操作 ---------- */
+$("targetSelect").onchange = (e) => { target = e.target.value; render(); };
+$("previewLang").onchange = render;
+$("addApp").onclick = () => openAppDialog(null);
+$("reload").onclick = () => {
+  if (dirty && !confirm("未公開の変更があります。破棄して読み込み直しますか？")) return;
+  load();
+};
+$("publish").onclick = publish;
+
+$("addTarget").onclick = () => {
+  const bundle = prompt("アプリの Bundle ID を入力してください（例: com.taka.diary）");
+  if (!bundle) return;
+  const key = bundle.trim();
+  if (data.placements[key]) { alert("すでに登録されています。"); target = key; render(); return; }
+  data.placements[key] = [];
+  const id = prompt("このアプリ自身のアプリ情報 ID があれば入力してください（自分を表示しないために使います。なければ空欄）\n例: " + Object.keys(data.catalog).join(", "));
+  if (id && data.catalog[id.trim()]) {
+    data.bundleToApp = data.bundleToApp || {};
+    data.bundleToApp[key] = id.trim();
+  }
+  target = key; setDirty(true); render();
+};
+$("removeTarget").onclick = () => {
+  if (target === "default") return;
+  if (!confirm(target + " の設定を削除しますか？\n（このアプリには「未設定のアプリ共通」の設定が使われるようになります）")) return;
+  delete data.placements[target];
+  if (data.bundleToApp) delete data.bundleToApp[target];
+  target = "default"; setDirty(true); render();
+};
+
+$("tab-placement").onclick = () => switchTab(true);
+$("tab-catalog").onclick = () => switchTab(false);
+function switchTab(placement) {
+  $("pane-placement").classList.toggle("hide", !placement);
+  $("pane-catalog").classList.toggle("hide", placement);
+  $("tab-placement").setAttribute("aria-selected", String(placement));
+  $("tab-catalog").setAttribute("aria-selected", String(!placement));
+}
+
+function openTokenDialog() {
+  $("t-repo").value = cfg.repo;
+  $("t-branch").value = cfg.branch;
+  $("t-token").value = cfg.token;
+  $("tokenDialog").showModal();
+}
+$("settings").onclick = openTokenDialog;
+$("tokenDialog").addEventListener("close", () => {
+  if ($("tokenDialog").returnValue !== "ok") return;
+  cfg.repo = $("t-repo").value.trim();
+  cfg.branch = $("t-branch").value.trim() || "main";
+  cfg.token = $("t-token").value.trim();
+  saveCfg();
+  load();
+});
+
+window.addEventListener("beforeunload", (e) => {
+  if (dirty) { e.preventDefault(); e.returnValue = ""; }
+});
+
+load();
+</script>
+</body>
+</html>

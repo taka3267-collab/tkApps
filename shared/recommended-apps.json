@@ -1,0 +1,245 @@
+{
+  "version": 1,
+  "updatedAt": "2026-11-11",
+  "iconBaseUrl": "https://taka3267-collab.github.io/tkApps/shared/",
+  "catalog": {
+    "diary": {
+      "appStoreId": "6787248759",
+      "icon": "icons/diary.png",
+      "localizations": {
+        "ja": {
+          "title": "日記 - 今日を残すノート",
+          "detail": "今日の気持ちや出来事を、さっと残せる日記アプリ"
+        },
+        "en": {
+          "title": "Diary - Keep Today",
+          "detail": "A diary app for quickly capturing today's feelings and events"
+        },
+        "ko": {
+          "title": "일기 - 오늘을 남기는 노트",
+          "detail": "오늘의 기분과 일을 간편하게 남기는 일기 앱"
+        },
+        "zh-Hans": {
+          "title": "日记 - 记录今天的笔记",
+          "detail": "轻松记录今天心情与点滴的日记应用"
+        }
+      }
+    },
+    "bookdeck": {
+      "appStoreId": "6811623217",
+      "icon": "icons/bookdeck.png",
+      "localizations": {
+        "ja": {
+          "title": "読書記録・本棚管理",
+          "detail": "読んだ本・読んでいる本・これから読む本をシンプルに記録"
+        },
+        "en": {
+          "title": "Reading Log & Bookshelf",
+          "detail": "Simply keep track of books you've read, are reading, and want to read."
+        },
+        "ko": {
+          "title": "독서 기록·책장 관리",
+          "detail": "읽은 책, 읽고 있는 책, 앞으로 읽을 책을 간단하게 기록"
+        },
+        "zh-Hans": {
+          "title": "读书记录·书架管理",
+          "detail": "简单记录读过的书、正在读的书和想读的书"
+        }
+      }
+    },
+    "quicknote": {
+      "appStoreId": "6813859908",
+      "icon": "icons/quicknote.png",
+      "localizations": {
+        "ja": {
+          "title": "クイックノート",
+          "detail": "思いついたことをさっと書ける、軽快でシンプルなメモ帳"
+        },
+        "en": {
+          "title": "Quick Note",
+          "detail": "A light, simple notepad for jotting things down the moment they come to mind"
+        },
+        "ko": {
+          "title": "퀵 노트",
+          "detail": "떠오른 생각을 바로 적을 수 있는 가볍고 심플한 메모장"
+        },
+        "zh-Hans": {
+          "title": "快速笔记",
+          "detail": "灵感一闪即可记录的轻快简洁记事本"
+        }
+      }
+    },
+    "focuscamera": {
+      "appStoreId": "6815692837",
+      "icon": "icons/focuscamera.png",
+      "localizations": {
+        "ja": {
+          "title": "集中カメラ",
+          "detail": "自分を映して、離席・よそ見を知らせる集中タイマー"
+        },
+        "en": {
+          "title": "Focus Camera",
+          "detail": "A focus timer that watches you and flags when you step away or look elsewhere"
+        },
+        "ko": {
+          "title": "집중 카메라",
+          "detail": "자신을 비춰 자리 비움·한눈팔기를 알려주는 집중 타이머"
+        },
+        "zh-Hans": {
+          "title": "专注相机",
+          "detail": "拍下自己，在离席或走神时提醒你的专注计时器"
+        }
+      }
+    },
+    "calculator": {
+      "appStoreId": "6789199382",
+      "icon": "icons/calculator.png",
+      "localizations": {
+        "ja": {
+          "title": "電卓",
+          "detail": "好きな写真を壁紙に。自分好みにできる電卓"
+        },
+        "en": {
+          "title": "Calculator",
+          "detail": "Set your favorite photo as the wallpaper and make the calculator your own"
+        }
+      }
+    },
+    "gamedeck": {
+      "appStoreId": "6817033201",
+      "icon": "icons/gamedeck.png",
+      "localizations": {
+        "ja": {
+          "title": "ゲームデッキ",
+          "detail": "遊んだゲーム・プレイ中のゲーム・積みゲーをシンプルに記録"
+        },
+        "en": {
+          "title": "Game Deck",
+          "detail": "Simply keep track of games you've played, are playing, and plan to play"
+        }
+      }
+    },
+    "fuellog": {
+      "appStoreId": "6807242830",
+      "icon": "icons/fuellog.png",
+      "localizations": {
+        "ja": {
+          "title": "燃費記録",
+          "detail": "燃費や給油記録を、かんたんに管理"
+        },
+        "en": {
+          "title": "FuelLog",
+          "detail": "Easily manage your fuel economy and refueling records"
+        }
+      }
+    },
+    "seikurabe": {
+      "appStoreId": "6777436455",
+      "icon": "icons/seikurabe.png",
+      "localizations": {
+        "ja": {
+          "title": "せいくらべ",
+          "detail": "子どもの身長・体重を記録して成長グラフで振り返る"
+        },
+        "en": {
+          "title": "Growth Log",
+          "detail": "Record your child's height and weight and look back with growth charts"
+        }
+      }
+    },
+    "ehonlog": {
+      "appStoreId": "6814893933",
+      "icon": "icons/ehonlog.png",
+      "localizations": {
+        "ja": {
+          "title": "えほんログ",
+          "detail": "表紙を選ぶだけで、親子の読み聞かせをかんたん記録"
+        },
+        "en": {
+          "title": "Picture Book Log",
+          "detail": "Just pick a cover to log the picture books you read together"
+        }
+      }
+    },
+    "compound_graph": {
+      "appStoreId": "6775796486",
+      "icon": "icons/compound_graph.png",
+      "localizations": {
+        "ja": {
+          "title": "投資比較",
+          "detail": "複利・積立投資の将来資産をグラフで可視化できるシミュレーション"
+        },
+        "en": {
+          "title": "Investment Compare",
+          "detail": "Visualize future assets from compound and recurring investments"
+        }
+      }
+    },
+    "dog_atlas": {
+      "appStoreId": "6782091530",
+      "icon": "icons/dog_atlas.png",
+      "localizations": {
+        "ja": {
+          "title": "みんなの犬図鑑",
+          "detail": "犬を飼っている人たちの投稿で作られる、参加型の犬種図鑑"
+        },
+        "en": {
+          "title": "Dog Atlas",
+          "detail": "A community dog breed encyclopedia built from posts by dog owners"
+        }
+      }
+    },
+    "babymap": {
+      "appStoreId": "6799462108",
+      "icon": "icons/babymap.png",
+      "localizations": {
+        "ja": {
+          "title": "ベビーマップ",
+          "detail": "赤ちゃんや小さな子どもとの外出をサポートする子育て設備マップ"
+        },
+        "en": {
+          "title": "Baby Map",
+          "detail": "A map of baby facilities to support outings with little ones"
+        }
+      }
+    },
+    "train": {
+      "appStoreId": "6780509740",
+      "icon": "icons/train.png",
+      "localizations": {
+        "ja": {
+          "title": "でんしゃあそび",
+          "detail": "電車を走らせたり、れんけつ・きりはなしを楽しめる電車連結シミュレーション"
+        },
+        "en": {
+          "title": "Train Play",
+          "detail": "Run trains and enjoy coupling and uncoupling in this train simulator"
+        }
+      }
+    }
+  },
+  "placements": {
+    "default": [
+      "diary",
+      "bookdeck",
+      "quicknote",
+      "focuscamera"
+    ],
+    "com.taka.diary": [
+      "bookdeck",
+      "quicknote",
+      "focuscamera"
+    ],
+    "com.tkapps.friendTalk": [
+      "diary",
+      "quicknote",
+      "bookdeck",
+      "calculator",
+      "gamedeck",
+      "focuscamera"
+    ]
+  },
+  "bundleToApp": {
+    "com.taka.diary": "diary"
+  }
+}
