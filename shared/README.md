@@ -46,7 +46,8 @@ https://taka3267-collab.github.io/tkApps/admin/recommended-apps.html
 
 ## アプリ側の実装
 
-- 日記アプリ: `Diary/Services/RecommendedAppsService.swift`
+- 日記アプリ: `Diary/Services/RecommendedAppsService.swift`（最初の実装）
+- 他のアプリに入れるときのひな形と手順: **[`reference/README.md`](reference/README.md)**
 - 6時間に1回だけ取得し、結果は端末内にキャッシュする
 - 取得できないときは「前回の内容 → アプリ内蔵の既定値」の順に落ちるので、表示が消えることはない
 - 送信する情報は無し（静的ファイルへの GET のみ）
@@ -58,5 +59,6 @@ https://taka3267-collab.github.io/tkApps/admin/recommended-apps.html
 各アプリが `recommended-apps.json` を読むようになるまで反映されません。
 （管理ページでも、未対応のアプリを選ぶとその旨が表示されます）
 
-アプリを対応させるには、日記の `Diary/Services/RecommendedAppsService.swift` と同じ処理を入れて、
-`placements` にそのアプリの Bundle ID を足すだけです。
+対応させる手順は [`reference/README.md`](reference/README.md) にまとめてあります。
+`reference/RecommendedAppsService.swift` をコピーして冒頭の設定だけ直し、
+管理ページの `SUPPORTED` にその Bundle ID を足して、このリストを更新してください。

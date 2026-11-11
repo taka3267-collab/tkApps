@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11",
+  "updatedAt": "2026-11-11T08:39:55Z",
   "iconBaseUrl": "https://taka3267-collab.github.io/tkApps/shared/",
   "catalog": {
     "diary": {
@@ -539,6 +539,21 @@
       "compound_graph",
       "dog_atlas",
       "train"
+    ],
+    "com.taka3267.seikurabe": [
+      "diary",
+      "bookdeck",
+      "quicknote",
+      "--more--",
+      "ehonlog",
+      "babymap",
+      "focuscamera",
+      "calculator",
+      "gamedeck",
+      "fuellog",
+      "compound_graph",
+      "dog_atlas",
+      "train"
     ]
   },
   "bundleToApp": {
@@ -553,7 +568,8 @@
     "com.tkapps.tsumitatehikaku": "compound_graph",
     "com.taka3267.DogAtlas": "dog_atlas",
     "com.taka.BabyMap": "babymap",
-    "com.taka.denshaAsobi": "train"
+    "com.taka.denshaAsobi": "train",
+    "com.taka3267.seikurabe": "seikurabe"
   },
   "targetNames": {
     "com.tkapps.friendTalk": "友達トーク",
