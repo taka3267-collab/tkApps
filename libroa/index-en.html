@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookDeck | T.K Apps</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", sans-serif;
+      background: #f8f7ff;
+      color: #29253f;
+      line-height: 1.8;
+    }
+    header {
+      background: linear-gradient(135deg, #f2efff 0%, #fff4f2 100%);
+      text-align: center;
+      padding: 56px 20px 48px;
+      border-bottom: 1px solid #e6e0f8;
+    }
+    header .back {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: #6d6688;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .app-mark {
+      width: 86px;
+      height: 86px;
+      margin: 0 auto 18px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #f06a54 0%, #f5a07a 100%);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 2.4rem;
+      box-shadow: 0 14px 32px rgba(240, 106, 84, 0.22);
+    }
+    h1 {
+      font-size: 2.45rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+    header p {
+      margin-top: 10px;
+      color: #6d6688;
+    }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 44px 20px 76px;
+    }
+    .hero-copy {
+      background: #fff;
+      border: 1px solid #e9e5f8;
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: 0 8px 28px rgba(72, 58, 140, 0.08);
+      margin-bottom: 24px;
+    }
+    .hero-copy h2 {
+      color: #5d55d8;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin: 24px 0;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #e9e5f8;
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 6px 22px rgba(72, 58, 140, 0.07);
+    }
+    .card h3 {
+      color: #5d55d8;
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+    .badge {
+      display: inline-block;
+      background: #f0edff;
+      color: #5d55d8;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-right: 6px;
+      margin-top: 8px;
+    }
+    .premium {
+      background: linear-gradient(135deg, #fff 0%, #fbfaff 100%);
+      border: 1px solid #ddd6ff;
+      border-radius: 18px;
+      padding: 28px;
+      margin-top: 24px;
+      box-shadow: 0 10px 30px rgba(72, 58, 140, 0.08);
+    }
+    .premium h2 {
+      color: #5d55d8;
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+    }
+    ul { padding-left: 20px; }
+    .links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 24px;
+    }
+    .link-card {
+      display: block;
+      background: #fff;
+      border: 1px solid #e9e5f8;
+      border-radius: 14px;
+      padding: 18px;
+      color: #29253f;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(72, 58, 140, 0.06);
+    }
+    .link-card strong {
+      display: block;
+      color: #5d55d8;
+      margin-bottom: 4px;
+    }
+    footer {
+      text-align: center;
+      padding: 32px 20px;
+      color: #8d86a8;
+      font-size: 0.85rem;
+    }
+    a { color: #5d55d8; }
+  </style>
+</head>
+<body>
+<header>
+  <a class="lang" href="index.html" hreflang="ja" lang="ja">日本語</a>
+  <a class="back" href="../index.html">← T.K Apps</a>
+  <div class="app-mark" aria-hidden="true">📚</div>
+  <h1>BookDeck</h1>
+  <p>A reading log you build up and enjoy looking at</p>
+</header>
+
+<main>
+  <section class="hero-copy">
+    <h2>Line up the books you've read and want to read, by their covers.</h2>
+    <p>BookDeck is an iOS app for searching books, adding them to your own shelf, and recording their status, ratings, memos and tags. It isn't a social network — it's there to keep your own reading log, simply and comfortably. There is no account to create, and your data is stored on your device and in your own iCloud.</p>
+    <span class="badge">iOS</span>
+    <span class="badge">Reading log</span>
+    <span class="badge">Bookshelf</span>
+    <span class="badge">Barcode</span>
+  </section>
+
+  <section class="grid">
+    <div class="card">
+      <h3>A shelf where covers come first</h3>
+      <p>Books you add line up as a grid of covers. Filter by Want to read, To read, Reading or Finished, or narrow things down with tags and search.</p>
+    </div>
+    <div class="card">
+      <h3>Add by search or barcode</h3>
+      <p>Search by title, author or ISBN, or scan the barcode on the back of a book. You can also add several books at once.</p>
+    </div>
+    <div class="card">
+      <h3>Organize with series and tags</h3>
+      <p>Manga and light novels can appear as one stack per series. Tags are yours to create, rename and tidy up later.</p>
+    </div>
+    <div class="card">
+      <h3>Your records stay with you</h3>
+      <p>Record a status, a five-star rating, start and finish dates, and memos for each book. If the cover doesn't match your copy, swap in a photo of your own.</p>
+    </div>
+  </section>
+
+  <section class="premium">
+    <h2>Premium</h2>
+    <p>The shelf, search, tags and the other basics are all free. Premium hides the ads and unlocks CSV export of your shelf.</p>
+    <ul>
+      <li>No ads at all</li>
+      <li>CSV export of your shelf (opens in Excel or Numbers)</li>
+      <li>Monthly, yearly or a one-time purchase (the yearly plan includes a 7-day free trial)</li>
+    </ul>
+  </section>
+
+  <section class="links">
+    <a class="link-card" href="privacy-policy-en.html">
+      <strong>Privacy Policy</strong>
+      How reading data, photos, ads and purchases are handled
+    </a>
+    <a class="link-card" href="terms-en.html">
+      <strong>Terms of Use</strong>
+      Terms of use, backups, purchases and disclaimers
+    </a>
+    <a class="link-card" href="mailto:tkapps.support@gmail.com">
+      <strong>Contact</strong>
+      Send bug reports and requests by email
+    </a>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2026 T.K Apps</p>
+</footer>
+</body>
+</html>
