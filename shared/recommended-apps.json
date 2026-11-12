@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-11T11:58:11Z",
+  "updatedAt": "2026-11-12T11:40:00Z",
   "iconBaseUrl": "https://taka3267-collab.github.io/tkApps/shared/",
   "catalog": {
     "diary": {
@@ -230,6 +230,76 @@
           "detail": "A casual chat app where you connect over shared hobbies"
         }
       }
+    },
+    "animedeck": {
+      "appStoreId": "6825791098",
+      "icon": "icons/animedeck.png",
+      "localizations": {
+        "ja": {
+          "title": "アニメデッキ",
+          "detail": "見たアニメ・見ているアニメ・見たいアニメをシンプルに記録"
+        },
+        "en": {
+          "title": "Anime Deck",
+          "detail": "Simply keep track of anime you've watched, are watching, and want to watch"
+        }
+      }
+    },
+    "comicdeck": {
+      "appStoreId": "6827564098",
+      "icon": "icons/comicdeck.png",
+      "localizations": {
+        "ja": {
+          "title": "コミックデッキ",
+          "detail": "読んだマンガ・持っているマンガ・読みたいマンガをシンプルに記録"
+        },
+        "en": {
+          "title": "Comic Deck",
+          "detail": "Simply keep track of manga you've read, own, and want to read"
+        }
+      }
+    },
+    "trippacy": {
+      "appStoreId": "6831562941",
+      "icon": "icons/trippacy.png",
+      "localizations": {
+        "ja": {
+          "title": "おでかけ日記",
+          "detail": "撮りっぱなしの写真が、そのままおでかけの日記になる"
+        },
+        "en": {
+          "title": "Trippacy",
+          "detail": "Turns the photos sitting in your camera roll into a travel diary"
+        }
+      }
+    },
+    "geophoto": {
+      "appStoreId": "6832261732",
+      "icon": "icons/geophoto.png",
+      "localizations": {
+        "ja": {
+          "title": "位置情報編集・削除",
+          "detail": "位置情報オフで撮った写真に、撮影場所をあとからまとめて追加"
+        },
+        "en": {
+          "title": "GeoPhoto",
+          "detail": "Add where your photos were taken, many at once, even after shooting"
+        }
+      }
+    },
+    "dotluma": {
+      "appStoreId": "6831186773",
+      "icon": "icons/dotluma.png",
+      "localizations": {
+        "ja": {
+          "title": "LED電光掲示板",
+          "detail": "文字を入れて再生するだけ。画面が光る電光掲示板になる"
+        },
+        "en": {
+          "title": "DotLuma",
+          "detail": "Type a message and press play - your screen becomes a glowing LED sign"
+        }
+      }
     }
   },
   "placements": {
@@ -240,7 +310,20 @@
       "--more--",
       "focuscamera",
       "calculator",
-      "gamedeck"
+      "gamedeck",
+      "animedeck",
+      "comicdeck",
+      "trippacy",
+      "geophoto",
+      "dotluma",
+      "fuellog",
+      "seikurabe",
+      "ehonlog",
+      "compound_graph",
+      "dog_atlas",
+      "babymap",
+      "train",
+      "friendtalk"
     ],
     "com.taka.diary": [
       "bookdeck",
@@ -255,7 +338,13 @@
       "fuellog",
       "compound_graph",
       "dog_atlas",
-      "train"
+      "train",
+      "animedeck",
+      "comicdeck",
+      "trippacy",
+      "geophoto",
+      "dotluma",
+      "friendtalk"
     ],
     "com.tkapps.friendTalk": [
       "diary",
@@ -271,7 +360,12 @@
       "train",
       "fuellog",
       "compound_graph",
-      "dog_atlas"
+      "dog_atlas",
+      "animedeck",
+      "comicdeck",
+      "trippacy",
+      "geophoto",
+      "dotluma"
     ],
     "com.taka.Libroa": [
       "diary",
@@ -285,7 +379,14 @@
       "fuellog",
       "compound_graph",
       "dog_atlas",
-      "train"
+      "train",
+      "animedeck",
+      "comicdeck",
+      "trippacy",
+      "geophoto",
+      "dotluma",
+      "seikurabe",
+      "friendtalk"
     ],
     "com.taka.memo": [
       "diary",
@@ -299,7 +400,14 @@
       "fuellog",
       "compound_graph",
       "dog_atlas",
-      "train"
+      "train",
+      "animedeck",
+      "comicdeck",
+      "trippacy",
+      "geophoto",
+      "dotluma",
+      "seikurabe",
+      "friendtalk"
     ],
     "com.taka.focuscamera": [
       "diary",
@@ -313,7 +421,14 @@
       "fuellog",
       "compound_graph",
       "dog_atlas",
-      "train"
+      "train",
+      "animedeck",
+      "comicdeck",
+      "trippacy",
+      "geophoto",
+      "dotluma",
+      "seikurabe",
+      "friendtalk"
     ],
     "com.taka.calculator": [
       "diary",
@@ -327,7 +442,14 @@
       "fuellog",
       "compound_graph",
       "dog_atlas",
-      "train"
+      "train",
+      "animedeck",
+      "comicdeck",
+      "trippacy",
+      "geophoto",
+      "dotluma",
+      "seikurabe",
+      "friendtalk"
     ],
     "com.taka.GameDeck": [
       "diary",
@@ -341,7 +463,14 @@
       "fuellog",
       "compound_graph",
       "dog_atlas",
-      "train"
+      "train",
+      "animedeck",
+      "comicdeck",
+      "trippacy",
+      "geophoto",
+      "dotluma",
+      "seikurabe",
+      "friendtalk"
     ],
     "com.taka.fuellog": [
       "diary",
@@ -355,7 +484,14 @@
       "babymap",
       "compound_graph",
       "dog_atlas",
-      "train"
+      "train",
+      "animedeck",
+      "comicdeck",
+      "trippacy",
+      "geophoto",
+      "dotluma",
+      "seikurabe",
+      "friendtalk"
     ],
     "com.taka.EhonLog": [
       "diary",
@@ -369,7 +505,14 @@
       "fuellog",
       "compound_graph",
       "dog_atlas",
-      "train"
+      "train",
+      "animedeck",
+      "comicdeck",
+      "trippacy",
+      "geophoto",
+      "dotluma",
+      "seikurabe",
+      "friendtalk"
     ],
     "com.tkapps.tsumitatehikaku": [
       "diary",
@@ -383,7 +526,14 @@
       "babymap",
       "fuellog",
       "dog_atlas",
-      "train"
+      "train",
+      "animedeck",
+      "comicdeck",
+      "trippacy",
+      "geophoto",
+      "dotluma",
+      "seikurabe",
+      "friendtalk"
     ],
     "com.taka3267.DogAtlas": [
       "diary",
@@ -397,7 +547,14 @@
       "babymap",
       "fuellog",
       "compound_graph",
-      "train"
+      "train",
+      "animedeck",
+      "comicdeck",
+      "trippacy",
+      "geophoto",
+      "dotluma",
+      "seikurabe",
+      "friendtalk"
     ],
     "com.taka.BabyMap": [
       "diary",
@@ -411,7 +568,14 @@
       "fuellog",
       "compound_graph",
       "dog_atlas",
-      "train"
+      "train",
+      "animedeck",
+      "comicdeck",
+      "trippacy",
+      "geophoto",
+      "dotluma",
+      "seikurabe",
+      "friendtalk"
     ],
     "com.taka.denshaAsobi": [
       "diary",
@@ -425,7 +589,14 @@
       "babymap",
       "fuellog",
       "compound_graph",
-      "dog_atlas"
+      "dog_atlas",
+      "animedeck",
+      "comicdeck",
+      "trippacy",
+      "geophoto",
+      "dotluma",
+      "seikurabe",
+      "friendtalk"
     ],
     "com.taka.AnimeDeck": [
       "diary",
@@ -440,7 +611,13 @@
       "fuellog",
       "compound_graph",
       "dog_atlas",
-      "train"
+      "train",
+      "comicdeck",
+      "trippacy",
+      "geophoto",
+      "dotluma",
+      "seikurabe",
+      "friendtalk"
     ],
     "com.taka.ComicDeck": [
       "diary",
@@ -455,7 +632,13 @@
       "fuellog",
       "compound_graph",
       "dog_atlas",
-      "train"
+      "train",
+      "animedeck",
+      "trippacy",
+      "geophoto",
+      "dotluma",
+      "seikurabe",
+      "friendtalk"
     ],
     "com.taka.GeoPhoto": [
       "diary",
@@ -470,7 +653,13 @@
       "fuellog",
       "compound_graph",
       "dog_atlas",
-      "train"
+      "train",
+      "animedeck",
+      "comicdeck",
+      "trippacy",
+      "dotluma",
+      "seikurabe",
+      "friendtalk"
     ],
     "com.taka.Trippacy": [
       "diary",
@@ -485,7 +674,13 @@
       "fuellog",
       "compound_graph",
       "dog_atlas",
-      "train"
+      "train",
+      "animedeck",
+      "comicdeck",
+      "geophoto",
+      "dotluma",
+      "seikurabe",
+      "friendtalk"
     ],
     "com.taka.UchiLog": [
       "diary",
@@ -500,7 +695,14 @@
       "fuellog",
       "compound_graph",
       "dog_atlas",
-      "train"
+      "train",
+      "animedeck",
+      "comicdeck",
+      "trippacy",
+      "geophoto",
+      "dotluma",
+      "seikurabe",
+      "friendtalk"
     ],
     "com.taka.PhotoClock": [
       "diary",
@@ -515,7 +717,14 @@
       "fuellog",
       "compound_graph",
       "dog_atlas",
-      "train"
+      "train",
+      "animedeck",
+      "comicdeck",
+      "trippacy",
+      "geophoto",
+      "dotluma",
+      "seikurabe",
+      "friendtalk"
     ],
     "com.taka.DotLuma": [
       "diary",
@@ -530,7 +739,13 @@
       "fuellog",
       "compound_graph",
       "dog_atlas",
-      "train"
+      "train",
+      "animedeck",
+      "comicdeck",
+      "trippacy",
+      "geophoto",
+      "seikurabe",
+      "friendtalk"
     ],
     "com.taka.Loca": [
       "diary",
@@ -545,7 +760,14 @@
       "fuellog",
       "compound_graph",
       "dog_atlas",
-      "train"
+      "train",
+      "animedeck",
+      "comicdeck",
+      "trippacy",
+      "geophoto",
+      "dotluma",
+      "seikurabe",
+      "friendtalk"
     ],
     "com.taka.MoneyJourney": [
       "diary",
@@ -560,7 +782,14 @@
       "fuellog",
       "compound_graph",
       "dog_atlas",
-      "train"
+      "train",
+      "animedeck",
+      "comicdeck",
+      "trippacy",
+      "geophoto",
+      "dotluma",
+      "seikurabe",
+      "friendtalk"
     ],
     "com.taka3267.seikurabe": [
       "diary",
@@ -575,7 +804,13 @@
       "fuellog",
       "compound_graph",
       "dog_atlas",
-      "train"
+      "train",
+      "animedeck",
+      "comicdeck",
+      "trippacy",
+      "geophoto",
+      "dotluma",
+      "friendtalk"
     ]
   },
   "bundleToApp": {
@@ -592,16 +827,16 @@
     "com.taka.BabyMap": "babymap",
     "com.taka.denshaAsobi": "train",
     "com.taka3267.seikurabe": "seikurabe",
-    "com.tkapps.friendTalk": "friendtalk"
+    "com.tkapps.friendTalk": "friendtalk",
+    "com.taka.AnimeDeck": "animedeck",
+    "com.taka.ComicDeck": "comicdeck",
+    "com.taka.Trippacy": "trippacy",
+    "com.taka.GeoPhoto": "geophoto",
+    "com.taka.DotLuma": "dotluma"
   },
   "targetNames": {
-    "com.taka.AnimeDeck": "アニメデッキ",
-    "com.taka.ComicDeck": "マンガデッキ",
-    "com.taka.GeoPhoto": "GeoPhoto",
-    "com.taka.Trippacy": "おでかけ日記",
     "com.taka.UchiLog": "UchiLog",
     "com.taka.PhotoClock": "PhotoClock",
-    "com.taka.DotLuma": "DotLuma",
     "com.taka.Loca": "Loca",
     "com.taka.MoneyJourney": "MoneyJourney"
   }
