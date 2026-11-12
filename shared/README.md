@@ -58,6 +58,10 @@ https://taka3267-collab.github.io/tkApps/admin/recommended-apps.html
 **ブックデッキ（com.taka.Libroa）** です。
 
 **友達トーク（com.tkapps.friendTalk）は実装済みで、次のビルドの公開から反映されます。**
+
+**DotLuma（com.taka.DotLuma）も実装済みで、1.0.1 の公開から反映されます。**
+設定画面が無いため、メイン画面の「…」メニューの「おすすめアプリ」から開きます。
+公開したら `SUPPORTED` とこのリストに `com.taka.DotLuma` を足してください。
 Flutter 製なのでクライアントは
 `friend-talk-ios/lib/services/recommended_apps_service.dart` に Dart 移植してあります。
 公開したら、このリストと `admin/recommended-apps.html` の `SUPPORTED` に
