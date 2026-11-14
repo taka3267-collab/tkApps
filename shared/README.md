@@ -57,6 +57,9 @@ https://taka3267-collab.github.io/tkApps/admin/recommended-apps.html
 いまこの仕組みを読んでいるのは **日記（com.taka.diary）**、
 **ブックデッキ（com.taka.Libroa）**、**おでかけ日記 - トリッパシー（com.taka.Trippacy、1.0.2 から）** です。
 
+**ゲームデッキ（com.taka.GameDeck）も実装済みで、次のビルドの公開から反映されます。**
+内蔵の既定値は アニメデッキ / コミックデッキ / ブックデッキ の3件。
+
 **友達トーク（com.tkapps.friendTalk）は実装済みで、次のビルドの公開から反映されます。**
 
 **メモ - クイックノート（com.taka.memo）も実装済みで、1.0.3 の公開から反映されます。**
