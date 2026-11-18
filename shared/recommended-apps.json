@@ -347,16 +347,17 @@
       "friendtalk"
     ],
     "com.tkapps.friendTalk": [
-      "animedeck",
-      "comicdeck",
-      "gamedeck",
-      "--more--",
-      "dog_atlas",
+      "dotluma",
+      "trippacy",
       "diary",
       "bookdeck",
+      "gamedeck",
+      "--more--",
+      "animedeck",
+      "comicdeck",
+      "dog_atlas",
       "quicknote",
       "calculator",
-      "trippacy",
       "geophoto",
       "focuscamera",
       "fuellog",
@@ -364,8 +365,7 @@
       "seikurabe",
       "ehonlog",
       "babymap",
-      "train",
-      "dotluma"
+      "train"
     ],
     "com.taka.Libroa": [
       "comicdeck",

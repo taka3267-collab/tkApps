@@ -55,12 +55,15 @@ https://taka3267-collab.github.io/tkApps/admin/recommended-apps.html
 ## 対応しているアプリ
 
 いまこの仕組みを読んでいるのは **日記（com.taka.diary）**、
-**ブックデッキ（com.taka.Libroa）**、**おでかけ日記 - トリッパシー（com.taka.Trippacy、1.0.2 から）** です。
+**ブックデッキ（com.taka.Libroa）**、**おでかけ日記 - トリッパシー（com.taka.Trippacy、1.0.2 から）**、
+**友達トーク（com.tkapps.friendTalk、1.2.4 から）** です。
 
 **ゲームデッキ（com.taka.GameDeck）も実装済みで、次のビルドの公開から反映されます。**
 内蔵の既定値は アニメデッキ / コミックデッキ / ブックデッキ の3件。
 
-**友達トーク（com.tkapps.friendTalk）は実装済みで、次のビルドの公開から反映されます。**
+**友達トーク（com.tkapps.friendTalk）は 1.2.4（2026-11-17 公開）から反映されています。**
+Flutter 製なのでクライアントは
+`friend-talk-ios/lib/services/recommended_apps_service.dart` に Dart 移植してあります。
 
 **メモ - クイックノート（com.taka.memo）も実装済みで、1.0.3 の公開から反映されます。**
 内蔵の既定値は 日記 / ブックデッキ / 電卓 の3件。
@@ -74,11 +77,8 @@ https://taka3267-collab.github.io/tkApps/admin/recommended-apps.html
 設定画面の「他のアプリ」欄（固定の2件）を置き換える形で入れました。
 内蔵の既定値は 投資比較 / 日記 の2件で、アイコンは従来の同梱画像をそのまま使っています。
 公開したら `SUPPORTED` とこのリストに `com.taka.calculator` を足してください。
-Flutter 製なのでクライアントは
-`friend-talk-ios/lib/services/recommended_apps_service.dart` に Dart 移植してあります。
-公開したら、このリストと `admin/recommended-apps.html` の `SUPPORTED` に
-`com.tkapps.friendTalk` を足してください（先に足すと、管理ページの
-「まだ対応していません」の注意が出なくなり、反映されないのに設定できてしまいます）。
+先に `SUPPORTED` に足すと、管理ページの「まだ対応していません」の注意が出なくなり、
+反映されないのに設定できてしまうので、公開してから足してください。
 `placements` には他のアプリも登録してあるので先に設定しておけますが、
 各アプリが `recommended-apps.json` を読むようになるまで反映されません。
 （管理ページでも、未対応のアプリを選ぶとその旨が表示されます）
