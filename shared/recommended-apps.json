@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T15:05:00Z",
+  "updatedAt": "2026-11-20T09:30:00Z",
   "iconBaseUrl": "https://taka3267-collab.github.io/tkApps/shared/",
   "catalog": {
     "diary": {
@@ -102,6 +102,14 @@
         "en": {
           "title": "Calculator",
           "detail": "Set your favorite photo as the wallpaper and make the calculator your own"
+        },
+        "ko": {
+          "title": "계산기",
+          "detail": "좋아하는 사진을 배경으로. 내 취향대로 꾸미는 계산기"
+        },
+        "zh-Hans": {
+          "title": "计算器",
+          "detail": "把喜欢的照片设为壁纸，打造属于自己的计算器"
         }
       }
     },
@@ -116,6 +124,14 @@
         "en": {
           "title": "Game Deck",
           "detail": "Simply keep track of games you've played, are playing, and plan to play"
+        },
+        "ko": {
+          "title": "게임 덱",
+          "detail": "해본 게임, 하고 있는 게임, 쌓아둔 게임을 간단하게 기록"
+        },
+        "zh-Hans": {
+          "title": "游戏甲板",
+          "detail": "简单记录玩过的、正在玩的和想玩的游戏"
         }
       }
     },
@@ -130,6 +146,14 @@
         "en": {
           "title": "FuelLog",
           "detail": "Easily manage your fuel economy and refueling records"
+        },
+        "ko": {
+          "title": "연비 기록",
+          "detail": "연비와 주유 기록을 간편하게 관리"
+        },
+        "zh-Hans": {
+          "title": "油耗记录",
+          "detail": "轻松管理油耗与加油记录"
         }
       }
     },
@@ -144,6 +168,14 @@
         "en": {
           "title": "Growth Log",
           "detail": "Record your child's height and weight and look back with growth charts"
+        },
+        "ko": {
+          "title": "키 재기",
+          "detail": "아이의 키와 몸무게를 기록하고 성장 그래프로 돌아보기"
+        },
+        "zh-Hans": {
+          "title": "量身高",
+          "detail": "记录孩子的身高体重，用成长曲线回顾"
         }
       }
     },
@@ -158,6 +190,14 @@
         "en": {
           "title": "Picture Book Log",
           "detail": "Just pick a cover to log the picture books you read together"
+        },
+        "ko": {
+          "title": "그림책 기록",
+          "detail": "표지를 고르기만 하면 함께 읽은 그림책을 간단히 기록"
+        },
+        "zh-Hans": {
+          "title": "绘本记录",
+          "detail": "只需选择封面，就能轻松记录亲子共读"
         }
       }
     },
@@ -172,6 +212,14 @@
         "en": {
           "title": "Investment Compare",
           "detail": "Visualize future assets from compound and recurring investments"
+        },
+        "ko": {
+          "title": "투자 비교",
+          "detail": "복리·적립식 투자의 미래 자산을 그래프로 시뮬레이션"
+        },
+        "zh-Hans": {
+          "title": "投资比较",
+          "detail": "用图表模拟复利与定投的未来资产"
         }
       }
     },
@@ -186,6 +234,14 @@
         "en": {
           "title": "Dog Atlas",
           "detail": "A community dog breed encyclopedia built from posts by dog owners"
+        },
+        "ko": {
+          "title": "모두의 강아지 도감",
+          "detail": "반려인들의 게시물로 만들어지는 참여형 견종 도감"
+        },
+        "zh-Hans": {
+          "title": "大家的狗狗图鉴",
+          "detail": "由养狗人投稿共同打造的犬种图鉴"
         }
       }
     },
@@ -200,6 +256,14 @@
         "en": {
           "title": "Baby Map",
           "detail": "A map of baby facilities to support outings with little ones"
+        },
+        "ko": {
+          "title": "베이비 맵",
+          "detail": "아기와의 외출을 돕는 수유실·기저귀갈이 지도"
+        },
+        "zh-Hans": {
+          "title": "宝宝地图",
+          "detail": "帮助带娃出行的母婴室与尿布台地图"
         }
       }
     },
@@ -214,6 +278,14 @@
         "en": {
           "title": "Train Play",
           "detail": "Run trains and enjoy coupling and uncoupling in this train simulator"
+        },
+        "ko": {
+          "title": "기차 놀이",
+          "detail": "기차를 달리게 하고 연결·분리를 즐기는 기차 시뮬레이션"
+        },
+        "zh-Hans": {
+          "title": "电车游戏",
+          "detail": "让电车跑起来，享受连接与分离的电车模拟"
         }
       }
     },
@@ -228,6 +300,14 @@
         "en": {
           "title": "Friend Talk",
           "detail": "A casual chat app where you connect over shared hobbies"
+        },
+        "ko": {
+          "title": "친구 토크",
+          "detail": "취미로 이어져 가볍게 이야기하는 수다 채팅"
+        },
+        "zh-Hans": {
+          "title": "朋友聊天",
+          "detail": "因兴趣相连，轻松畅聊的闲聊应用"
         }
       }
     },
@@ -242,6 +322,14 @@
         "en": {
           "title": "Anime Deck",
           "detail": "Simply keep track of anime you've watched, are watching, and want to watch"
+        },
+        "ko": {
+          "title": "애니 덱",
+          "detail": "본 애니, 보고 있는 애니, 보고 싶은 애니를 간단하게 기록"
+        },
+        "zh-Hans": {
+          "title": "动画甲板",
+          "detail": "简单记录看过的、正在看的和想看的动画"
         }
       }
     },
@@ -256,6 +344,14 @@
         "en": {
           "title": "Comic Deck",
           "detail": "Simply keep track of manga you've read, own, and want to read"
+        },
+        "ko": {
+          "title": "만화 덱",
+          "detail": "읽은 만화, 가지고 있는 만화, 읽고 싶은 만화를 간단하게 기록"
+        },
+        "zh-Hans": {
+          "title": "漫画甲板",
+          "detail": "简单记录读过的、拥有的和想读的漫画"
         }
       }
     },
@@ -270,6 +366,14 @@
         "en": {
           "title": "Trippacy",
           "detail": "Turns the photos sitting in your camera roll into a travel diary"
+        },
+        "ko": {
+          "title": "나들이 일기",
+          "detail": "찍어 두기만 한 사진이 그대로 나들이 기록이 됩니다"
+        },
+        "zh-Hans": {
+          "title": "出游日记",
+          "detail": "随手拍下的照片，直接变成出游的记录"
         }
       }
     },
@@ -284,6 +388,14 @@
         "en": {
           "title": "GeoPhoto",
           "detail": "Add where your photos were taken, many at once, even after shooting"
+        },
+        "ko": {
+          "title": "위치 정보 편집·삭제",
+          "detail": "위치 정보를 끄고 찍은 사진에 촬영 장소를 나중에 한꺼번에 추가"
+        },
+        "zh-Hans": {
+          "title": "位置信息编辑·删除",
+          "detail": "给关闭定位时拍摄的照片，事后批量补上拍摄地点"
         }
       }
     },
@@ -298,6 +410,14 @@
         "en": {
           "title": "DotLuma",
           "detail": "Type a message and press play - your screen becomes a glowing LED sign"
+        },
+        "ko": {
+          "title": "LED 전광판",
+          "detail": "글자를 넣고 재생하기만 하면 화면이 빛나는 전광판으로"
+        },
+        "zh-Hans": {
+          "title": "LED 显示屏",
+          "detail": "输入文字并播放，屏幕就变成发光的显示屏"
         }
       }
     }
