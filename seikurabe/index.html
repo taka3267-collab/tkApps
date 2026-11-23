@@ -8,6 +8,8 @@
   <meta property="og:title" content="子どもアルバム日記 せいくらべ">
   <meta property="og:description" content="撮った写真を選ぶだけで、その日の日記に。">
   <meta property="og:image" content="images/ph-family-cake.jpg">
+  <link rel="icon" href="images/app-icon.png">
+  <link rel="apple-touch-icon" href="images/app-icon.png">
   <meta name="apple-itunes-app" content="app-id=6777436455">
   <style>
     :root {
@@ -38,6 +40,7 @@
     .nav { position: sticky; top: 0; z-index: 10; background: rgba(255,249,240,.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
     .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
     .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; text-decoration: none; letter-spacing: .04em; }
+    .app-icon { width: 36px; height: 36px; border-radius: 9px; box-shadow: 0 1px 3px rgba(0,0,0,.12); }
     .dots { display: flex; align-items: flex-end; gap: 4px; height: 22px; }
     .dots i { display: block; border-radius: 50%; }
     .dots i:nth-child(1) { width: 10px; height: 10px; background: var(--green); }
@@ -149,7 +152,7 @@
 
 <header class="nav">
   <div class="wrap">
-    <a class="brand" href="#top"><span class="dots"><i></i><i></i><i></i></span>せいくらべ</a>
+    <a class="brand" href="#top"><img class="app-icon" src="images/app-icon.png" alt="" width="36" height="36">せいくらべ</a>
     <a class="nav-cta" href="https://apps.apple.com/app/id6777436455">ダウンロード</a>
   </div>
 </header>
