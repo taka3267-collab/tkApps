@@ -59,6 +59,9 @@ https://taka3267-collab.github.io/tkApps/admin/recommended-apps.html
 **友達トーク（com.tkapps.friendTalk、1.2.4 から）** です。
 
 **ゲームデッキ（com.taka.GameDeck）も実装済みで、次のビルドの公開から反映されます。**
+
+**子どもアルバム日記 - せいくらべ（com.taka3267.seikurabe）も実装済みで、リニューアル版の公開から反映されます。**
+内蔵の既定値は無し（初回の通信までは何も出ない）。
 内蔵の既定値は アニメデッキ / コミックデッキ / ブックデッキ の3件。
 
 **友達トーク（com.tkapps.friendTalk）は 1.2.4（2026-11-17 公開）から反映されています。**
