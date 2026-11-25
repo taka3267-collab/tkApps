@@ -12,7 +12,9 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Daily Journal - My Diary">
 <meta property="og:description" content="Forgot to write? The photos you took that day are waiting in the calendar. A quiet iOS diary app.">
-<meta property="og:image" content="https://taka3267-collab.github.io/tkApps/diary/icon.png">
+<meta property="og:image" content="https://taka3267-collab.github.io/tkApps/diary/ogp-en.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:url" content="https://taka3267-collab.github.io/tkApps/diary/index-en.html">
 <meta name="twitter:card" content="summary_large_image">
 <style>
@@ -33,7 +35,7 @@
     -webkit-font-smoothing: antialiased;
     padding-bottom: 86px;
   }
-  img { max-width: 100%; display: block; }
+  img { max-width: 100%; height: auto; display: block; }
   a { color: var(--wine); }
 
   .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
@@ -42,7 +44,7 @@
   .topbar a { color: var(--ink-soft); text-decoration: none; }
   .topbar a:hover { color: var(--wine); }
 
-  .hero { padding: 24px 0 72px; display: grid; grid-template-columns: 1.05fr .95fr; gap: 40px; align-items: center; }
+  .hero { padding: 24px 0 72px; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 40px; align-items: center; }
   .hero h1 { text-wrap: balance; font-size: clamp(2rem, 4.4vw, 2.9rem); line-height: 1.35; font-weight: 800; letter-spacing: .01em; }
   .hero h1 span { color: var(--wine); }
   .hero .lead { margin-top: 18px; color: var(--ink-soft); font-size: 1.02rem; }
@@ -53,27 +55,39 @@
   .hero-shot { justify-self: center; }
   .hero-shot img { width: 262px; border-radius: 26px; box-shadow: 0 26px 60px rgba(90, 60, 65, .22); }
 
-  .cta { display: inline-flex; align-items: center; gap: 10px; margin-top: 26px; background: var(--ink); color: #fff;
-         text-decoration: none; padding: 15px 30px; border-radius: 999px; font-weight: 700; font-size: 1rem;
-         box-shadow: 0 10px 24px rgba(47, 42, 44, .25); transition: transform .15s ease, box-shadow .15s ease; }
-  .cta:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(47, 42, 44, .3); }
-  .cta small { font-weight: 400; opacity: .72; font-size: .8rem; }
+  /* App Store バッジは Apple の配布物をそのまま使う（色・比率・文字を変えないこと）。
+     https://developer.apple.com/jp/app-store/marketing/guidelines/ */
+  .badge { display: inline-block; margin-top: 26px; line-height: 0; transition: opacity .15s ease; }
+  .badge:hover { opacity: .82; }
+  .badge img { height: 54px; width: auto; }
 
   .band { padding: 86px 0; }
   .band + .band { border-top: 1px solid var(--line); }
   .band.dark { background: var(--wine); color: #fff; border-top: none; }
   .band.dark .sub, .band.dark .section-lead { color: rgba(255,255,255,.84); }
   .band.dark a { color: #ffe3e8; }
-  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: center; }
   .split.reverse .shot { order: 2; }
   .split h2 { text-wrap: balance; font-size: clamp(1.5rem, 3.4vw, 2.1rem); line-height: 1.5; font-weight: 800; margin-bottom: 14px; }
   .split .sub { color: var(--ink-soft); }
   .shot img { width: 100%; max-width: 310px; margin: 0 auto; border-radius: 24px; box-shadow: 0 20px 48px rgba(90, 60, 65, .2); }
 
-  .concept { max-width: 680px; margin: 0 auto; text-align: center; }
+  .concept { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 52px; align-items: center; }
   .concept .eyebrow { font-size: .8rem; letter-spacing: .2em; font-weight: 700; color: #ffd9df; }
-  .concept h2 { font-size: clamp(1.6rem, 4vw, 2.3rem); line-height: 1.55; font-weight: 800; margin: 14px 0 26px; }
-  .concept p { text-align: left; margin-bottom: 18px; color: rgba(255,255,255,.9); }
+  .concept h2 { font-size: clamp(1.6rem, 4vw, 2.3rem); line-height: 1.55; font-weight: 800; margin: 14px 0 22px; }
+  .concept p { color: rgba(255,255,255,.9); }
+  .concept img { width: 100%; border-radius: 20px; box-shadow: 0 24px 54px rgba(0, 0, 0, .3); }
+
+  /* カメラロールの見立て。正方形のまま並べる（object-fit が無いと潰れる） */
+  .roll { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 36px; }
+  .roll img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px; }
+
+  .notes { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; }
+  .note h3 { font-size: clamp(1.15rem, 2.4vw, 1.4rem); line-height: 1.6; margin-bottom: 10px; }
+  .note h3 span { color: var(--wine); }
+  .note p { color: var(--ink-soft); }
+  .quote { grid-column: 1 / -1; max-width: 620px; margin: 26px auto 0; text-align: center; font-size: 1.05rem;
+           color: var(--ink); border-top: 1px solid var(--line); padding-top: 32px; }
 
   .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; margin-top: 36px; }
   .feature { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 22px; }
@@ -82,11 +96,6 @@
 
   h2.section-title { font-size: clamp(1.4rem, 3.2vw, 1.9rem); font-weight: 800; margin-bottom: 8px; }
   .section-lead { color: var(--ink-soft); }
-
-  .log { margin-top: 30px; border-top: 1px solid var(--line); }
-  .log div { display: grid; grid-template-columns: 120px 1fr; gap: 18px; padding: 18px 0; border-bottom: 1px solid var(--line); }
-  .log b { font-weight: 700; color: var(--wine); }
-  .log p { color: var(--ink-soft); font-size: .95rem; }
 
   dl { margin-top: 26px; }
   dt { font-weight: 700; margin-top: 22px; }
@@ -108,15 +117,19 @@
   .sticky .who { display: flex; align-items: center; gap: 12px; min-width: 0; }
   .sticky b { font-size: .95rem; }
   .sticky small { display: block; color: var(--ink-soft); font-size: .78rem; font-weight: 400; }
-  .sticky .cta { margin-top: 0; padding: 11px 22px; font-size: .92rem; box-shadow: none; white-space: nowrap; }
+  .sticky .badge { margin-top: 0; flex: 0 0 auto; }
+  .sticky .badge img { height: 42px; }
 
   @media (max-width: 860px) {
-    .hero { grid-template-columns: 1fr; gap: 34px; padding-bottom: 54px; }
+    .hero { grid-template-columns: minmax(0, 1fr); gap: 34px; padding-bottom: 54px; }
     .hero-shot img { width: 240px; }
-    .split { grid-template-columns: 1fr; gap: 30px; }
+    .split { grid-template-columns: minmax(0, 1fr); gap: 30px; }
     .split.reverse .shot { order: 0; }
     .band { padding: 62px 0; }
-    .log div { grid-template-columns: 1fr; gap: 4px; }
+    .notes { grid-template-columns: minmax(0, 1fr); gap: 26px; }
+    .concept { grid-template-columns: minmax(0, 1fr); gap: 30px; }
+    .concept .photo { order: 2; }
+    .roll { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
     .sticky small { display: none; }
     .sticky .who { flex: 1 1 auto; overflow: hidden; }
     .sticky b { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -139,7 +152,9 @@
     </div>
     <h1>A diary you can<br><span>come back to.</span></h1>
     <p class="lead">You don't have to write every day. Open the calendar and the photos you took on the days you skipped are waiting there, faintly. Start from "oh, right &mdash; that day."</p>
-    <a class="cta" href="https://apps.apple.com/app/id6787248759">View on the App Store<small>Free</small></a>
+    <a class="badge" href="https://apps.apple.com/app/id6787248759">
+      <img src="appstore-badge-en.svg" alt="Download on the App Store" width="162" height="54">
+    </a>
   </div>
   <div class="hero-shot">
     <img src="shot-en-1.jpg" alt="Timeline of diary entries" width="620" height="1348">
@@ -148,12 +163,32 @@
 
 <section class="band dark">
   <div class="wrap concept">
-    <p class="eyebrow">CONCEPT</p>
-    <h2>It wasn't your fault<br>that it didn't stick.</h2>
-    <p>There are plenty of diary apps already. I built this one because I think whether a diary lasts comes down to how it treats the days you didn't write.</p>
-    <p>Miss one day and the blank page starts to feel like an accusation. Miss two and you stop opening the app at all. I've quit a diary myself the moment a streak counter broke. That's why there is no streak here, and nothing counting the days you missed.</p>
-    <p>What's there instead is the photos you took. Your camera roll is the most honest record you keep, and even on a day you didn't write, something is usually in it. Lay those faintly over the calendar and, even ten days later, you can start from "ah, I ate that."</p>
-    <p>Quiet, never nagging, open it only when you feel like it. That's the diary I wanted this to be.</p>
+    <div class="photo"><img src="concept.jpg" alt="A notebook left open on a desk at dusk" width="1200" height="800" loading="lazy"></div>
+    <div>
+      <p class="eyebrow">CONCEPT</p>
+      <h2>It wasn't your fault<br>that it didn't stick.</h2>
+      <p>There are plenty of diary apps already. I built this one because I think whether a diary lasts comes down to how it treats the days you didn't write.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap notes">
+    <div class="note">
+      <h3>Nothing <span>counts the days.</span></h3>
+      <p>Miss one day and the blank page starts to feel like an accusation. Miss two and you stop opening the app at all. If a broken streak is what makes people quit, it is better never to count in the first place &mdash; so there is no streak here, and nothing tallying the days you missed.</p>
+    </div>
+    <div class="note">
+      <h3>What's there instead is <span>that day's photo.</span></h3>
+      <p>Your camera roll is the most honest record you keep, and even on a day you didn't write, something is usually in it. Lay those faintly over the calendar and, even ten days later, you can start from "ah, I ate that."</p>
+    </div>
+    <div class="roll">
+      <img src="daily-1.jpg" alt="" width="720" height="720" loading="lazy">
+      <img src="daily-2.jpg" alt="" width="720" height="720" loading="lazy">
+      <img src="daily-3.jpg" alt="" width="720" height="720" loading="lazy">
+      <img src="daily-4.jpg" alt="" width="720" height="720" loading="lazy">
+    </div>
+    <p class="quote">Quiet, never nagging, open it only when you feel like it.<br>That's the diary I wanted this to be.</p>
   </div>
 </section>
 
@@ -210,7 +245,6 @@
       <div class="feature"><h3>Export</h3><p>Save as PDF or plain text. Print it if you want it on paper.</p></div>
       <div class="feature"><h3>Reminders</h3><p>A quiet notification at the time you choose. Write on a future date and it tells you on the day.</p></div>
       <div class="feature"><h3>App lock</h3><p>Lock the app on launch with Face ID or a passcode.</p></div>
-      <div class="feature"><h3>Four languages</h3><p>English, Japanese, Korean and Simplified Chinese, switchable inside the app.</p></div>
     </div>
   </div>
 </section>
@@ -230,18 +264,6 @@
       <div class="feature"><h3>No ads</h3><p>Banners and full-screen ads stop appearing.</p></div>
       <div class="feature"><h3>Unlimited PDF export</h3><p>The free version exports the 3 most recent entries; Premium exports them all.</p></div>
       <div class="feature"><h3>Unlimited text export</h3><p>For when you want to move your writing elsewhere.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="band">
-  <div class="wrap">
-    <h2 class="section-title">Release notes</h2>
-    <div class="log">
-      <div><b>1.1.5</b><p>42 theme colors, including a set of calm traditional Japanese tones. The app icon can follow your theme. The calendar shows that day's photo faintly on days with no entry.</p></div>
-      <div><b>1.1.4</b><p>Pick from the photos taken on the entry's date, several at once. Smoother "Insert Photo".</p></div>
-      <div><b>1.1.3</b><p>Home Screen and Lock Screen widgets, a Control Center control, and support for Siri, Shortcuts and Spotlight.</p></div>
-      <div><b>1.1.0 - 1.1.2</b><p>Recommended apps, backup and transfer, full-text timeline, and assorted refinements.</p></div>
     </div>
   </div>
 </section>
@@ -279,7 +301,9 @@
     <img class="mark" src="icon.png" alt="">
     <h2>Daily Journal - My Diary</h2>
     <p>A diary you can come back to.</p>
-    <a class="cta" href="https://apps.apple.com/app/id6787248759">View on the App Store<small>Free</small></a>
+    <a class="badge" href="https://apps.apple.com/app/id6787248759">
+      <img src="appstore-badge-en-white.svg" alt="Download on the App Store" width="162" height="54">
+    </a>
   </div>
 </section>
 
@@ -299,7 +323,9 @@
       <img src="icon.png" alt="">
       <b>Daily Journal - My Diary<small>iPhone / iPad &middot; Free</small></b>
     </div>
-    <a class="cta" href="https://apps.apple.com/app/id6787248759">App Store</a>
+    <a class="badge" href="https://apps.apple.com/app/id6787248759">
+      <img src="appstore-badge-en.svg" alt="Download on the App Store" width="126" height="42">
+    </a>
   </div>
 </div>
 
