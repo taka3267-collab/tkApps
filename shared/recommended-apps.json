@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-25T17:41:03Z",
+  "updatedAt": "2026-11-25T17:43:06Z",
   "iconBaseUrl": "https://taka3267-collab.github.io/tkApps/shared/",
   "catalog": {
     "diary": {
@@ -594,6 +594,7 @@
       "friendtalk"
     ],
     "com.taka.GameDeck": [
+      "focuscamera_youth",
       "animedeck",
       "comicdeck",
       "bookdeck",
@@ -605,7 +606,6 @@
       "calculator",
       "trippacy",
       "geophoto",
-      "focuscamera",
       "fuellog",
       "compound_graph",
       "ehonlog",
@@ -762,6 +762,7 @@
       "dotluma"
     ],
     "com.taka.ComicDeck": [
+      "focuscamera_youth",
       "animedeck",
       "bookdeck",
       "gamedeck",
@@ -773,7 +774,6 @@
       "calculator",
       "trippacy",
       "geophoto",
-      "focuscamera",
       "fuellog",
       "compound_graph",
       "ehonlog",
