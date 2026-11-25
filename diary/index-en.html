@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daily Journal - My Diary | A diary you can come back to</title>
-<meta name="description" content="A quiet iOS diary app for photos, tags and how your day felt. Forgot to write? The photos you took that day are waiting in the calendar. No account, entries stay on your device. Free.">
+<title>Daily Journal - My Diary | An easy place to keep today</title>
+<meta name="description" content="An easy place to keep today. A quiet iOS diary app for photos, tags and how your day felt. The calendar shows the photo you took that day. No account, entries stay on your device. Free.">
 <link rel="canonical" href="https://taka3267-collab.github.io/tkApps/diary/index-en.html">
 <link rel="alternate" hreflang="ja" href="https://taka3267-collab.github.io/tkApps/diary/index.html">
 <link rel="alternate" hreflang="en" href="https://taka3267-collab.github.io/tkApps/diary/index-en.html">
 <link rel="icon" href="icon.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Daily Journal - My Diary">
-<meta property="og:description" content="Forgot to write? The photos you took that day are waiting in the calendar. A quiet iOS diary app.">
+<meta property="og:description" content="An easy place to keep today. A quiet iOS diary app for photos, tags and how your day felt.">
 <meta property="og:image" content="https://taka3267-collab.github.io/tkApps/diary/ogp-en.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -40,11 +40,12 @@
 
   .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
 
-  .topbar { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; font-size: .85rem; }
+  /* .wrap と同じクラスに付くので、左右 24px を書き戻さないと .wrap の padding が消える */
+  .topbar { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; font-size: .85rem; }
   .topbar a { color: var(--ink-soft); text-decoration: none; }
   .topbar a:hover { color: var(--wine); }
 
-  .hero { padding: 24px 0 72px; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 40px; align-items: center; }
+  .hero { padding: 28px 24px 72px; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 40px; align-items: center; }
   .hero h1 { text-wrap: balance; font-size: clamp(2rem, 4.4vw, 2.9rem); line-height: 1.35; font-weight: 800; letter-spacing: .01em; }
   .hero h1 span { color: var(--wine); }
   .hero .lead { margin-top: 18px; color: var(--ink-soft); font-size: 1.02rem; }
@@ -121,7 +122,7 @@
   .sticky .badge img { height: 42px; }
 
   @media (max-width: 860px) {
-    .hero { grid-template-columns: minmax(0, 1fr); gap: 34px; padding-bottom: 54px; }
+    .hero { grid-template-columns: minmax(0, 1fr); gap: 30px; padding: 12px 24px 56px; }
     .hero-shot img { width: 240px; }
     .split { grid-template-columns: minmax(0, 1fr); gap: 30px; }
     .split.reverse .shot { order: 0; }
@@ -150,8 +151,8 @@
       <img src="icon.png" alt="Daily Journal app icon">
       <b>Daily Journal - My Diary<small>iPhone / iPad &middot; Free</small></b>
     </div>
-    <h1>A diary you can<br><span>come back to.</span></h1>
-    <p class="lead">You don't have to write every day. Open the calendar and the photos you took on the days you skipped are waiting there, faintly. Start from "oh, right &mdash; that day."</p>
+    <h1>An easy place<br><span>to keep today.</span></h1>
+    <p class="lead">Write the body, close it, and it&rsquo;s an entry. The calendar shows the photo you took that day, so catching up later is easy too.</p>
     <a class="badge" href="https://apps.apple.com/app/id6787248759">
       <img src="appstore-badge-en.svg" alt="Download on the App Store" width="162" height="54">
     </a>
@@ -166,8 +167,8 @@
     <div class="photo"><img src="concept.jpg" alt="A notebook left open on a desk at dusk" width="1200" height="800" loading="lazy"></div>
     <div>
       <p class="eyebrow">CONCEPT</p>
-      <h2>It wasn't your fault<br>that it didn't stick.</h2>
-      <p>There are plenty of diary apps already. I built this one because I think whether a diary lasts comes down to how it treats the days you didn't write.</p>
+      <h2>Start from<br>a photo.</h2>
+      <p>There are plenty of diary apps already. I built this one so that, before &ldquo;what should I write,&rdquo; there is &ldquo;oh right &mdash; that's what that day was like.&rdquo;</p>
     </div>
   </div>
 </section>
@@ -175,12 +176,12 @@
 <section class="band">
   <div class="wrap notes">
     <div class="note">
-      <h3>Nothing <span>counts the days.</span></h3>
-      <p>Miss one day and the blank page starts to feel like an accusation. Miss two and you stop opening the app at all. If a broken streak is what makes people quit, it is better never to count in the first place &mdash; so there is no streak here, and nothing tallying the days you missed.</p>
+      <h3>Keep it at <span>your own pace.</span></h3>
+      <p>Open it when you feel like it and write as much as you want. Nothing counts a streak or pushes you to keep up. Even a few days a month add up to a record of your year once you read them back.</p>
     </div>
     <div class="note">
-      <h3>What's there instead is <span>that day's photo.</span></h3>
-      <p>Your camera roll is the most honest record you keep, and even on a day you didn't write, something is usually in it. Lay those faintly over the calendar and, even ten days later, you can start from "ah, I ate that."</p>
+      <h3>Photos help <span>you remember.</span></h3>
+      <p>Your camera roll is the most honest record you keep. Lay those photos faintly over the calendar and, even after a while away, you can start from "ah, I ate that."</p>
     </div>
     <div class="roll">
       <img src="daily-1.jpg" alt="" width="720" height="720" loading="lazy">
@@ -188,7 +189,7 @@
       <img src="daily-3.jpg" alt="" width="720" height="720" loading="lazy">
       <img src="daily-4.jpg" alt="" width="720" height="720" loading="lazy">
     </div>
-    <p class="quote">Quiet, never nagging, open it only when you feel like it.<br>That's the diary I wanted this to be.</p>
+    <p class="quote">Open it on the days you want to.<br>That is all this diary asks.</p>
   </div>
 </section>
 
@@ -206,7 +207,7 @@
   <div class="wrap split reverse">
     <div class="shot"><img src="shot-en-3.jpg" alt="Calendar view" width="620" height="1348"></div>
     <div>
-      <h2>The photos remind you<br>of the days you missed.</h2>
+      <h2>Days with no entry<br>show that day&rsquo;s photo.</h2>
       <p class="sub">On days with no entry yet, the calendar shows the photo you took that day, faintly behind the date. One familiar shot and the memory comes back on its own. In the editor you can pick straight from that day's photos too. You can turn it off in Settings.</p>
     </div>
   </div>
@@ -288,7 +289,7 @@
       <dd>Settings &gt; Premium. Monthly, yearly and one-time options; the yearly plan has a one-week free trial.</dd>
 
       <dt>Is there a streak counter?</dt>
-      <dd>No. If a broken streak is what makes people quit, it's better not to have one.</dd>
+      <dd>No. A diary isn't something to compete at, so you can keep it at whatever pace suits you.</dd>
 
       <dt>Widgets? Apple Watch?</dt>
       <dd>Widgets work on both the Home Screen and the Lock Screen, and a Control Center control opens a new entry. There is no Apple Watch app for now.</dd>
@@ -300,7 +301,7 @@
   <div class="wrap closing">
     <img class="mark" src="icon.png" alt="">
     <h2>Daily Journal - My Diary</h2>
-    <p>A diary you can come back to.</p>
+    <p>An easy place to keep today.</p>
     <a class="badge" href="https://apps.apple.com/app/id6787248759">
       <img src="appstore-badge-en-white.svg" alt="Download on the App Store" width="162" height="54">
     </a>
