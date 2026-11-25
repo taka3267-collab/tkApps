@@ -110,6 +110,23 @@
   footer nav { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 18px; }
   footer a { color: var(--ink-soft); }
 
+  /* 下部の固定バー。冒頭の App Store ボタンが見えている間は出さない（JS で切り替える）。 */
+  .sticky { position: fixed; left: 0; right: 0; bottom: 0; background: rgba(247, 243, 236, .94);
+            backdrop-filter: saturate(180%) blur(12px); border-top: 1px solid var(--line); z-index: 20;
+            transform: translateY(100%); opacity: 0; pointer-events: none;
+            transition: transform .25s ease, opacity .25s ease; }
+  .sticky.is-shown { transform: none; opacity: 1; pointer-events: auto; }
+  .sticky .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 10px; padding-bottom: 10px; }
+  .sticky img { width: 44px; height: 44px; border-radius: 11px; }
+  .sticky .who { display: flex; align-items: center; gap: 12px; min-width: 0; }
+  .sticky b { font-size: .95rem; }
+  .sticky small { display: block; color: var(--ink-soft); font-size: .78rem; font-weight: 400; }
+  .sticky .badge { margin-top: 0; flex: 0 0 auto; }
+  .sticky .badge img { width: auto; height: 50px; border-radius: 0; }
+  /* バーが出ているあいだだけ、下の文章が隠れないよう逃がす */
+  body.has-sticky { padding-bottom: 76px; }
+  @media (prefers-reduced-motion: reduce) { .sticky { transition: none; } }
+
   @media (max-width: 860px) {
     .hero { grid-template-columns: minmax(0, 1fr); gap: 30px; padding: 12px 24px 56px; }
     .hero-shot img { width: 240px; }
@@ -120,6 +137,9 @@
     .concept { grid-template-columns: minmax(0, 1fr); gap: 30px; }
     .concept .photo { order: 2; }
     .roll { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+    .sticky small { display: none; }
+    .sticky .who { flex: 1 1 auto; overflow: hidden; }
+    .sticky b { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   }
 </style>
 </head>
@@ -138,7 +158,7 @@
     </div>
     <h1>今日を、<span>気楽に残す。</span></h1>
     <p class="lead">その日に撮った写真を見ながら、書きたい日に、ひとことから。</p>
-    <a class="badge" href="https://apps.apple.com/jp/app/id6787248759">
+    <a class="badge" id="hero-cta" href="https://apps.apple.com/jp/app/id6787248759">
       <img src="appstore-badge-ja.svg" alt="App Store からダウンロード" width="147" height="54">
     </a>
   </div>
@@ -303,6 +323,39 @@
   <p>&copy; 2026 T.K Apps</p>
 </footer>
 
+
+<div class="sticky">
+  <div class="wrap">
+    <div class="who">
+      <img src="icon.png" alt="">
+      <b>日記 - 今日を残すノート<small>iPhone / iPad ・ 無料</small></b>
+    </div>
+    <a class="badge" href="https://apps.apple.com/jp/app/id6787248759">
+      <img src="appstore-badge-ja.svg" alt="App Store からダウンロード" width="136" height="50">
+    </a>
+  </div>
+</div>
+
+<script>
+  // 冒頭の App Store ボタンが見えているあいだは、下の固定バーを隠しておく。
+  // 上に戻ってボタンが再び見えたら、また隠れる。
+  (function () {
+    var bar = document.querySelector('.sticky');
+    var anchor = document.getElementById('hero-cta');
+    if (!bar || !anchor) return;
+    var shown = null;
+    function update() {
+      var show = anchor.getBoundingClientRect().bottom < 0;
+      if (show === shown) return;
+      shown = show;
+      bar.classList.toggle('is-shown', show);
+      document.body.classList.toggle('has-sticky', show);
+    }
+    addEventListener('scroll', update, { passive: true });
+    addEventListener('resize', update);
+    update();
+  })();
+</script>
 
 </body>
 </html>
