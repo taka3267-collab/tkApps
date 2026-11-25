@@ -92,3 +92,7 @@ Flutter 製なのでクライアントは
 対応させる手順は [`reference/README.md`](reference/README.md) にまとめてあります。
 `reference/RecommendedAppsService.swift` をコピーして冒頭の設定だけ直し、
 管理ページの `SUPPORTED` にその Bundle ID を足して、このリストを更新してください。
+
+**集中カメラ（com.taka.focuscamera）も実装済みで、1.0.3 の公開から反映されます。**
+内蔵の既定値は クイックノート / 日記 / 電卓 の3件。アプリ内の言語設定（設定 > 言語）に合わせて表示します。
+公開したら `SUPPORTED` とこのリストに `com.taka.focuscamera` を足してください。

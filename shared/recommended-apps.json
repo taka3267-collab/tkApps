@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-25T16:30:41Z",
+  "updatedAt": "2026-11-25T17:27:25Z",
   "iconBaseUrl": "https://taka3267-collab.github.io/tkApps/shared/",
   "catalog": {
     "diary": {
@@ -78,7 +78,7 @@
           "detail": "自分を映して、離席・よそ見を知らせる集中タイマー"
         },
         "en": {
-          "title": "Focus Camera",
+          "title": "Focus Mirror",
           "detail": "A focus timer that watches you and flags when you step away or look elsewhere"
         },
         "ko": {
@@ -420,6 +420,28 @@
           "detail": "输入文字并播放，屏幕就变成发光的显示屏"
         }
       }
+    },
+    "focuscamera_youth": {
+      "appStoreId": "6815692837",
+      "icon": "icons/focuscamera.png",
+      "localizations": {
+        "ja": {
+          "title": "集中カメラ - ドパガキ防止",
+          "detail": "スマホを手から離して集中。集中した時間が記録に残り、がんばった証拠になる"
+        },
+        "en": {
+          "title": "Focus Mirror - Phone Down",
+          "detail": "Put your phone down and focus. Your focus time is recorded as proof of your effort"
+        },
+        "ko": {
+          "title": "집중 카메라 - 도파민 중독 탈출",
+          "detail": "스마트폰을 손에서 놓고 집중. 집중한 시간이 기록으로 남아 노력의 증거가 돼요"
+        },
+        "zh-Hans": {
+          "title": "专注相机 - 告别刷手机",
+          "detail": "放下手机专心学习。专注时间会被记录下来，成为努力的证明"
+        }
+      }
     }
   },
   "placements": {
@@ -472,6 +494,7 @@
       "diary",
       "bookdeck",
       "gamedeck",
+      "focuscamera_youth",
       "--more--",
       "seikurabe",
       "animedeck",
@@ -480,7 +503,6 @@
       "quicknote",
       "calculator",
       "geophoto",
-      "focuscamera",
       "fuellog",
       "compound_graph",
       "ehonlog",
@@ -850,6 +872,7 @@
       "trippacy",
       "friendtalk",
       "calculator",
+      "focuscamera_youth",
       "--more--",
       "seikurabe",
       "train",
@@ -860,7 +883,6 @@
       "animedeck",
       "comicdeck",
       "geophoto",
-      "focuscamera",
       "fuellog",
       "compound_graph",
       "ehonlog",
