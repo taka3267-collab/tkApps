@@ -1,200 +1,306 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>日記 | T.K Apps</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", sans-serif;
-      background: #f8f7ff;
-      color: #29253f;
-      line-height: 1.8;
-    }
-    header {
-      background: linear-gradient(135deg, #f2efff 0%, #fff4f2 100%);
-      text-align: center;
-      padding: 56px 20px 48px;
-      border-bottom: 1px solid #e6e0f8;
-    }
-    header .back {
-      display: inline-block;
-      margin-bottom: 18px;
-      color: #6d6688;
-      text-decoration: none;
-      font-size: 0.9rem;
-    }
-    .app-mark {
-      width: 86px;
-      height: 86px;
-      margin: 0 auto 18px;
-      border-radius: 24px;
-      background: linear-gradient(135deg, #6c63ff 0%, #ff8f87 100%);
-      display: grid;
-      place-items: center;
-      color: #fff;
-      font-size: 2.4rem;
-      box-shadow: 0 14px 32px rgba(108, 99, 255, 0.22);
-    }
-    h1 {
-      font-size: 2.45rem;
-      font-weight: 800;
-      letter-spacing: 0.02em;
-    }
-    header p {
-      margin-top: 10px;
-      color: #6d6688;
-    }
-    main {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 44px 20px 76px;
-    }
-    .hero-copy {
-      background: #fff;
-      border: 1px solid #e9e5f8;
-      border-radius: 18px;
-      padding: 30px;
-      box-shadow: 0 8px 28px rgba(72, 58, 140, 0.08);
-      margin-bottom: 24px;
-    }
-    .hero-copy h2 {
-      color: #5d55d8;
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
-      margin: 24px 0;
-    }
-    .card {
-      background: #fff;
-      border: 1px solid #e9e5f8;
-      border-radius: 16px;
-      padding: 22px;
-      box-shadow: 0 6px 22px rgba(72, 58, 140, 0.07);
-    }
-    .card h3 {
-      color: #5d55d8;
-      font-size: 1.05rem;
-      margin-bottom: 8px;
-    }
-    .badge {
-      display: inline-block;
-      background: #f0edff;
-      color: #5d55d8;
-      font-size: 0.8rem;
-      font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 999px;
-      margin-right: 6px;
-      margin-top: 8px;
-    }
-    .premium {
-      background: linear-gradient(135deg, #fff 0%, #fbfaff 100%);
-      border: 1px solid #ddd6ff;
-      border-radius: 18px;
-      padding: 28px;
-      margin-top: 24px;
-      box-shadow: 0 10px 30px rgba(72, 58, 140, 0.08);
-    }
-    .premium h2 {
-      color: #5d55d8;
-      font-size: 1.25rem;
-      margin-bottom: 12px;
-    }
-    ul { padding-left: 20px; }
-    .links {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 14px;
-      margin-top: 24px;
-    }
-    .link-card {
-      display: block;
-      background: #fff;
-      border: 1px solid #e9e5f8;
-      border-radius: 14px;
-      padding: 18px;
-      color: #29253f;
-      text-decoration: none;
-      box-shadow: 0 4px 18px rgba(72, 58, 140, 0.06);
-    }
-    .link-card strong {
-      display: block;
-      color: #5d55d8;
-      margin-bottom: 4px;
-    }
-    footer {
-      text-align: center;
-      padding: 32px 20px;
-      color: #8d86a8;
-      font-size: 0.85rem;
-    }
-    a { color: #5d55d8; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日記 - 今日を残すノート | 書かなかった日にも戻ってこられる日記アプリ</title>
+<meta name="description" content="写真とタグで、その日の気持ちを静かに残せるiOSの日記アプリ。書き忘れた日は、その日に撮った写真が思い出させてくれます。アカウント不要、日記は端末の中に保存。無料。">
+<link rel="canonical" href="https://taka3267-collab.github.io/tkApps/diary/index.html">
+<link rel="alternate" hreflang="ja" href="https://taka3267-collab.github.io/tkApps/diary/index.html">
+<link rel="alternate" hreflang="en" href="https://taka3267-collab.github.io/tkApps/diary/index-en.html">
+<link rel="icon" href="icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="日記 - 今日を残すノート">
+<meta property="og:description" content="書き忘れた日は、その日に撮った写真が思い出させてくれる。静かに続けられるiOSの日記アプリ。">
+<meta property="og:image" content="https://taka3267-collab.github.io/tkApps/diary/icon.png">
+<meta property="og:url" content="https://taka3267-collab.github.io/tkApps/diary/index.html">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root {
+    --paper: #f7f3ec;
+    --ink: #2f2a2c;
+    --ink-soft: #6d6468;
+    --wine: #9e5c66;
+    --line: #e2d9cb;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", "Segoe UI", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: 86px;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: var(--wine); }
+
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+  .topbar { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; font-size: .85rem; }
+  .topbar a { color: var(--ink-soft); text-decoration: none; }
+  .topbar a:hover { color: var(--wine); }
+
+  .hero { padding: 24px 0 72px; display: grid; grid-template-columns: 1.05fr .95fr; gap: 40px; align-items: center; }
+  .hero h1 { text-wrap: balance; font-size: clamp(2rem, 4.4vw, 2.9rem); line-height: 1.35; font-weight: 800; letter-spacing: .01em; }
+  .hero h1 span { color: var(--wine); }
+  .hero .lead { margin-top: 18px; color: var(--ink-soft); font-size: 1.02rem; }
+  .hero-mark { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; }
+  .hero-mark img { width: 62px; height: 62px; border-radius: 15px; box-shadow: 0 10px 24px rgba(120, 70, 80, .22); }
+  .hero-mark b { font-size: 1rem; font-weight: 700; }
+  .hero-mark small { display: block; color: var(--ink-soft); font-weight: 400; font-size: .84rem; }
+  .hero-shot { justify-self: center; }
+  .hero-shot img { width: 262px; border-radius: 26px; box-shadow: 0 26px 60px rgba(90, 60, 65, .22); }
+
+  .cta { display: inline-flex; align-items: center; gap: 10px; margin-top: 26px; background: var(--ink); color: #fff;
+         text-decoration: none; padding: 15px 30px; border-radius: 999px; font-weight: 700; font-size: 1rem;
+         box-shadow: 0 10px 24px rgba(47, 42, 44, .25); transition: transform .15s ease, box-shadow .15s ease; }
+  .cta:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(47, 42, 44, .3); }
+  .cta small { font-weight: 400; opacity: .72; font-size: .8rem; }
+
+  .band { padding: 86px 0; }
+  .band + .band { border-top: 1px solid var(--line); }
+  .band.dark { background: var(--wine); color: #fff; border-top: none; }
+  .band.dark .sub, .band.dark .section-lead { color: rgba(255,255,255,.84); }
+  .band.dark a { color: #ffe3e8; }
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .split.reverse .shot { order: 2; }
+  .split h2 { text-wrap: balance; font-size: clamp(1.5rem, 3.4vw, 2.1rem); line-height: 1.5; font-weight: 800; margin-bottom: 14px; }
+  .split .sub { color: var(--ink-soft); }
+  .shot img { width: 100%; max-width: 310px; margin: 0 auto; border-radius: 24px; box-shadow: 0 20px 48px rgba(90, 60, 65, .2); }
+
+  .concept { max-width: 680px; margin: 0 auto; text-align: center; }
+  .concept .eyebrow { font-size: .8rem; letter-spacing: .2em; font-weight: 700; color: #ffd9df; }
+  .concept h2 { font-size: clamp(1.6rem, 4vw, 2.3rem); line-height: 1.55; font-weight: 800; margin: 14px 0 26px; }
+  .concept p { text-align: left; margin-bottom: 18px; color: rgba(255,255,255,.9); }
+
+  .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; margin-top: 36px; }
+  .feature { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 22px; }
+  .feature h3 { font-size: 1rem; margin-bottom: 6px; }
+  .feature p { font-size: .92rem; color: var(--ink-soft); line-height: 1.8; }
+
+  h2.section-title { font-size: clamp(1.4rem, 3.2vw, 1.9rem); font-weight: 800; margin-bottom: 8px; }
+  .section-lead { color: var(--ink-soft); }
+
+  .log { margin-top: 30px; border-top: 1px solid var(--line); }
+  .log div { display: grid; grid-template-columns: 120px 1fr; gap: 18px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+  .log b { font-weight: 700; color: var(--wine); }
+  .log p { color: var(--ink-soft); font-size: .95rem; }
+
+  dl { margin-top: 26px; }
+  dt { font-weight: 700; margin-top: 22px; }
+  dd { color: var(--ink-soft); margin-top: 6px; }
+
+  .closing { text-align: center; }
+  .closing img.mark { width: 92px; height: 92px; border-radius: 23px; margin: 0 auto 18px; box-shadow: 0 16px 36px rgba(0,0,0,.2); }
+  .closing h2 { font-size: 1.6rem; margin-bottom: 4px; }
+  .closing p { opacity: .88; }
+
+  footer { padding: 46px 0 40px; text-align: center; color: var(--ink-soft); font-size: .86rem; }
+  footer nav { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 18px; }
+  footer a { color: var(--ink-soft); }
+
+  .sticky { position: fixed; left: 0; right: 0; bottom: 0; background: rgba(247, 243, 236, .94);
+            backdrop-filter: saturate(180%) blur(12px); border-top: 1px solid var(--line); z-index: 20; }
+  .sticky .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 12px; padding-bottom: 12px; }
+  .sticky img { width: 44px; height: 44px; border-radius: 11px; }
+  .sticky .who { display: flex; align-items: center; gap: 12px; min-width: 0; }
+  .sticky b { font-size: .95rem; }
+  .sticky small { display: block; color: var(--ink-soft); font-size: .78rem; font-weight: 400; }
+  .sticky .cta { margin-top: 0; padding: 11px 22px; font-size: .92rem; box-shadow: none; white-space: nowrap; }
+
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; gap: 34px; padding-bottom: 54px; }
+    .hero-shot img { width: 240px; }
+    .split { grid-template-columns: 1fr; gap: 30px; }
+    .split.reverse .shot { order: 0; }
+    .band { padding: 62px 0; }
+    .log div { grid-template-columns: 1fr; gap: 4px; }
+    .sticky small { display: none; }
+    .sticky .who { flex: 1 1 auto; overflow: hidden; }
+    .sticky b { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  }
+</style>
 </head>
 <body>
-<header>
-  <a class="back" href="../index.html">← T.K Apps トップへ</a>
-  <div class="app-mark" aria-hidden="true">✎</div>
-  <h1>日記</h1>
-  <p>毎日の気持ちや出来事を、静かに残せる日記アプリ</p>
+
+<div class="wrap topbar">
+  <a href="../index.html">← T.K Apps</a>
+  <a href="index-en.html" hreflang="en" lang="en">English</a>
+</div>
+
+<header class="wrap hero">
+  <div>
+    <div class="hero-mark">
+      <img src="icon.png" alt="日記アプリのアイコン">
+      <b>日記 - 今日を残すノート<small>iPhone / iPad ・ 無料</small></b>
+    </div>
+    <h1>書かなかった日にも、<br><span>戻ってこられる。</span></h1>
+    <p class="lead">毎日きちんと書けなくていい。カレンダーを開けば、書き忘れた日にその日撮った写真が薄く浮かびます。そこから「そういえば」と書きはじめられる日記アプリです。</p>
+    <a class="cta" href="https://apps.apple.com/jp/app/id6787248759">App Store で見る<small>無料</small></a>
+  </div>
+  <div class="hero-shot">
+    <img src="shot-1.jpg" alt="日記がならぶタイムライン画面" width="620" height="1348">
+  </div>
 </header>
 
-<main>
-  <section class="hero-copy">
-    <h2>あとから読み返したくなる日々を、かんたんに。</h2>
-    <p>「日記」は、文章・写真・タグを使って、その日の出来事や気持ちを残すためのiOSアプリです。タイムライン、カレンダー、検索で、書いた日記を自然に振り返れます。</p>
-    <span class="badge">iOS</span>
-    <span class="badge">日記</span>
-    <span class="badge">写真</span>
-    <span class="badge">検索</span>
-  </section>
+<section class="band dark">
+  <div class="wrap concept">
+    <p class="eyebrow">CONCEPT</p>
+    <h2>続かなかったのは、<br>あなたのせいじゃない。</h2>
+    <p>日記アプリはすでにたくさんあります。それでも作ったのは、「書けなかった日」の扱い方で続くかどうかが決まる、と思ったからです。</p>
+    <p>一日あけると、空白のページが責めてくるように感じます。二日あくと、もう開かなくなる。連続記録の数字が途切れた瞬間にやめてしまった経験が、私にもありました。だからこのアプリには、連続日数を競わせる仕組みを入れていません。</p>
+    <p>代わりに置いたのが、その日に撮った写真です。カメラロールはいちばん正直な記録で、書けなかった日にも何かしら残っています。カレンダーにそれを薄く重ねておけば、十日ぶりに開いた日でも「あ、これ食べたな」から書きはじめられます。</p>
+    <p>静かで、急かさなくて、気が向いた日にだけ開けばいい。そういう日記であってほしいと思っています。</p>
+  </div>
+</section>
 
-  <section class="grid">
-    <div class="card">
-      <h3>タイムラインで振り返り</h3>
-      <p>書いた日記を時系列で見返せます。最近の気持ちや出来事の流れを、すぐにたどれます。</p>
+<section class="band">
+  <div class="wrap split">
+    <div class="shot"><img src="shot-2.jpg" alt="日記を書く編集画面" width="620" height="1348"></div>
+    <div>
+      <h2>書くことを、<br>いちばん短くする。</h2>
+      <p class="sub">タイトルも気分もスコアもタグも、すべて任意です。本文だけ書いて閉じても日記になります。使わない項目は設定から隠せるので、画面は最後まで散らかりません。写真は1件に10枚まで入れられ、その場でカメラも開けます。</p>
     </div>
-    <div class="card">
-      <h3>カレンダーで探しやすく</h3>
-      <p>いつ書いた日記かをカレンダーから確認できます。日付を起点に思い出を探せます。</p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap split reverse">
+    <div class="shot"><img src="shot-3.jpg" alt="カレンダー画面" width="620" height="1348"></div>
+    <div>
+      <h2>書き忘れた日を、<br>写真が教えてくれる。</h2>
+      <p class="sub">カレンダーでは、まだ日記のない日にその日撮った写真が薄く表示されます。見覚えのある一枚が目に入れば、記憶はあっさり戻ってきます。編集画面でも、その日の写真から直接選んで本文に入れられます。もちろん設定でオフにできます。</p>
     </div>
-    <div class="card">
-      <h3>写真やタグも一緒に</h3>
-      <p>文章だけでは残しきれない空気感も、写真やタグと一緒に整理できます。</p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap split">
+    <div class="shot"><img src="shot-4.jpg" alt="テーマカラーの設定画面" width="620" height="1348"></div>
+    <div>
+      <h2>42色から、<br>自分の一冊に。</h2>
+      <p class="sub">鮮やかな単色、和の落ち着いた色、グラデーション。アプリ全体の色を42色から選べます。ホーム画面のアプリアイコンも、選んだ色に合わせて変えられます。書体・文字サイズ・行間も調整できるので、読み返しやすい見た目に整えられます。</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="premium">
-    <h2>プレミアム</h2>
-    <p>無料でも日記を書けます。プレミアムでは、広告を非表示にし、PDF・テキストでの日記の書き出しが利用できます。</p>
-    <ul>
-      <li>広告非表示</li>
-      <li>すべての日記をPDFで書き出し</li>
-      <li>すべての日記をテキストで書き出し</li>
-      <li>年額プランは7日間無料お試しに対応予定</li>
-    </ul>
-  </section>
+<section class="band">
+  <div class="wrap split reverse">
+    <div class="shot"><img src="shot-5.jpg" alt="スコアの推移グラフ" width="620" height="1348"></div>
+    <div>
+      <h2>気分の流れが、<br>あとから見える。</h2>
+      <p class="sub">その日の調子を0〜100のスコアで残しておくと、1週間・1か月・2か月の折れ線で振り返れます。タグで絞り込めば、「この予定のあとは決まって落ちている」といった傾向も見えてきます。要らなければ、項目ごと非表示にできます。</p>
+    </div>
+  </div>
+</section>
 
-  <section class="links">
-    <a class="link-card" href="privacy-policy.html">
-      <strong>プライバシーポリシー</strong>
-      日記データ、写真、広告、課金、トラッキングの取り扱いについて
-    </a>
-    <a class="link-card" href="terms.html">
-      <strong>利用規約</strong>
-      アプリ利用時の注意事項、課金、免責事項について
-    </a>
-  </section>
-</main>
+<section class="band">
+  <div class="wrap">
+    <h2 class="section-title">そのほかにできること</h2>
+    <p class="section-lead">毎日の記録まわりで必要になるものは、ひと通り入っています。</p>
+    <div class="features">
+      <div class="feature"><h3>ウィジェット</h3><p>ホーム画面とロック画面に、今月書いた日数と最新の日記を表示。コントロールセンターから1タップで書きはじめられます。</p></div>
+      <div class="feature"><h3>Siri・ショートカット</h3><p>「日記を書く」と話しかけて新規作成。Spotlight 検索からも開けます。</p></div>
+      <div class="feature"><h3>検索とタグ</h3><p>本文・タイトル・タグを横断して検索。タグで分類しておけば、テーマごとに読み返せます。</p></div>
+      <div class="feature"><h3>iCloud 同期</h3><p>同じ Apple アカウントの端末どうしで同期。機種変更のときもそのまま引き継げます。</p></div>
+      <div class="feature"><h3>バックアップ</h3><p>日記と写真をまとめてファイルに書き出し、あとから戻せます。</p></div>
+      <div class="feature"><h3>書き出し</h3><p>PDF とテキストで保存。印刷して紙で残すこともできます。</p></div>
+      <div class="feature"><h3>リマインダー</h3><p>決まった時刻にそっと通知。未来の日付に書いておけば、その日に知らせます。</p></div>
+      <div class="feature"><h3>アプリロック</h3><p>Face ID・パスコードで、起動時にロックできます。</p></div>
+      <div class="feature"><h3>4言語対応</h3><p>日本語・英語・韓国語・簡体字中国語。アプリ内でいつでも切り替えられます。</p></div>
+    </div>
+  </div>
+</section>
 
-<footer>
+<section class="band">
+  <div class="wrap">
+    <h2 class="section-title">日記は、あなたの端末の中に。</h2>
+    <p class="section-lead">アカウント登録もログインも要りません。書いた日記は端末の中（と、オンにした場合はあなた自身の iCloud）に保存されます。開発者のサーバーに日記が送られることはありません。写真へのアクセスは、その日の写真を候補として出すときだけ使い、どこにも送信しません。</p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2 class="section-title">プレミアム（任意）</h2>
+    <p class="section-lead">無料のままでも、日記の作成・写真・タグ・検索・同期はすべて使えます。プレミアムにすると広告が消え、書き出しの制限がなくなります。月額・年額・買い切りから選べ、年額は1週間の無料お試しつきです。</p>
+    <div class="features">
+      <div class="feature"><h3>広告を非表示</h3><p>バナーも全画面広告も表示されなくなります。</p></div>
+      <div class="feature"><h3>PDF 書き出し（無制限）</h3><p>無料版では直近3件まで。プレミアムではすべての日記を書き出せます。</p></div>
+      <div class="feature"><h3>テキスト書き出し（無制限）</h3><p>他のアプリに移したいときにも。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2 class="section-title">更新の記録</h2>
+    <div class="log">
+      <div><b>1.1.5</b><p>テーマカラーを42色に拡張（和の落ち着いた色を追加）。アプリアイコンをテーマカラーに合わせて切り替えられるように。カレンダーで、まだ日記のない日にその日の写真を薄く表示。</p></div>
+      <div><b>1.1.4</b><p>編集画面で、その日に撮った写真から選べるように（まとめて複数枚も可）。「写真を挿入」の反応を改善。</p></div>
+      <div><b>1.1.3</b><p>ホーム画面・ロック画面のウィジェットとコントロールセンターの「日記を書く」。Siri・ショートカット・Spotlight に対応。</p></div>
+      <div><b>1.1.0 - 1.1.2</b><p>おすすめアプリ欄、バックアップと引き継ぎ、タイムラインの全文表示、細かな調整。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2 class="section-title">よくある質問</h2>
+    <dl>
+      <dt>無料でどこまで使えますか？</dt>
+      <dd>日記の作成・写真・タグ・検索・カレンダー・スコア・iCloud同期・バックアップまで、すべて無料で使えます。違いは書き出しの件数（無料版は直近3件までPDF）と、広告の有無だけです。</dd>
+
+      <dt>日記はどこに保存されますか？</dt>
+      <dd>あなたの端末の中です。iCloud同期をオンにすると、あなた自身の iCloud（プライベートデータベース）にも保存され、同じ Apple アカウントの端末で共有されます。開発者が中身を見ることはできません。</dd>
+
+      <dt>機種変更のときはどうすれば？</dt>
+      <dd>iCloud同期をオンにしていれば、新しい端末でアプリを入れてサインインするだけで引き継げます。オフの場合は、設定の「バックアップと引き継ぎ」からファイルを書き出して、新しい端末で読み込んでください。</dd>
+
+      <dt>写真へのアクセスを許可しないと使えませんか？</dt>
+      <dd>使えます。許可しなくても、標準の写真ピッカーから日記に写真を入れられます。許可が要るのは「その日に撮った写真を候補として並べる」機能だけで、許可しなければその欄が出ないだけです。</dd>
+
+      <dt>広告を消すには？</dt>
+      <dd>設定の「プレミアム」からどうぞ。月額・年額・買い切りがあり、年額は1週間の無料お試しつきです。</dd>
+
+      <dt>連続記録（ストリーク）はありますか？</dt>
+      <dd>ありません。途切れたことが気になってやめてしまうくらいなら、無いほうがいいと考えています。</dd>
+
+      <dt>ウィジェットや Apple Watch に対応していますか？</dt>
+      <dd>ウィジェットはホーム画面・ロック画面の両方に対応しています。コントロールセンターからも新規作成を開けます。Apple Watch アプリは今のところありません。</dd>
+    </dl>
+  </div>
+</section>
+
+<section class="band dark">
+  <div class="wrap closing">
+    <img class="mark" src="icon.png" alt="">
+    <h2>日記 - 今日を残すノート</h2>
+    <p>書かなかった日にも、戻ってこられる。</p>
+    <a class="cta" href="https://apps.apple.com/jp/app/id6787248759">App Store で見る<small>無料</small></a>
+  </div>
+</section>
+
+<footer class="wrap">
+  <nav>
+    <a href="privacy-policy.html">プライバシーポリシー</a>
+    <a href="terms.html">利用規約</a>
+    <a href="index-en.html" hreflang="en" lang="en">English</a>
+    <a href="../index.html">T.K Apps</a>
+  </nav>
   <p>&copy; 2026 T.K Apps</p>
 </footer>
+
+<div class="sticky">
+  <div class="wrap">
+    <div class="who">
+      <img src="icon.png" alt="">
+      <b>日記 - 今日を残すノート<small>iPhone / iPad ・ 無料</small></b>
+    </div>
+    <a class="cta" href="https://apps.apple.com/jp/app/id6787248759">App Store で見る</a>
+  </div>
+</div>
+
 </body>
 </html>
