@@ -33,7 +33,6 @@
     color: var(--ink);
     line-height: 1.9;
     -webkit-font-smoothing: antialiased;
-    padding-bottom: 86px;
   }
   img { max-width: 100%; height: auto; display: block; }
   a { color: var(--wine); }
@@ -111,16 +110,6 @@
   footer nav { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 18px; }
   footer a { color: var(--ink-soft); }
 
-  .sticky { position: fixed; left: 0; right: 0; bottom: 0; background: rgba(247, 243, 236, .94);
-            backdrop-filter: saturate(180%) blur(12px); border-top: 1px solid var(--line); z-index: 20; }
-  .sticky .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 12px; padding-bottom: 12px; }
-  .sticky img { width: 44px; height: 44px; border-radius: 11px; }
-  .sticky .who { display: flex; align-items: center; gap: 12px; min-width: 0; }
-  .sticky b { font-size: .95rem; }
-  .sticky small { display: block; color: var(--ink-soft); font-size: .78rem; font-weight: 400; }
-  .sticky .badge { margin-top: 0; flex: 0 0 auto; }
-  .sticky .badge img { height: 42px; }
-
   @media (max-width: 860px) {
     .hero { grid-template-columns: minmax(0, 1fr); gap: 30px; padding: 12px 24px 56px; }
     .hero-shot img { width: 240px; }
@@ -131,9 +120,6 @@
     .concept { grid-template-columns: minmax(0, 1fr); gap: 30px; }
     .concept .photo { order: 2; }
     .roll { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
-    .sticky small { display: none; }
-    .sticky .who { flex: 1 1 auto; overflow: hidden; }
-    .sticky b { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   }
 </style>
 </head>
@@ -152,13 +138,13 @@
       <b>Daily Journal - My Diary<small>iPhone / iPad &middot; Free</small></b>
     </div>
     <h1>An easy place<br><span>to keep today.</span></h1>
-    <p class="lead">Write the body, close it, and it&rsquo;s an entry. The calendar shows the photo you took that day, so catching up later is easy too.</p>
+    <p class="lead">Look at the photos you took that day, and write a line on the days you want to.</p>
     <a class="badge" href="https://apps.apple.com/app/id6787248759">
       <img src="appstore-badge-en.svg" alt="Download on the App Store" width="162" height="54">
     </a>
   </div>
   <div class="hero-shot">
-    <img src="shot-en-1.jpg" alt="Timeline of diary entries" width="620" height="1348">
+    <img src="shot-en-1.jpg" alt="Calendar showing that day&rsquo;s photo faintly on days with no entry" width="620" height="1348">
   </div>
 </header>
 
@@ -177,7 +163,7 @@
   <div class="wrap notes">
     <div class="note">
       <h3>Keep it at <span>your own pace.</span></h3>
-      <p>Open it when you feel like it and write as much as you want. Nothing counts a streak or pushes you to keep up. Even a few days a month add up to a record of your year once you read them back.</p>
+      <p>You don&rsquo;t have to write every day &mdash; keep it at whatever pace suits you. Open it when you feel like it and write as much as you want. Even a few days a month add up to a record of your year once you read them back.</p>
     </div>
     <div class="note">
       <h3>Photos help <span>you remember.</span></h3>
@@ -205,7 +191,7 @@
 
 <section class="band">
   <div class="wrap split reverse">
-    <div class="shot"><img src="shot-en-3.jpg" alt="Calendar view" width="620" height="1348"></div>
+    <div class="shot"><img src="shot-en-3.jpg" alt="Picking a day with no entry and starting from that day&rsquo;s photo" width="620" height="1348"></div>
     <div>
       <h2>Days with no entry<br>show that day&rsquo;s photo.</h2>
       <p class="sub">On days with no entry yet, the calendar shows the photo you took that day, faintly behind the date. One familiar shot and the memory comes back on its own. In the editor you can pick straight from that day's photos too. You can turn it off in Settings.</p>
@@ -318,17 +304,6 @@
   <p>&copy; 2026 T.K Apps</p>
 </footer>
 
-<div class="sticky">
-  <div class="wrap">
-    <div class="who">
-      <img src="icon.png" alt="">
-      <b>Daily Journal - My Diary<small>iPhone / iPad &middot; Free</small></b>
-    </div>
-    <a class="badge" href="https://apps.apple.com/app/id6787248759">
-      <img src="appstore-badge-en.svg" alt="Download on the App Store" width="126" height="42">
-    </a>
-  </div>
-</div>
 
 </body>
 </html>

@@ -33,7 +33,6 @@
     color: var(--ink);
     line-height: 1.9;
     -webkit-font-smoothing: antialiased;
-    padding-bottom: 86px;
   }
   img { max-width: 100%; height: auto; display: block; }
   a { color: var(--wine); }
@@ -111,16 +110,6 @@
   footer nav { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 18px; }
   footer a { color: var(--ink-soft); }
 
-  .sticky { position: fixed; left: 0; right: 0; bottom: 0; background: rgba(247, 243, 236, .94);
-            backdrop-filter: saturate(180%) blur(12px); border-top: 1px solid var(--line); z-index: 20; }
-  .sticky .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 12px; padding-bottom: 12px; }
-  .sticky img { width: 44px; height: 44px; border-radius: 11px; }
-  .sticky .who { display: flex; align-items: center; gap: 12px; min-width: 0; }
-  .sticky b { font-size: .95rem; }
-  .sticky small { display: block; color: var(--ink-soft); font-size: .78rem; font-weight: 400; }
-  .sticky .badge { margin-top: 0; flex: 0 0 auto; }
-  .sticky .badge img { height: 42px; }
-
   @media (max-width: 860px) {
     .hero { grid-template-columns: minmax(0, 1fr); gap: 30px; padding: 12px 24px 56px; }
     .hero-shot img { width: 240px; }
@@ -131,9 +120,6 @@
     .concept { grid-template-columns: minmax(0, 1fr); gap: 30px; }
     .concept .photo { order: 2; }
     .roll { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
-    .sticky small { display: none; }
-    .sticky .who { flex: 1 1 auto; overflow: hidden; }
-    .sticky b { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   }
 </style>
 </head>
@@ -151,13 +137,13 @@
       <b>日記 - 今日を残すノート<small>iPhone / iPad ・ 無料</small></b>
     </div>
     <h1>今日を、<span>気楽に残す。</span></h1>
-    <p class="lead">本文だけ書いて閉じても日記になります。カレンダーには、その日に撮った写真が薄く表示されるので、あとから書くときも思い出しやすくなっています。</p>
+    <p class="lead">その日に撮った写真を見ながら、書きたい日に、ひとことから。</p>
     <a class="badge" href="https://apps.apple.com/jp/app/id6787248759">
       <img src="appstore-badge-ja.svg" alt="App Store からダウンロード" width="147" height="54">
     </a>
   </div>
   <div class="hero-shot">
-    <img src="shot-1.jpg" alt="日記がならぶタイムライン画面" width="620" height="1348">
+    <img src="shot-1.jpg" alt="まだ日記のない日に、その日に撮った写真が薄く表示されたカレンダー画面" width="620" height="1348">
   </div>
 </header>
 
@@ -176,7 +162,7 @@
   <div class="wrap notes">
     <div class="note">
       <h3>自分のペースで<span>続けられます。</span></h3>
-      <p>気が向いた日に開いて、書きたいぶんだけ書けば十分です。連続日数を数えたり、記録を急かしたりはしません。月に数日ずつでも、並べて読み返せば、ちゃんとその一年の記録になります。</p>
+      <p>毎日書かなくても、自分のペースで続けられます。気が向いた日に開いて、書きたいぶんだけ書けば十分です。月に数日ずつでも、並べて読み返せば、ちゃんとその一年の記録になります。</p>
     </div>
     <div class="note">
       <h3>写真から、<span>思い出せます。</span></h3>
@@ -204,7 +190,7 @@
 
 <section class="band">
   <div class="wrap split reverse">
-    <div class="shot"><img src="shot-3.jpg" alt="カレンダー画面" width="620" height="1348"></div>
+    <div class="shot"><img src="shot-3.jpg" alt="日記のない日を選び、その日の写真から書きはじめるところ" width="620" height="1348"></div>
     <div>
       <h2>まだ書いていない日に、<br>その日の写真が出ます。</h2>
       <p class="sub">カレンダーでは、まだ日記のない日にその日撮った写真が薄く表示されます。見覚えのある一枚が目に入れば、記憶はあっさり戻ってきます。編集画面でも、その日の写真から直接選んで本文に入れられます。もちろん設定でオフにできます。</p>
@@ -317,17 +303,6 @@
   <p>&copy; 2026 T.K Apps</p>
 </footer>
 
-<div class="sticky">
-  <div class="wrap">
-    <div class="who">
-      <img src="icon.png" alt="">
-      <b>日記 - 今日を残すノート<small>iPhone / iPad ・ 無料</small></b>
-    </div>
-    <a class="badge" href="https://apps.apple.com/jp/app/id6787248759">
-      <img src="appstore-badge-ja.svg" alt="App Store からダウンロード" width="114" height="42">
-    </a>
-  </div>
-</div>
 
 </body>
 </html>
