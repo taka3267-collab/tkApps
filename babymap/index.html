@@ -1,167 +1,97 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BabyMap | T.K Apps</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", sans-serif;
-      background: #fff8ec;
-      color: #2b2520;
-      line-height: 1.8;
-    }
-    header {
-      background: linear-gradient(135deg, #fff1df 0%, #ffe7dd 100%);
-      text-align: center;
-      padding: 56px 20px 48px;
-      border-bottom: 1px solid #f7d8c8;
-    }
-    header .back {
-      display: inline-block;
-      margin-bottom: 18px;
-      color: #7c675d;
-      text-decoration: none;
-      font-size: 0.9rem;
-    }
-    .app-icon {
-      width: 88px;
-      height: 88px;
-      margin: 0 auto 18px;
-      border-radius: 24px;
-      background: linear-gradient(135deg, #f05d50, #f4b86a);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
-      box-shadow: 0 12px 30px rgba(240, 93, 80, 0.22);
-    }
-    h1 {
-      font-size: 2.4rem;
-      font-weight: 800;
-      letter-spacing: 0.02em;
-    }
-    header p { margin-top: 10px; color: #74655f; }
-    main {
-      max-width: 840px;
-      margin: 0 auto;
-      padding: 44px 20px 72px;
-    }
-    .card {
-      background: rgba(255, 255, 255, 0.86);
-      border: 1px solid #f0d8c7;
-      border-radius: 18px;
-      padding: 28px;
-      box-shadow: 0 8px 28px rgba(194, 107, 84, 0.08);
-      margin-bottom: 24px;
-    }
-    h2 {
-      color: #e95d50;
-      font-size: 1.1rem;
-      margin-bottom: 12px;
-    }
-    p { margin-bottom: 12px; }
-    p:last-child { margin-bottom: 0; }
-    ul {
-      padding-left: 20px;
-      margin-bottom: 12px;
-    }
-    .links {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 14px;
-    }
-    .link-card {
-      display: block;
-      background: #fff;
-      border: 1px solid #f0d8c7;
-      border-radius: 14px;
-      padding: 18px;
-      color: #2b2520;
-      text-decoration: none;
-      box-shadow: 0 4px 18px rgba(194, 107, 84, 0.06);
-    }
-    .link-card strong {
-      display: block;
-      color: #e95d50;
-      margin-bottom: 4px;
-    }
-    .badge {
-      display: inline-block;
-      background: #ffe8dd;
-      color: #d94d42;
-      font-size: 0.8rem;
-      font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 999px;
-      margin-right: 6px;
-      margin-top: 8px;
-    }
-    footer {
-      text-align: center;
-      padding: 32px 20px;
-      color: #8a7a72;
-      font-size: 0.85rem;
-    }
-    a { color: #d94d42; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#fcf8ee">
+<title>ベビーマップ｜赤ちゃんとのおでかけに、ここなら安心を。</title>
+<meta name="description" content="授乳室・おむつ交換台を地図から探せるiPhoneアプリ、ベビーマップ。必要な設備を確認して、よく行く場所はお気に入りに。基本機能は無料、プレミアムは買い切り500円。">
+<link rel="canonical" href="https://taka3267-collab.github.io/tkApps/babymap/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="ベビーマップ｜赤ちゃんとのおでかけに、ここなら安心を。">
+<meta property="og:description" content="授乳室・おむつ交換台を地図からかんたん検索。赤ちゃんとのおでかけ先を見つけよう。">
+<meta property="og:url" content="https://taka3267-collab.github.io/tkApps/babymap/">
+<meta property="og:image" content="https://taka3267-collab.github.io/tkApps/babymap/assets/icon.png">
+<link rel="icon" href="assets/icon.png">
+<link rel="stylesheet" href="style.css">
+<script src="site.js" defer></script>
 </head>
 <body>
-<header>
-  <a class="back" href="../index.html">← T.K Apps トップへ</a>
-  <div class="app-icon" aria-hidden="true">🍼</div>
-  <h1>BabyMap</h1>
-  <p>授乳室・おむつ交換台など、子連れ外出に役立つ施設を探せるiOSアプリ</p>
-</header>
+<svg class="symbol-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+<symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/><circle cx="8" cy="6" r="2"/><circle cx="16" cy="12" r="2"/><circle cx="10" cy="18" r="2"/></symbol>
+<symbol id="i-bottle" viewBox="0 0 24 24"><path d="M10 3h4V1h-4v2ZM8 7h8l2 3v10a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V10l2-3ZM8 7V4h8v3M7 12h4m-4 4h4"/></symbol>
+<symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 7h12l2 14H4L6 7Zm3 0V5a3 3 0 0 1 6 0v2"/></symbol>
+<symbol id="i-edit" viewBox="0 0 24 24"><path d="M10 4H5a2 2 0 0 0-2 2v14h14a2 2 0 0 0 2-2v-5"/><path d="m10 15 3.2-.8L22 5.4 18.6 2l-8.8 8.8L9 14l1 1Zm7-11.4L20.4 7"/></symbol>
+</defs></svg>
+<a class="skip" href="#main">本文へスキップ</a>
+<header class="site-header"><div class="nav-wrap">
+<a class="brand" href="#" aria-label="ベビーマップ ページ先頭へ"><img src="assets/icon.png" alt="" width="44" height="44"><span>ベビーマップ<small>BabyMap</small></span></a>
+<nav aria-label="ページ内ナビゲーション"><a href="#features">できること</a><a href="#plans">料金</a><a href="#faq">よくある質問</a><a class="nav-download" href="https://apps.apple.com/jp/app/id6799462108">無料でダウンロード <span aria-hidden="true">↗</span></a></nav>
+</div></header>
+<main id="main">
+<section class="hero wrap" aria-labelledby="hero-title">
+<div class="hero-copy"><p class="eyebrow"><span></span> 赤ちゃんとのおでかけを、もっと気軽に。</p>
+<h1 id="hero-title">赤ちゃんとの<br>おでかけに、<br><em>「ここなら安心」</em>を。</h1>
+<p class="hero-lead">授乳室・おむつ交換台を、地図からかんたん検索。<br class="desktop-break">必要な設備を確認して、おでかけ先を見つけよう。</p>
+<a class="store-link" href="https://apps.apple.com/jp/app/id6799462108" aria-label="App Storeでベビーマップをダウンロード"><img src="assets/appstore-badge.svg" alt="App Storeからダウンロード" width="180" height="60"></a>
+<p class="download-note">iPhone対応 <span>·</span> 基本機能は無料 <span>·</span> アカウント登録なしで検索</p>
+<a class="discover" href="#features">できることを見る <span aria-hidden="true">↓</span></a>
+</div>
+<div class="hero-visual">
+<svg class="route" viewBox="0 0 600 680" fill="none" aria-hidden="true"><path d="M10 500C100 460 35 350 110 300S440 335 510 170C545 88 510 35 590 15" stroke="#b0c9b9" stroke-width="2" stroke-dasharray="7 10"/><circle cx="53" cy="435" r="9" fill="#e5b55b"/><path d="m475 622 5 11 12 1-9 8 3 12-11-6-10 6 2-12-9-8 12-1Z" fill="#e5b55b"/></svg>
+<div class="hero-halo"></div>
+<div class="floating-tag tag-top"><span class="mini-icon coral"><svg><use href="#i-bottle"/></svg></span><span>授乳室を、近くから。<small>いま必要な場所を見つけよう</small></span></div>
+<div class="phone hero-phone"><img src="assets/screen-1.jpg" alt="ベビーマップの地図画面。周辺の施設をピンから探せます" width="600" height="1298" fetchpriority="high"></div>
+<div class="floating-tag tag-bottom"><span class="mini-icon green"><svg><use href="#i-heart"/></svg></span><span>いつもの場所も、保存。<small>無料で30件までお気に入りに</small></span></div>
 
-<main>
-  <section class="card">
-    <h2>アプリについて</h2>
-    <p>BabyMapは、授乳室、おむつ交換台、ミルク用のお湯、キッズスペースなど、子連れで外出するときに知りたい設備情報を地図や一覧から探せるアプリです。</p>
-    <p>施設情報は公開情報とユーザー投稿をもとに掲載し、利用者が修正提案や口コミを投稿できる仕組みを用意しています。</p>
-    <span class="badge">iOS</span>
-    <span class="badge">子育て</span>
-    <span class="badge">授乳室</span>
-    <span class="badge">おむつ交換台</span>
-    <span class="badge">地図</span>
-  </section>
+</div>
+</section>
+<div class="promise-strip"><div class="wrap"><span><svg><use href="#i-pin"/></svg>地図・一覧で探せる</span><span><svg><use href="#i-filter"/></svg>必要な設備で絞り込み</span><span><svg><use href="#i-heart"/></svg>よく行く場所を保存</span></div></div>
+<section class="moments wrap section" aria-labelledby="moments-title">
+<p class="eyebrow">こんなときに、ベビーマップ。</p><h2 id="moments-title">おでかけの「どうしよう」に、<br>ひとつ先の準備を。</h2>
+<div class="moment-grid">
+<article><span class="moment-icon coral"><svg><use href="#i-bottle"/></svg></span><h3>そろそろ、授乳の時間。</h3><p>近くの授乳室をチェック。<br>移動する前に、行き先の候補を。</p></article>
+<article><span class="moment-icon ochre"><svg><use href="#i-bag"/></svg></span><h3>おむつを替えたいとき。</h3><p>おむつ交換台のある施設に絞って、<br>必要な場所を探せます。</p></article>
+<article><span class="moment-icon green"><svg><use href="#i-pin"/></svg></span><h3>はじめての街へ行く前に。</h3><p>駅名や施設名で調べて、<br>おでかけ先の設備を先に確認。</p></article>
+</div>
+</section>
+<section id="features" class="features section" aria-labelledby="features-title"><div class="wrap">
+<div class="section-heading"><div><p class="eyebrow">見つけて、確認して、おでかけへ。</p><h2 id="features-title">探す時間を、<br>親子の時間に。</h2></div><p>いまいる場所でも、これから行く街でも。<br>知りたい情報に、少ない操作でたどり着けます。</p></div>
+<div class="feature-main">
+<div class="feature-screen"><div class="screen-caption"><span>01</span> 設備を確認して、行き先を選ぶ。</div><div class="phone detail-phone"><img src="assets/screen-2.jpg" alt="施設詳細画面。授乳室やおむつ交換台などの設備情報と口コミを確認できます" width="600" height="1298" loading="lazy"></div></div>
+<div class="feature-copy">
+<article class="feature-item"><span class="step">01 / 探す</span><h3>地図でも、一覧でも。<br>自分に合う探し方で。</h3><p>周辺の施設を地図で確認。施設名・駅名・住所からの検索や、一覧での比較もできます。</p></article>
+<article class="feature-item"><span class="step">02 / 絞る</span><h3>「授乳室」「おむつ交換台」を<br>ワンタップで。</h3><p>よく使う条件はすぐに切り替え。ミルク用のお湯やベビーカーの入室など、ほかの設備でも絞り込めます。</p><div class="equipment-tags"><span>授乳室</span><span>おむつ交換台</span><span>ミルク用のお湯</span><span>ベビーカー入室</span></div></article>
+<article class="feature-item"><span class="step">03 / 確かめる</span><h3>行く前に、<br>設備と施設情報をチェック。</h3><p>設備の有無、住所、確認日、口コミをひとつの画面で。未確認の項目は「不明」と表示し、確認できている情報と区別します。</p></article>
+</div></div>
+<p class="screen-note">掲載画像はApp Store公開画像です。画面・掲載内容はバージョンや施設により異なります。</p>
+</div></section>
+<section class="save-section section wrap" aria-labelledby="save-title">
+<div class="save-copy"><p class="eyebrow">いつもの場所が、あなたのリストに。</p><h2 id="save-title">近所も、実家も、<br>よく行くモールも。</h2><p>見つけた施設は、お気に入りへ。<br>次のおでかけでは、探し直す手間を少なく。</p><p class="save-limit"><strong>30<span>件まで</span></strong>無料で保存できます。</p></div>
+<div class="save-art" aria-hidden="true"><div class="note-paper"><span class="note-heart"><svg><use href="#i-heart"/></svg></span><p>おでかけの、いつもの場所。</p><div><span class="dot green-dot"></span>近所のおさんぽコース<svg><use href="#i-check"/></svg></div><div><span class="dot coral-dot"></span>実家の近くの施設<svg><use href="#i-check"/></svg></div><div><span class="dot ochre-dot"></span>週末に行くモール<svg><use href="#i-check"/></svg></div><small>お気に入りに保存して、次もすぐに。</small></div><span class="tape"></span></div>
+</section>
+<section class="community section"><div class="wrap community-inner"><span class="community-icon"><svg><use href="#i-edit"/></svg></span><div><p class="eyebrow">みんなの気づきで、もっと使いやすく。</p><h2>「ここにあったよ」を、<br class="mobile-break">次のおでかけへ。</h2><p>新しい施設の投稿や、掲載情報の修正、口コミで情報を共有できます。<br class="desktop-break">投稿や修正はすべて無料。荒らし対策のため、どなたにも1日の上限があります。</p></div></div></section>
+<section id="plans" class="plans wrap section" aria-labelledby="plans-title"><div class="center-heading"><p class="eyebrow">まずは、無料ではじめよう。</p><h2 id="plans-title">おでかけ探しは、無料。<br>もっと快適に使うなら。</h2></div>
+<div class="plan-grid"><article class="plan free-plan"><p class="plan-name">無料プラン</p><p class="price">¥0</p><p class="plan-intro">授乳室・おむつ交換台を探す基本機能に。</p><ul><li>地図・一覧・施設検索</li><li>設備による絞り込み・施設詳細の確認</li><li>お気に入りを30件まで保存</li><li>施設の投稿・修正・口コミ</li></ul><p class="plan-footnote">アプリ内に広告が表示されます。</p><a class="button button-outline" href="https://apps.apple.com/jp/app/id6799462108">無料でダウンロード <svg><use href="#i-arrow"/></svg></a></article>
+<article class="plan premium-plan"><span class="plan-ribbon">1回の購入で、ずっと。</span><p class="plan-name">プレミアム</p><p class="price">¥500 <span>買い切り</span></p><p class="plan-intro">広告のない画面で、すっきり探したい方に。</p><ul><li>無料プランのすべての基本機能</li><li>バナー・ネイティブ広告を非表示</li><li>お気に入りの件数制限を解除</li><li>毎月の支払い・自動更新なし</li></ul><p class="plan-footnote">アプリ内の「設定 → プレミアム」から購入できます。</p><a class="button button-coral" href="https://apps.apple.com/jp/app/id6799462108">アプリでプレミアムを見る <svg><use href="#i-arrow"/></svg></a></article></div>
+<p class="pricing-note">500円は日本のApp Storeでの価格です。実際の購入価格はアプリ内の表示をご確認ください。<br>機種変更後は、購入時と同じApple Accountで「購入を復元」から引き継げます。</p>
+</section>
+<section id="faq" class="faq-section section"><div class="wrap faq-layout"><div><p class="eyebrow">お使いになる前に。</p><h2>よくある質問</h2><p class="faq-intro">気になることを、<br>ここで少し解消できたら。</p></div><div class="faq-list">
+<details><summary>無料でどこまで使えますか？<span aria-hidden="true">+</span></summary><p>地図・一覧からの検索、設備での絞り込み、施設詳細の確認、投稿・修正・口コミが無料です。お気に入りは30件まで保存できます。無料版には広告が表示されます。</p></details>
+<details><summary>位置情報を許可しなくても使えますか？<span aria-hidden="true">+</span></summary><p>使えます。はじめの画面で「地域検索からはじめる」を選ぶと、施設名・駅名・住所から探せます。現在地の周辺を探す場合は、位置情報の利用を許可してください。</p></details>
+<details><summary>設備の「不明」はどういう意味ですか？<span aria-hidden="true">+</span></summary><p>その設備の有無が確認できていないことを表します。すべての設備が利用できるという意味ではありません。設備が未確認の候補施設は初期設定で非表示になっており、絞り込みから表示できます。</p></details>
+<details><summary>掲載情報が実際と違うときは？<span aria-hidden="true">+</span></summary><p>施設詳細画面から修正提案をお送りください。掲載情報は公開情報や利用者の投稿をもとにしています。設備や営業時間が変わる場合があるため、お急ぎの場合は施設の公式情報もご確認ください。</p></details>
+<details><summary>プレミアムは毎月の支払いですか？<span aria-hidden="true">+</span></summary><p>いいえ。現在のプレミアムは買い切りプランです。1回の購入で広告非表示とお気に入りの件数制限解除をご利用いただけます。日本での価格は500円です。</p></details>
+<details><summary>機種変更したら、もう一度購入が必要ですか？<span aria-hidden="true">+</span></summary><p>同じApple Accountをご利用の場合、再購入は不要です。アプリの「設定 → プレミアム → 購入を復元」から購入情報を復元してください。</p></details>
+</div></div></section>
+<section class="final-cta wrap section"><img src="assets/icon.png" width="80" height="80" alt="ベビーマップのアプリアイコン" loading="lazy"><p class="eyebrow">今日のおでかけにも、次の週末にも。</p><h2>行ける場所が見つかると、<br>おでかけが少し、楽しみになる。</h2><a class="store-link" href="https://apps.apple.com/jp/app/id6799462108" aria-label="App Storeでベビーマップをダウンロード"><img src="assets/appstore-badge.svg" alt="App Storeからダウンロード" width="180" height="60" loading="lazy"></a><p class="download-note">基本機能は無料・iPhone対応</p></section>
 
-  <section class="card">
-    <h2>主な機能</h2>
-    <ul>
-      <li>地図・一覧から子育て設備のある施設を検索</li>
-      <li>授乳室、おむつ交換台、ミルク用のお湯、キッズスペースなどで絞り込み</li>
-      <li>施設の基本情報、設備情報、口コミの確認</li>
-      <li>施設情報・ピン位置の修正提案</li>
-      <li>新しい施設の投稿</li>
-      <li>お気に入り登録、最近見た施設の確認</li>
-      <li>広告表示と、広告非表示などのプレミアム機能</li>
-    </ul>
-  </section>
-
-  <section class="card">
-    <h2>サポート・お問い合わせ</h2>
-    <p>アプリの使い方、掲載情報、投稿、口コミ、広告、課金に関するお問い合わせは、下記メールアドレスまでご連絡ください。</p>
-    <p><strong>サポートメール：</strong><a href="mailto:tkapps.support@gmail.com">tkapps.support@gmail.com</a></p>
-    <p>施設情報の誤りは、アプリ内の施設詳細画面から修正提案を送信できます。投稿内容は確認し、必要に応じて変更履歴の確認や差し戻しを行います。</p>
-  </section>
-
-  <section class="links">
-    <a class="link-card" href="privacy-policy.html">
-      <strong>プライバシーポリシー</strong>
-      位置情報、投稿、口コミ、広告、課金情報の取り扱いについて
-    </a>
-    <a class="link-card" href="terms.html">
-      <strong>利用規約</strong>
-      アプリ利用時の注意事項、投稿、口コミ、禁止事項、免責事項について
-    </a>
-  </section>
 </main>
-
-<footer>
-  <p>&copy; 2026 T.K Apps</p>
-</footer>
-</body>
-</html>
+<footer class="wrap"><a href="../index.html">T.K Apps <span aria-hidden="true">↗</span></a><div><a href="privacy-policy.html">プライバシーポリシー</a><a href="terms.html">利用規約</a><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">EULA</a></div><small>© 2026 T.K Apps</small></footer>
+<div class="mobile-download" aria-label="アプリのダウンロード"><span><img src="assets/icon.png" alt="" width="36" height="36"><strong>ベビーマップ<small>赤ちゃんとのおでかけに。</small></strong></span><a href="https://apps.apple.com/jp/app/id6799462108">無料で入手 <span aria-hidden="true">↗</span></a></div>
+</body></html>
